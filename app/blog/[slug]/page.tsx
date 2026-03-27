@@ -35,11 +35,11 @@ export default async function BlogPostPage({ params }: PageProps) {
     <>
       {/* Breadcrumb */}
       <section className="pt-24 pb-4 bg-bg-primary">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8">
           <nav className="flex items-center gap-2 text-sm text-text-muted">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <Link href="/" className="hover:text-text-primary transition-colors">Home</Link>
             <span>/</span>
-            <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
+            <Link href="/blog" className="hover:text-text-primary transition-colors">Blog</Link>
             <span>/</span>
             <span className="text-text-secondary truncate max-w-xs">{post.title}</span>
           </nav>
@@ -47,11 +47,11 @@ export default async function BlogPostPage({ params }: PageProps) {
       </section>
 
       {/* Article */}
-      <article className="py-12 bg-bg-primary">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8">
+      <article className="py-10 md:py-12 bg-bg-primary">
+        <div className="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-white transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors mb-8"
           >
             <ArrowLeft size={14} />
             Back to Blog
@@ -62,16 +62,16 @@ export default async function BlogPostPage({ params }: PageProps) {
             <span className="text-xs text-text-muted">{post.date}</span>
           </div>
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary leading-tight mb-6">
             {post.title}
           </h1>
 
           <div className="flex items-center gap-3 mb-10 pb-10 border-b border-border-subtle">
-            <div className="w-8 h-8 rounded-full bg-bg-elevated border border-border-default flex items-center justify-center text-xs font-bold text-white/40">
+            <div className="w-8 h-8 rounded-full bg-bg-elevated border border-border-default flex items-center justify-center text-xs font-bold text-text-primary/40">
               {post.author.charAt(0)}
             </div>
             <div>
-              <p className="text-sm font-medium text-white">{post.author}</p>
+              <p className="text-sm font-medium text-text-primary">{post.author}</p>
             </div>
           </div>
 
@@ -89,9 +89,9 @@ export default async function BlogPostPage({ params }: PageProps) {
 
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
-        <section className="py-20 bg-bg-secondary border-t border-border-subtle">
-          <div className="max-w-3xl mx-auto px-6 lg:px-8">
-            <h2 className="text-2xl font-bold text-white mb-8">Related Articles</h2>
+        <section className="py-14 md:py-20 bg-bg-secondary border-t border-border-subtle">
+          <div className="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-bold text-text-primary mb-8">Related Articles</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {relatedPosts.map((related) => (
                 <Link key={related.id} href={`/blog/${related.slug}`}>
@@ -99,10 +99,10 @@ export default async function BlogPostPage({ params }: PageProps) {
                     <div className={`aspect-video bg-gradient-to-br ${related.imageGradient}`} />
                     <div className="p-5">
                       <Badge className="mb-3">{related.category}</Badge>
-                      <h3 className="font-semibold text-white group-hover:text-text-secondary transition-colors leading-snug mb-2">
+                      <h3 className="font-semibold text-text-primary group-hover:text-text-secondary transition-colors leading-snug mb-2">
                         {related.title}
                       </h3>
-                      <span className="flex items-center gap-2 text-sm text-text-secondary group-hover:text-white transition-colors mt-3">
+                      <span className="flex items-center gap-2 text-sm text-text-secondary group-hover:text-text-primary transition-colors mt-3">
                         Read more
                         <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                       </span>

@@ -18,15 +18,15 @@ export default function PortfolioFilter() {
   return (
     <div>
       {/* Filter bar */}
-      <div className="flex items-center gap-3 mb-12">
+      <div className="flex items-center gap-2 sm:gap-3 mb-8 md:mb-12 flex-wrap">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setActive(cat)}
-            className={`relative px-5 py-2.5 text-sm font-medium rounded-full transition-colors ${
+            className={`relative px-4 sm:px-5 py-2.5 text-sm font-medium rounded-full transition-colors ${
               active === cat
-                ? "text-white"
-                : "text-text-secondary hover:text-white border border-border-default hover:border-white/30"
+                ? "text-text-primary"
+                : "text-text-secondary hover:text-text-primary border border-border-default hover:border-text-primary/30"
             }`}
           >
             {active === cat && (

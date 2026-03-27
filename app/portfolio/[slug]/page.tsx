@@ -40,7 +40,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         <div className="absolute inset-0 bg-black/60" />
 
         {/* breadcrumb */}
-        <div className="relative z-10 max-w-7xl mx-auto w-full px-6 lg:px-8 pt-32 pb-0">
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-5 sm:px-6 lg:px-8 pt-24 md:pt-32 pb-0">
           <nav className="flex items-center gap-2 text-sm text-white/50 mb-8">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <span>/</span>
@@ -50,7 +50,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
           </nav>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto w-full px-6 lg:px-8 pb-16 lg:pb-24">
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-5 sm:px-6 lg:px-8 pb-16 lg:pb-24">
           <div className="flex flex-wrap gap-2 mb-6">
             {project.categories.map((cat) => (
               <Badge key={cat}>{cat}</Badge>
@@ -84,7 +84,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
       {/* ── Metrics bar ──────────────────────────────────── */}
       <section className="bg-bg-card border-b border-border-subtle">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4">
             {project.metrics.map((metric, i) => (
               <div
@@ -100,13 +100,13 @@ export default async function ProjectDetailPage({ params }: PageProps) {
       </section>
 
       {/* ── Overview ─────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-bg-primary">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="py-14 md:py-20 lg:py-28 bg-bg-primary">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
             {/* text */}
             <div className="lg:col-span-2">
               <p className="text-xs font-medium text-accent uppercase tracking-widest mb-4">Overview</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">About this project</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-8">About this project</h2>
               <div className="space-y-5">
                 {project.overviewParagraphs.map((para, i) => (
                   <p key={i} className="text-text-secondary leading-relaxed text-lg">{para}</p>
@@ -121,11 +121,11 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 <dl className="space-y-4">
                   <div>
                     <dt className="text-xs text-text-muted mb-1">Client</dt>
-                    <dd className="text-sm font-medium text-white">{project.client}</dd>
+                    <dd className="text-sm font-medium text-text-primary">{project.client}</dd>
                   </div>
                   <div>
                     <dt className="text-xs text-text-muted mb-1">Delivered</dt>
-                    <dd className="text-sm font-medium text-white">{project.date}</dd>
+                    <dd className="text-sm font-medium text-text-primary">{project.date}</dd>
                   </div>
                   <div>
                     <dt className="text-xs text-text-muted mb-1">Category</dt>
@@ -156,7 +156,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
       </section>
 
       {/* ── Hero mockup placeholder ───────────────────────── */}
-      <section className="bg-bg-primary px-6 lg:px-8 pb-20">
+      <section className="bg-bg-primary px-5 sm:px-6 lg:px-8 pb-14 md:pb-20">
         <div className="max-w-7xl mx-auto">
           <div
             className={`rounded-3xl aspect-video w-full bg-gradient-to-br ${project.imageGradient} border border-border-subtle flex items-center justify-center`}
@@ -165,19 +165,19 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               <div className="w-16 h-16 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mx-auto mb-4">
                 <div className="w-8 h-8 rounded-full bg-white/20" />
               </div>
-              <p className="text-white/30 text-sm">Project Screenshot</p>
+              <p className="text-text-primary/30 text-sm">Project Screenshot</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── Challenge ────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-bg-secondary border-y border-border-subtle">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="py-14 md:py-20 lg:py-28 bg-bg-secondary border-y border-border-subtle">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <div>
               <p className="text-xs font-medium text-accent uppercase tracking-widest mb-4">The Challenge</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-snug">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6 leading-snug">
                 {project.challenge}
               </h2>
               <p className="text-text-secondary leading-relaxed text-lg">
@@ -207,8 +207,8 @@ export default async function ProjectDetailPage({ params }: PageProps) {
       </section>
 
       {/* ── Solution ─────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-bg-primary">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="py-14 md:py-20 lg:py-28 bg-bg-primary">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             {/* features grid */}
             <div className="order-2 lg:order-1">
@@ -228,7 +228,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
             <div className="order-1 lg:order-2">
               <p className="text-xs font-medium text-accent uppercase tracking-widest mb-4">The Solution</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-snug">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6 leading-snug">
                 {project.solution}
               </h2>
               <p className="text-text-secondary leading-relaxed text-lg">
@@ -240,29 +240,29 @@ export default async function ProjectDetailPage({ params }: PageProps) {
       </section>
 
       {/* ── Second mockup ────────────────────────────────── */}
-      <section className="bg-bg-primary px-6 lg:px-8 pb-20">
+      <section className="bg-bg-primary px-5 sm:px-6 lg:px-8 pb-14 md:pb-20">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div
               className={`rounded-2xl aspect-video bg-gradient-to-tl ${project.imageGradient} border border-border-subtle flex items-center justify-center opacity-70`}
             >
-              <p className="text-white/20 text-sm">UI Screenshot 1</p>
+              <p className="text-text-primary/20 text-sm">UI Screenshot 1</p>
             </div>
             <div
               className={`rounded-2xl aspect-video bg-gradient-to-br ${project.imageGradient} border border-border-subtle flex items-center justify-center opacity-50`}
             >
-              <p className="text-white/20 text-sm">UI Screenshot 2</p>
+              <p className="text-text-primary/20 text-sm">UI Screenshot 2</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── Results ──────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-bg-secondary border-y border-border-subtle">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-16">
+      <section className="py-14 md:py-20 lg:py-28 bg-bg-secondary border-y border-border-subtle">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center mb-10 md:mb-16">
             <p className="text-xs font-medium text-accent uppercase tracking-widest mb-4">Results</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{project.results}</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-6">{project.results}</h2>
             <p className="text-text-secondary leading-relaxed text-lg">{project.resultsDetail}</p>
           </div>
 
@@ -281,11 +281,11 @@ export default async function ProjectDetailPage({ params }: PageProps) {
       </section>
 
       {/* ── Process ──────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-bg-primary">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="py-14 md:py-20 lg:py-28 bg-bg-primary">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="max-w-xl mb-14">
             <p className="text-xs font-medium text-accent uppercase tracking-widest mb-4">Our Approach</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white">How we got there</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">How we got there</h2>
           </div>
 
           <div className="relative">
@@ -299,7 +299,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                     {String(i + 1).padStart(2, "0")}
                   </div>
                   <div className="flex-1 pb-2">
-                    <h3 className="text-lg font-semibold text-white mb-2">{step.title}</h3>
+                    <h3 className="text-lg font-semibold text-text-primary mb-2">{step.title}</h3>
                     <p className="text-text-secondary leading-relaxed">{step.description}</p>
                   </div>
                 </div>
@@ -310,9 +310,9 @@ export default async function ProjectDetailPage({ params }: PageProps) {
       </section>
 
       {/* ── CTA ──────────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 bg-bg-secondary border-y border-border-subtle">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+      <section className="py-14 md:py-20 lg:py-28 bg-bg-secondary border-y border-border-subtle">
+        <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-text-primary mb-6">
             Have a project in mind?
           </h2>
           <p className="text-text-secondary text-lg mb-10 max-w-xl mx-auto">
@@ -328,7 +328,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             </Link>
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 px-8 py-4 border border-border-default text-text-secondary rounded-full hover:border-white/30 hover:text-white transition-colors text-sm"
+              className="inline-flex items-center gap-2 px-8 py-4 border border-border-default text-text-secondary rounded-full hover:border-text-primary/30 hover:text-text-primary transition-colors text-sm"
             >
               <ArrowLeft size={16} />
               Back to portfolio
@@ -339,7 +339,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
       {/* ── Next / Prev projects ─────────────────────────── */}
       <section className="bg-bg-primary border-t border-border-subtle">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-border-subtle">
             {/* prev */}
             <Link
@@ -350,7 +350,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 <ArrowLeft size={12} />
                 Previous project
               </span>
-              <span className="text-xl md:text-2xl font-bold text-text-secondary group-hover:text-white transition-colors">
+              <span className="text-xl md:text-2xl font-bold text-text-secondary group-hover:text-text-primary transition-colors">
                 {prevProject.title}
               </span>
               <div className="flex flex-wrap gap-1.5">
@@ -369,7 +369,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 Next project
                 <ArrowRight size={12} />
               </span>
-              <span className="text-xl md:text-2xl font-bold text-text-secondary group-hover:text-white transition-colors">
+              <span className="text-xl md:text-2xl font-bold text-text-secondary group-hover:text-text-primary transition-colors">
                 {nextProject.title}
               </span>
               <div className="flex flex-wrap gap-1.5 justify-end">

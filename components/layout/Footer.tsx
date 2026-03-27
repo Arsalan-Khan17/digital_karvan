@@ -4,12 +4,12 @@ import FooterNewsletter from "./FooterNewsletter";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#080808] border-t border-border-subtle">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="bg-bg-secondary border-t border-border-subtle">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
           {/* Brand */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="text-xl font-bold text-white">
+          <div className="col-span-2 md:col-span-1 lg:col-span-1">
+            <Link href="/" className="text-xl font-bold text-text-primary">
               Digital Karvan
             </Link>
             <p className="mt-4 text-text-secondary text-sm leading-relaxed">
@@ -29,7 +29,7 @@ export default function Footer() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-bg-elevated text-text-secondary hover:text-white hover:bg-bg-card transition-colors"
+                className="p-2 rounded-lg bg-bg-elevated text-text-secondary hover:text-text-primary hover:bg-bg-card transition-colors"
                 aria-label="LinkedIn"
               >
                 <Globe size={16} />
@@ -38,7 +38,7 @@ export default function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-bg-elevated text-text-secondary hover:text-white hover:bg-bg-card transition-colors"
+                className="p-2 rounded-lg bg-bg-elevated text-text-secondary hover:text-text-primary hover:bg-bg-card transition-colors"
                 aria-label="Twitter / X"
               >
                 <Share2 size={16} />
@@ -47,7 +47,7 @@ export default function Footer() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-bg-elevated text-text-secondary hover:text-white hover:bg-bg-card transition-colors"
+                className="p-2 rounded-lg bg-bg-elevated text-text-secondary hover:text-text-primary hover:bg-bg-card transition-colors"
                 aria-label="Instagram"
               >
                 <ExternalLink size={16} />
@@ -57,7 +57,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+            <h3 className="text-sm font-semibold text-text-primary uppercase tracking-wider mb-4">
               Quick Links
             </h3>
             <ul className="space-y-3">
@@ -72,7 +72,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-text-secondary hover:text-white transition-colors"
+                    className="text-sm text-text-secondary hover:text-text-primary transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -83,7 +83,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+            <h3 className="text-sm font-semibold text-text-primary uppercase tracking-wider mb-4">
               Services
             </h3>
             <ul className="space-y-3">
@@ -96,7 +96,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-text-secondary hover:text-white transition-colors"
+                    className="text-sm text-text-secondary hover:text-text-primary transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -107,7 +107,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+            <h3 className="text-sm font-semibold text-text-primary uppercase tracking-wider mb-4">
               Contact Info
             </h3>
             <ul className="space-y-4">
@@ -118,7 +118,7 @@ export default function Footer() {
                   <p className="text-sm text-text-secondary">Charter Avenue, Coventry</p>
                   <a
                     href="tel:+447377259354"
-                    className="text-sm text-text-secondary hover:text-white transition-colors"
+                    className="text-sm text-text-secondary hover:text-text-primary transition-colors"
                   >
                     +44 737 7259 354
                   </a>
@@ -131,7 +131,7 @@ export default function Footer() {
                   <p className="text-sm text-text-secondary">Leehove 40, 2678 MC De Lier, Netherlands</p>
                   <a
                     href="tel:+31174705811"
-                    className="text-sm text-text-secondary hover:text-white transition-colors"
+                    className="text-sm text-text-secondary hover:text-text-primary transition-colors"
                   >
                     +31 174 705 811
                   </a>
@@ -141,7 +141,7 @@ export default function Footer() {
                 <Mail size={16} className="text-text-muted mt-0.5 shrink-0" />
                 <a
                   href="mailto:contact@digitalkarvan.com"
-                  className="text-sm text-text-secondary hover:text-white transition-colors"
+                  className="text-sm text-text-secondary hover:text-text-primary transition-colors"
                 >
                   contact@digitalkarvan.com
                 </a>
@@ -150,7 +150,7 @@ export default function Footer() {
                 <Phone size={16} className="text-text-muted mt-0.5 shrink-0" />
                 <a
                   href="tel:+447377259354"
-                  className="text-sm text-text-secondary hover:text-white transition-colors"
+                  className="text-sm text-text-secondary hover:text-text-primary transition-colors"
                 >
                   +44 737 7259 354
                 </a>
@@ -160,18 +160,18 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 pt-8 border-t border-border-subtle flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-12 md:mt-16 pt-6 md:pt-8 border-t border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-text-muted">
             © 2025 Digital Karvan. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <Link href="/privacy-policy" className="text-xs text-text-muted hover:text-white transition-colors">
+            <Link href="/privacy-policy" className="text-xs text-text-muted hover:text-text-primary transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms-and-conditions" className="text-xs text-text-muted hover:text-white transition-colors">
+            <Link href="/terms-and-conditions" className="text-xs text-text-muted hover:text-text-primary transition-colors">
               Terms
             </Link>
-            <Link href="/cookie-policy" className="text-xs text-text-muted hover:text-white transition-colors">
+            <Link href="/cookie-policy" className="text-xs text-text-muted hover:text-text-primary transition-colors">
               Cookies
             </Link>
           </div>

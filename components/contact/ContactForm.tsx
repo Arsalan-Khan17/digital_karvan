@@ -26,7 +26,7 @@ export default function ContactForm() {
   };
 
   const inputClasses =
-    "w-full px-4 py-3 bg-bg-elevated border border-border-default rounded-xl text-white placeholder-text-muted focus:outline-none focus:border-white/40 transition-colors text-sm";
+    "w-full px-4 py-3 bg-bg-elevated border border-border-default rounded-xl text-text-primary placeholder-text-muted focus:outline-none focus:border-text-primary/40 transition-colors text-sm";
   const labelClasses = "block text-sm font-medium text-text-secondary mb-2";
   const errorClasses = "text-xs text-red-400 mt-1";
 
@@ -38,7 +38,7 @@ export default function ContactForm() {
         className="flex flex-col items-center justify-center text-center py-16"
       >
         <CheckCircle size={48} className="text-accent mb-4" />
-        <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
+        <h3 className="text-2xl font-bold text-text-primary mb-2">Message Sent!</h3>
         <p className="text-text-secondary">
           We will get back to you within 24 hours.
         </p>

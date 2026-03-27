@@ -7,73 +7,77 @@ import { projects } from "@/lib/data";
 import Badge from "@/components/ui/Badge";
 
 export default function PortfolioPreview() {
+  const featured = projects.slice(0, 6);
+
   return (
-    <section className="py-24 bg-bg-secondary">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="py-16 md:py-24 bg-bg-secondary">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <motion.div
-          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16"
+          className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 md:mb-14"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
         >
           <div>
             <p className="text-xs font-medium text-text-muted uppercase tracking-widest mb-3">
               Our Work
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary">
               Selected Work
             </h2>
+            <p className="mt-3 text-text-secondary text-sm sm:text-base max-w-xl">
+              A cross-section of client engagements — from AI-powered platforms to
+              enterprise dashboards and brand-led websites.
+            </p>
           </div>
           <Link
             href="/portfolio"
-            className="flex items-center gap-2 text-sm text-text-secondary hover:text-white transition-colors group"
+            className="flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors group shrink-0"
           >
-            View all projects
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            All projects
+            <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, i) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          {featured.map((project, i) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, delay: i * 0.07 }}
             >
-              <Link href={`/portfolio/${project.slug}`}>
-                <motion.div
-                  className="group relative rounded-2xl overflow-hidden bg-bg-card border border-border-subtle hover:border-white/20 transition-all duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {/* Image placeholder with gradient */}
+              <Link href={`/portfolio/${project.slug}`} className="block">
+                <div className="group rounded-2xl overflow-hidden bg-bg-card border border-border-subtle hover:border-text-primary/20 hover:shadow-lg transition-all duration-300">
+                  {/* Gradient thumbnail */}
                   <div
-                    className={`aspect-video bg-gradient-to-br ${project.imageGradient} relative overflow-hidden`}
+                    className={`aspect-[16/9] bg-gradient-to-br ${project.imageGradient} relative overflow-hidden`}
                   >
-                    {/* Hover overlay */}
                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="flex items-center gap-2 text-white font-medium">
-                        View Project
-                        <ArrowUpRight size={18} />
+                      <div className="flex items-center gap-2 text-white font-medium text-sm">
+                        View Case Study
+                        <ArrowUpRight size={16} />
                       </div>
                     </div>
                   </div>
-                  {/* Card content */}
+                  {/* Content */}
                   <div className="p-5">
-                    <div className="flex flex-wrap gap-2 mb-3">
+                    <div className="flex flex-wrap gap-1.5 mb-3">
                       {project.categories.map((cat) => (
                         <Badge key={cat}>{cat}</Badge>
                       ))}
                     </div>
-                    <h3 className="text-white font-semibold leading-snug mb-2">
+                    <h3 className="text-text-primary font-semibold text-base leading-snug mb-1.5">
                       {project.title}
                     </h3>
+                    <p className="text-xs text-text-secondary leading-relaxed line-clamp-2 mb-3">
+                      {project.description}
+                    </p>
                     <p className="text-xs text-text-muted">{project.date}</p>
                   </div>
-                </motion.div>
+                </div>
               </Link>
             </motion.div>
           ))}

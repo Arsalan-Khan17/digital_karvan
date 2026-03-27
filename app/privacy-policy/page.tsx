@@ -7,14 +7,14 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <article className="pt-32 pb-20 bg-bg-primary">
-      <div className="max-w-3xl mx-auto px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-white mb-4">Privacy Policy</h1>
-        <p className="text-text-muted text-sm mb-12">Last updated: January 1, 2025</p>
+    <article className="pt-24 md:pt-32 pb-14 md:pb-20 bg-bg-primary">
+      <div className="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8">
+        <h1 className="text-3xl sm:text-4xl font-bold text-text-primary mb-4">Privacy Policy</h1>
+        <p className="text-text-muted text-sm mb-8 md:mb-12">Last updated: January 1, 2025</p>
 
-        <div className="space-y-10 text-text-secondary">
+        <div className="space-y-8 md:space-y-10 text-text-secondary text-sm sm:text-base leading-relaxed">
           <section>
-            <h2 className="text-xl font-semibold text-white mb-4">1. Introduction</h2>
+            <h2 className="text-xl font-semibold text-text-primary mb-4">1. Introduction</h2>
             <p className="leading-relaxed">
               Digital Karvan (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your personal
               information and your right to privacy. This Privacy Policy explains how we
@@ -24,7 +24,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-white mb-4">2. Information We Collect</h2>
+            <h2 className="text-xl font-semibold text-text-primary mb-4">2. Information We Collect</h2>
             <p className="leading-relaxed mb-4">
               We may collect information that you voluntarily provide to us when you:
             </p>
@@ -41,7 +41,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-white mb-4">3. How We Use Your Information</h2>
+            <h2 className="text-xl font-semibold text-text-primary mb-4">3. How We Use Your Information</h2>
             <p className="leading-relaxed mb-4">
               We use the information we collect to:
             </p>
@@ -55,7 +55,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-white mb-4">4. Data Sharing</h2>
+            <h2 className="text-xl font-semibold text-text-primary mb-4">4. Data Sharing</h2>
             <p className="leading-relaxed">
               We do not sell, trade, or otherwise transfer your personally identifiable
               information to third parties. We may share information with trusted service
@@ -65,7 +65,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-white mb-4">5. Data Retention</h2>
+            <h2 className="text-xl font-semibold text-text-primary mb-4">5. Data Retention</h2>
             <p className="leading-relaxed">
               We retain your personal data only for as long as necessary to fulfil the
               purposes outlined in this Privacy Policy, unless a longer retention period
@@ -74,7 +74,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-white mb-4">6. Your Rights</h2>
+            <h2 className="text-xl font-semibold text-text-primary mb-4">6. Your Rights</h2>
             <p className="leading-relaxed mb-4">Under applicable data protection law, you have the right to:</p>
             <ul className="list-disc pl-6 space-y-2">
               <li>Access your personal data</li>
@@ -87,11 +87,11 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-white mb-4">7. Contact Us</h2>
+            <h2 className="text-xl font-semibold text-text-primary mb-4">7. Contact Us</h2>
             <p className="leading-relaxed">
               If you have questions about this Privacy Policy or our data practices, please
               contact us at{" "}
-              <a href="mailto:contact@digitalkarvan.com" className="text-white hover:underline">
+              <a href="mailto:contact@digitalkarvan.com" className="text-text-primary hover:underline">
                 contact@digitalkarvan.com
               </a>
               .

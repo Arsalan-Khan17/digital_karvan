@@ -35,8 +35,8 @@ export default function Button({
 
   const variantClasses = {
     primary: "bg-accent text-white hover:bg-red-700",
-    ghost: "bg-transparent text-white border border-white/30 hover:border-white hover:bg-white/5",
-    outline: "bg-transparent text-white border border-white/30 hover:border-white hover:bg-white/5",
+    ghost: "bg-transparent text-text-primary border border-text-primary/30 hover:border-text-primary hover:bg-text-primary/5",
+    outline: "bg-transparent text-text-primary border border-text-primary/30 hover:border-text-primary hover:bg-text-primary/5",
   };
 
   const classes = `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;

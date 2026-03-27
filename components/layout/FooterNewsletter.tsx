@@ -26,7 +26,7 @@ export default function FooterNewsletter() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Your email"
-        className="flex-1 px-3 py-2 text-sm bg-bg-elevated border border-border-default rounded-lg text-white placeholder-text-muted focus:outline-none focus:border-white/50 transition-colors"
+        className="flex-1 px-3 py-2 text-sm bg-bg-elevated border border-border-default rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:border-text-primary/50 transition-colors"
       />
       <button
         type="submit"

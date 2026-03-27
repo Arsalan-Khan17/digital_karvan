@@ -32,11 +32,11 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     <>
       {/* Breadcrumb */}
       <section className="pt-24 pb-4 bg-bg-primary">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <nav className="flex items-center gap-2 text-sm text-text-muted">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <Link href="/" className="hover:text-text-primary transition-colors">Home</Link>
             <span>/</span>
-            <Link href="/services" className="hover:text-white transition-colors">Services</Link>
+            <Link href="/services" className="hover:text-text-primary transition-colors">Services</Link>
             <span>/</span>
             <span className="text-text-secondary">{service.title}</span>
           </nav>
@@ -44,48 +44,48 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       </section>
 
       {/* Hero */}
-      <section className="py-16 bg-bg-primary border-b border-border-subtle">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="py-12 md:py-16 bg-bg-primary border-b border-border-subtle">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-white transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors mb-8"
           >
             <ArrowLeft size={14} />
             Back to Services
           </Link>
-          <h1 className="text-4xl md:text-5xl font-bold text-white max-w-3xl leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary max-w-3xl leading-tight">
             {service.title}
           </h1>
-          <p className="mt-6 text-xl text-text-secondary max-w-2xl leading-relaxed">
+          <p className="mt-6 text-base sm:text-xl text-text-secondary max-w-2xl leading-relaxed">
             {service.shortDescription}
           </p>
         </div>
       </section>
 
       {/* Overview */}
-      <section className="py-16 bg-bg-primary">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="py-12 md:py-16 bg-bg-primary">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
-              <h2 className="text-2xl font-bold text-white mb-6">Overview</h2>
+              <h2 className="text-2xl font-bold text-text-primary mb-6">Overview</h2>
               <p className="text-text-secondary leading-relaxed text-lg">
                 {service.fullDescription}
               </p>
 
               {/* Approach */}
               <div className="mt-12">
-                <h2 className="text-2xl font-bold text-white mb-6">Our Approach</h2>
+                <h2 className="text-2xl font-bold text-text-primary mb-6">Our Approach</h2>
                 <div className="space-y-4">
                   {service.approach.map((step, i) => (
                     <div
                       key={step}
                       className="flex items-start gap-4 p-5 rounded-xl bg-bg-card border border-border-subtle"
                     >
-                      <div className="w-8 h-8 rounded-full bg-white text-black text-sm font-bold flex items-center justify-center shrink-0">
+                      <div className="w-8 h-8 rounded-full bg-accent text-white text-sm font-bold flex items-center justify-center shrink-0">
                         {i + 1}
                       </div>
                       <div>
-                        <p className="font-medium text-white">{step}</p>
+                        <p className="font-medium text-text-primary">{step}</p>
                       </div>
                     </div>
                   ))}
@@ -96,11 +96,11 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             {/* Sidebar: features */}
             <div>
               <div className="p-6 rounded-2xl bg-bg-card border border-border-subtle sticky top-24">
-                <h3 className="text-lg font-semibold text-white mb-5">What&apos;s Included</h3>
+                <h3 className="text-lg font-semibold text-text-primary mb-5">What&apos;s Included</h3>
                 <ul className="space-y-3">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-3">
-                      <CheckCircle size={16} className="text-white/60 shrink-0" />
+                      <CheckCircle size={16} className="text-text-primary/60 shrink-0" />
                       <span className="text-sm text-text-secondary">{feature}</span>
                     </li>
                   ))}
@@ -108,7 +108,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 <div className="mt-8 pt-6 border-t border-border-subtle">
                   <Link
                     href="/contact"
-                    className="flex items-center justify-center gap-2 w-full py-3 bg-white text-black text-sm font-medium rounded-full hover:bg-gray-100 transition-colors"
+                    className="flex items-center justify-center gap-2 w-full py-3 bg-accent text-white text-sm font-medium rounded-full hover:bg-red-700 transition-colors"
                   >
                     Get Started
                     <ArrowRight size={14} />
@@ -121,9 +121,9 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-bg-secondary border-t border-border-subtle">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
+      <section className="py-14 md:py-20 bg-bg-secondary border-t border-border-subtle">
+        <div className="max-w-3xl mx-auto px-5 sm:px-6 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4">
             Ready to get started?
           </h2>
           <p className="text-text-secondary mb-8">
@@ -131,7 +131,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-medium rounded-full hover:bg-gray-100 transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white hover:bg-red-700 font-medium rounded-full transition-colors"
           >
             Contact Us Today
             <ArrowRight size={16} />

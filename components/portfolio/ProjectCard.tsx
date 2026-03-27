@@ -21,7 +21,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     >
       <Link href={`/portfolio/${project.slug}`}>
         <motion.div
-          className="group rounded-2xl overflow-hidden bg-bg-card border border-border-subtle hover:border-white/20 transition-all duration-300"
+          className="group rounded-2xl overflow-hidden bg-bg-card border border-border-subtle hover:border-text-primary/20 transition-all duration-300"
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.2 }}
         >
@@ -43,7 +43,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 <Badge key={cat}>{cat}</Badge>
               ))}
             </div>
-            <h3 className="font-semibold text-white leading-snug mb-1">{project.title}</h3>
+            <h3 className="font-semibold text-text-primary leading-snug mb-1">{project.title}</h3>
             <p className="text-xs text-text-muted">{project.date}</p>
           </div>
         </motion.div>

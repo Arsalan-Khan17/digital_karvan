@@ -11,15 +11,15 @@ export default function PortfolioPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-bg-primary border-b border-border-subtle">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="pt-24 md:pt-32 pb-16 bg-bg-primary border-b border-border-subtle">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <p className="text-xs font-medium text-text-muted uppercase tracking-widest mb-4">
             Our Work
           </p>
-          <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight max-w-3xl">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-text-primary leading-tight max-w-3xl">
             Designing a Better World Today
           </h1>
-          <p className="mt-6 text-lg text-text-secondary max-w-2xl leading-relaxed">
+          <p className="mt-6 text-base sm:text-xl text-text-secondary max-w-2xl leading-relaxed">
             A selection of projects we have delivered for clients across multiple industries
             and geographies.
           </p>
@@ -27,8 +27,8 @@ export default function PortfolioPage() {
       </section>
 
       {/* Projects */}
-      <section className="py-16 bg-bg-primary">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="py-12 md:py-16 bg-bg-primary">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <PortfolioFilter />
         </div>
       </section>

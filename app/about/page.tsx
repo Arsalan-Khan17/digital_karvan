@@ -41,12 +41,12 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-bg-primary border-b border-border-subtle">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="pt-24 md:pt-32 pb-12 md:pb-16 bg-bg-primary border-b border-border-subtle">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <p className="text-xs font-medium text-text-muted uppercase tracking-widest mb-4">
             Our Story
           </p>
-          <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight max-w-3xl">
+          <h1 className="text-4xl md:text-6xl font-bold text-text-primary leading-tight max-w-3xl">
             Who We Are
           </h1>
           <p className="mt-6 text-xl text-text-secondary max-w-2xl leading-relaxed">
@@ -57,9 +57,9 @@ export default function AboutPage() {
       </section>
 
       {/* Mission */}
-      <section className="py-20 bg-bg-primary">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-white mb-6">Our Mission</h2>
+      <section className="py-14 md:py-20 bg-bg-primary">
+        <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-text-primary mb-6">Our Mission</h2>
           <p className="text-text-secondary leading-relaxed text-lg mb-6">
             We exist to help businesses thrive in the digital world. Our mission is to
             deliver innovative, high-quality digital solutions that create real, measurable
@@ -74,12 +74,12 @@ export default function AboutPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-16 bg-bg-secondary border-y border-border-subtle">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="py-12 md:py-16 bg-bg-secondary border-y border-border-subtle">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="text-4xl md:text-5xl font-bold text-white">{stat.value}</p>
+                <p className="text-4xl md:text-5xl font-bold text-text-primary">{stat.value}</p>
                 <p className="text-text-secondary mt-2 text-sm">{stat.label}</p>
               </div>
             ))}
@@ -88,19 +88,19 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values */}
-      <section className="py-20 bg-bg-primary">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white mb-12">Our Core Values</h2>
+      <section className="py-14 md:py-20 bg-bg-primary">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-text-primary mb-12">Our Core Values</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {values.map((value) => (
               <div
                 key={value.number}
                 className="p-8 rounded-2xl bg-bg-card border border-border-subtle"
               >
-                <span className="text-5xl font-bold text-white/10 block mb-6">
+                <span className="text-5xl font-bold text-text-primary/10 block mb-6">
                   {value.number}
                 </span>
-                <h3 className="text-xl font-semibold text-white mb-4">{value.title}</h3>
+                <h3 className="text-xl font-semibold text-text-primary mb-4">{value.title}</h3>
                 <p className="text-text-secondary text-sm leading-relaxed">{value.description}</p>
               </div>
             ))}
@@ -109,14 +109,14 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="py-20 bg-bg-secondary border-t border-border-subtle">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white mb-12">Meet the Team</h2>
+      <section className="py-14 md:py-20 bg-bg-secondary border-t border-border-subtle">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-text-primary mb-12">Meet the Team</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {team.map((member) => (
               <div key={member.id} className="text-center">
                 <div className="relative mx-auto w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-bg-elevated to-bg-card border border-border-default flex items-center justify-center mb-4">
-                  <span className="text-3xl font-bold text-white/30">
+                  <span className="text-3xl font-bold text-text-primary/30">
                     {member.name.charAt(0)}
                   </span>
                   {member.isFounder && (
@@ -125,7 +125,7 @@ export default function AboutPage() {
                     </span>
                   )}
                 </div>
-                <h3 className="font-semibold text-white">{member.name}</h3>
+                <h3 className="font-semibold text-text-primary">{member.name}</h3>
                 <p className="text-sm text-text-secondary mt-1">{member.role}</p>
               </div>
             ))}
@@ -134,9 +134,9 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-bg-primary border-t border-border-subtle">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
+      <section className="py-14 md:py-20 bg-bg-primary border-t border-border-subtle">
+        <div className="max-w-3xl mx-auto px-5 text-center">
+          <h2 className="text-3xl font-bold text-text-primary mb-4">
             Partner With Us
           </h2>
           <p className="text-text-secondary mb-8 text-lg">
@@ -144,7 +144,7 @@ export default function AboutPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-medium rounded-full hover:bg-gray-100 transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white font-medium rounded-full hover:bg-red-700 transition-colors"
           >
             Get in Touch
             <ArrowRight size={16} />

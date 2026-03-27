@@ -2,8 +2,9 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { X } from "lucide-react";
+import { X, Sun, Moon } from "lucide-react";
 import { navLinks } from "@/lib/data";
+import { useTheme } from "@/components/ThemeProvider";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -12,27 +13,38 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ isOpen, onClose, pathname }: MobileMenuProps) {
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-50 bg-black flex flex-col"
+          className="fixed inset-0 z-50 bg-bg-primary flex flex-col"
           initial={{ opacity: 0, x: "100%" }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: "100%" }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           <div className="flex items-center justify-between px-6 py-5 border-b border-border-subtle">
-            <Link href="/" className="text-xl font-bold text-white" onClick={onClose}>
+            <Link href="/" className="text-xl font-bold text-text-primary" onClick={onClose}>
               Digital Karvan
             </Link>
-            <button
-              onClick={onClose}
-              className="p-2 text-text-secondary hover:text-white transition-colors"
-              aria-label="Close menu"
-            >
-              <X size={24} />
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={toggleTheme}
+                className="p-2 text-text-secondary hover:text-text-primary transition-colors"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+              </button>
+              <button
+                onClick={onClose}
+                className="p-2 text-text-secondary hover:text-text-primary transition-colors"
+                aria-label="Close menu"
+              >
+                <X size={24} />
+              </button>
+            </div>
           </div>
 
           <nav className="flex-1 overflow-y-auto px-6 py-8">
@@ -64,8 +76,8 @@ export default function MobileMenu({ isOpen, onClose, pathname }: MobileMenuProp
                     onClick={onClose}
                     className={`block text-2xl font-medium py-3 border-b border-border-subtle transition-colors ${
                       pathname === link.href
-                        ? "text-white"
-                        : "text-text-secondary hover:text-white"
+                        ? "text-text-primary"
+                        : "text-text-secondary hover:text-text-primary"
                     }`}
                   >
                     {link.label}
@@ -77,7 +89,7 @@ export default function MobileMenu({ isOpen, onClose, pathname }: MobileMenuProp
                           <Link
                             href={item.href}
                             onClick={onClose}
-                            className="block text-base text-text-muted hover:text-white py-2 transition-colors"
+                            className="block text-base text-text-muted hover:text-text-primary py-2 transition-colors"
                           >
                             {item.label}
                           </Link>

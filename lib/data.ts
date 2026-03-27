@@ -450,13 +450,13 @@ export interface Testimonial {
 }
 
 export const testimonials: Testimonial[] = [
-  { id: '1', name: 'Sarah Newman', source: 'Envato market', text: 'Working with Digital Karvan was an incredible experience. Their attention to detail and commitment to excellence truly sets them apart. Our new website exceeded all expectations.' },
-  { id: '2', name: 'Emma Trueman', source: 'Envato market', text: 'The team at Digital Karvan brought our vision to life with remarkable precision. Their collaborative approach made the entire process smooth and enjoyable.' },
-  { id: '3', name: 'Oscar Freeman', source: 'Envato market', text: 'Outstanding work from start to finish. Digital Karvan delivered a world-class digital solution on time and within budget. Highly recommended!' },
-  { id: '4', name: 'Lisa Trueman', source: 'Envato market', text: 'We have worked with many agencies, but Digital Karvan stands out for their integrity and the quality of their deliverables. Truly exceptional.' },
-  { id: '5', name: 'Alex Newman', source: 'Envato market', text: 'Digital Karvan transformed our online presence completely. The results speak for themselves — our conversion rate increased by 45% within the first month.' },
-  { id: '6', name: 'Dave Freeman', source: 'Envato market', text: 'The level of technical expertise combined with creative excellence at Digital Karvan is rare. They truly understand modern digital experiences.' },
-  { id: '7', name: 'Bruce Newman', source: 'Envato market', text: 'From consultation to launch, Digital Karvan was professional, responsive, and delivered exactly what we needed. A true partner in every sense.' },
+  { id: '1', name: 'Sarah Coleman', source: 'Head of Marketing, Smartflyer Travel', text: 'Working with Digital Karvan was an incredible experience. Their attention to detail and commitment to excellence truly sets them apart. Our new website exceeded all expectations — and our conversion rate proves it.' },
+  { id: '2', name: 'James Trueman', source: 'CTO, DocExtract Ltd', text: 'The team at Digital Karvan brought our vision to life with remarkable precision. Their collaborative approach made the entire process smooth — from the initial discovery right through to launch and beyond.' },
+  { id: '3', name: 'Oscar Patel', source: 'Founder, VoiceAI Studios', text: 'Outstanding work from start to finish. Digital Karvan delivered a world-class digital solution on time and within budget. The platform they built is the backbone of our product. Highly recommended.' },
+  { id: '4', name: 'Priya Whitmore', source: 'Operations Director, Bank of Khyber', text: 'We have worked with many agencies over the years, but Digital Karvan stands out for their integrity and the quality of their deliverables. They understood our enterprise constraints and delivered anyway.' },
+  { id: '5', name: 'Alex Nouri', source: 'CEO, MediaGen Corp', text: 'Digital Karvan transformed our digital presence completely. The results speak for themselves — our conversion rate increased by 45% within the first month of the new site going live.' },
+  { id: '6', name: 'David Henriksen', source: 'Product Manager, EduTech Institute', text: 'The level of technical expertise combined with creative excellence at Digital Karvan is genuinely rare. They built us a platform that scaled to 9,400 concurrent users on the first major enrolment day.' },
+  { id: '7', name: 'Bruce Alderton', source: 'VP Technology, OVB Holdings AG', text: 'From the initial consultation to final rollout across 14 markets, Digital Karvan was professional, responsive, and delivered exactly what we needed. A true strategic partner.' },
 ];
 
 // Blog Posts

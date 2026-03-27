@@ -12,14 +12,14 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
 
   return (
     <div
-      className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-12 items-center py-16 border-b border-border-subtle last:border-0`}
+      className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 lg:gap-12 items-center py-12 md:py-16 border-b border-border-subtle last:border-0`}
     >
       {/* Content */}
       <div className="flex-1">
         <p className="text-xs font-medium text-text-muted uppercase tracking-widest mb-4">
           0{index + 1}
         </p>
-        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{service.title}</h3>
+        <h3 className="text-2xl md:text-3xl font-bold text-text-primary mb-4">{service.title}</h3>
         <p className="text-text-secondary leading-relaxed mb-6">{service.fullDescription}</p>
         <ul className="grid grid-cols-2 gap-2 mb-8">
           {service.features.map((feature) => (
@@ -43,7 +43,7 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
         <div className="aspect-square rounded-2xl bg-gradient-to-br from-bg-elevated to-bg-card border border-border-subtle flex items-center justify-center max-w-md mx-auto">
           <div className="text-center px-8">
             <div className="w-16 h-16 rounded-2xl bg-bg-elevated border border-border-default mx-auto mb-6 flex items-center justify-center">
-              <span className="text-white/30 text-2xl font-bold">
+              <span className="text-text-primary/30 text-2xl font-bold">
                 {service.title.charAt(0)}
               </span>
             </div>
