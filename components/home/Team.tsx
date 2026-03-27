@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import { team } from "@/lib/data";
 
 const teamExtras: Record<string, string> = {
-  "Anna Oldman": "Visual storytelling, brand systems & editorial design",
-  "Oscar Freeman": "React, Next.js, performance engineering",
-  "Emma Newman": "Product strategy, client partnerships & growth",
-  "Lisa Trueman": "User research, interaction design & prototyping",
+  "Azam Tariq": "Client strategy, business development & studio operations",
+  "Muhammad Arsalan Khan": "React, Next.js, Node.js & full-stack architecture",
+  "Shaheryar Khan": "Machine learning, LLMs, computer vision & AI pipelines",
+  "Touseef Khan": "Delivery management, sprint planning & client communications",
 };
 
 export default function Team() {
@@ -49,8 +49,8 @@ export default function Team() {
                   {member.name.charAt(0)}
                 </span>
                 {member.isFounder && (
-                  <span className="absolute -top-1 -right-1 px-2 py-0.5 rounded-full bg-accent text-white text-[10px] font-semibold">
-                    Founder
+                  <span className="absolute -top-1 -right-1 px-2 py-0.5 rounded-full bg-accent text-white text-[10px] font-semibold whitespace-nowrap">
+                    Co-Founder
                   </span>
                 )}
               </div>

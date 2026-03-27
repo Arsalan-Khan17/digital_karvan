@@ -435,10 +435,10 @@ export interface TeamMember {
 }
 
 export const team: TeamMember[] = [
-  { id: '1', name: 'Anna Oldman', role: 'Art Director', isFounder: false, imageUrl: '' },
-  { id: '2', name: 'Oscar Freeman', role: 'Frontend Developer', isFounder: false, imageUrl: '' },
-  { id: '3', name: 'Emma Newman', role: 'Founder', isFounder: true, imageUrl: '' },
-  { id: '4', name: 'Lisa Trueman', role: 'UI/UX Designer', isFounder: false, imageUrl: '' },
+  { id: '1', name: 'Azam Tariq', role: 'Co-Founder & Managing Director', isFounder: true, imageUrl: '' },
+  { id: '2', name: 'Muhammad Arsalan Khan', role: 'Technical Lead, Web Development', isFounder: false, imageUrl: '' },
+  { id: '3', name: 'Shaheryar Khan', role: 'Lead AI Engineer', isFounder: false, imageUrl: '' },
+  { id: '4', name: 'Touseef Khan', role: 'Project Manager', isFounder: false, imageUrl: '' },
 ];
 
 // Testimonials

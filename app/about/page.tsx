@@ -120,8 +120,8 @@ export default function AboutPage() {
                     {member.name.charAt(0)}
                   </span>
                   {member.isFounder && (
-                    <span className="absolute -top-1 -right-1 px-2 py-0.5 rounded-full bg-white text-black text-xs font-semibold">
-                      Founder
+                    <span className="absolute -top-1 -right-1 px-2 py-0.5 rounded-full bg-accent text-white text-xs font-semibold whitespace-nowrap">
+                      Co-Founder
                     </span>
                   )}
                 </div>
