@@ -14,25 +14,39 @@ export function useTheme() {
 }
 
 export default function ThemeProvider({ children }: { children: React.ReactNode }) {
+  // Start with "light" to match SSR — avoids hydration mismatch flash on Safari
   const [theme, setTheme] = useState<Theme>("light");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem("theme") as Theme | null;
-    if (stored === "dark" || stored === "light") {
-      setTheme(stored);
-      document.documentElement.classList.toggle("dark", stored === "dark");
+    setMounted(true);
+    try {
+      const stored = localStorage.getItem("theme") as Theme | null;
+      if (stored === "dark" || stored === "light") {
+        setTheme(stored);
+        if (stored === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      }
+    } catch {
+      // localStorage may be blocked in private browsing on iOS Safari
     }
   }, []);
 
   const toggleTheme = () => {
     const next = theme === "light" ? "dark" : "light";
     setTheme(next);
-    localStorage.setItem("theme", next);
     document.documentElement.classList.toggle("dark", next === "dark");
+    try {
+      localStorage.setItem("theme", next);
+    } catch {
+      // Silently fail if localStorage is unavailable
+    }
   };
 
+  // Suppress rendering the toggle UI until mounted to prevent hydration mismatch
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme: mounted ? theme : "light", toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

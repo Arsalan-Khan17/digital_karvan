@@ -4,7 +4,7 @@ import FooterNewsletter from "./FooterNewsletter";
 
 export default function Footer() {
   return (
-    <footer className="bg-bg-secondary border-t border-border-subtle">
+    <footer className="bg-bg-secondary border-t border-border-subtle pb-[env(safe-area-inset-bottom)]">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
           {/* Brand */}
