@@ -4,6 +4,9 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ThemeProvider from "@/components/ThemeProvider";
+import CustomCursor from "@/components/layout/CustomCursor";
+import NavigationProgress from "@/components/layout/NavigationProgress";
+import PageTransition from "@/components/layout/PageTransition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,8 +54,12 @@ export default function RootLayout({
     <html lang="en" className={`${geistSans.variable}`} suppressHydrationWarning>
       <body className="min-h-screen flex flex-col bg-bg-primary text-text-primary">
         <ThemeProvider>
+          <CustomCursor />
+          <NavigationProgress />
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1">
+            <PageTransition>{children}</PageTransition>
+          </main>
           <Footer />
         </ThemeProvider>
       </body>

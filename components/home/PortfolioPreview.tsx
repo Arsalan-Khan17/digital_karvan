@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { projects } from "@/lib/data";
 import Badge from "@/components/ui/Badge";
+import TiltCard from "@/components/ui/TiltCard";
 
 export default function PortfolioPreview() {
   const featured = projects.slice(0, 6);
@@ -49,36 +50,38 @@ export default function PortfolioPreview() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, delay: i * 0.07 }}
             >
-              <Link href={`/portfolio/${project.slug}`} className="block">
-                <div className="group rounded-2xl overflow-hidden bg-bg-card border border-border-subtle hover:border-text-primary/20 hover:shadow-lg transition-all duration-300">
-                  {/* Gradient thumbnail */}
-                  <div
-                    className={`aspect-[16/9] bg-gradient-to-br ${project.imageGradient} relative overflow-hidden`}
-                  >
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="flex items-center gap-2 text-white font-medium text-sm">
-                        View Case Study
-                        <ArrowUpRight size={16} />
+              <TiltCard maxTilt={7} scale={1.015}>
+                <Link href={`/portfolio/${project.slug}`} className="block">
+                  <div className="group rounded-2xl overflow-hidden bg-bg-card border border-border-subtle glow-card transition-all duration-300">
+                    {/* Gradient thumbnail */}
+                    <div
+                      className={`aspect-[16/9] bg-gradient-to-br ${project.imageGradient} relative overflow-hidden`}
+                    >
+                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div className="flex items-center gap-2 text-white font-medium text-sm backdrop-blur-sm bg-black/20 px-4 py-2 rounded-full border border-white/20">
+                          View Case Study
+                          <ArrowUpRight size={16} />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  {/* Content */}
-                  <div className="p-5">
-                    <div className="flex flex-wrap gap-1.5 mb-3">
-                      {project.categories.map((cat) => (
-                        <Badge key={cat}>{cat}</Badge>
-                      ))}
+                    {/* Content */}
+                    <div className="p-5">
+                      <div className="flex flex-wrap gap-1.5 mb-3">
+                        {project.categories.map((cat) => (
+                          <Badge key={cat}>{cat}</Badge>
+                        ))}
+                      </div>
+                      <h3 className="text-text-primary font-semibold text-base leading-snug mb-1.5">
+                        {project.title}
+                      </h3>
+                      <p className="text-xs text-text-secondary leading-relaxed line-clamp-2 mb-3">
+                        {project.description}
+                      </p>
+                      <p className="text-xs text-text-muted">{project.date}</p>
                     </div>
-                    <h3 className="text-text-primary font-semibold text-base leading-snug mb-1.5">
-                      {project.title}
-                    </h3>
-                    <p className="text-xs text-text-secondary leading-relaxed line-clamp-2 mb-3">
-                      {project.description}
-                    </p>
-                    <p className="text-xs text-text-muted">{project.date}</p>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </TiltCard>
             </motion.div>
           ))}
         </div>

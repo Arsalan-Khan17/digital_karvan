@@ -121,3 +121,127 @@ body.menu-open {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-secondary); }
 ::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 3px; }
+
+/* ─── Custom cursor (pointer-fine = desktop/trackpad only) ─── */
+@media (pointer: fine) {
+  body { cursor: none; }
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(225, 29, 72, 0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  will-change: transform;
+  transition: width 0.25s cubic-bezier(0.23, 1, 0.32, 1),
+              height 0.25s cubic-bezier(0.23, 1, 0.32, 1),
+              background 0.25s ease,
+              border-color 0.25s ease;
+}
+
+.cursor-ring.is-hovering {
+  width: 48px;
+  height: 48px;
+  background: rgba(225, 29, 72, 0.07);
+  border-color: rgba(225, 29, 72, 0.8);
+  /* compensate offset so ring stays centered */
+  margin-top: -8px;
+  margin-left: -8px;
+}
+
+@media (pointer: coarse), (hover: none) {
+  .cursor-dot,
+  .cursor-ring { display: none; }
+}
+
+/* ─── Card glow on hover ─────────────────────────────────────── */
+.glow-card {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.glow-card:hover {
+  box-shadow:
+    0 0 0 1px rgba(225, 29, 72, 0.18),
+    0 8px 40px rgba(225, 29, 72, 0.10),
+    0 0 80px rgba(225, 29, 72, 0.04);
+  border-color: rgba(225, 29, 72, 0.22) !important;
+}
+
+/* ─── Aurora gradient animation ─────────────────────────────── */
+@keyframes aurora-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+.aurora-bg {
+  background: linear-gradient(
+    135deg,
+    rgba(225, 29, 72, 0.12) 0%,
+    rgba(139, 92, 246, 0.06) 40%,
+    rgba(59, 130, 246, 0.05) 70%,
+    rgba(225, 29, 72, 0.08) 100%
+  );
+  background-size: 300% 300%;
+  animation: aurora-shift 12s ease infinite;
+}
+
+/* ─── Glassmorphism ──────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ─── Animated gradient border ───────────────────────────────── */
+@keyframes border-spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animated-border {
+  position: relative;
+  isolation: isolate;
+}
+
+.animated-border::after {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 240deg,
+    rgba(225, 29, 72, 0.55) 280deg,
+    rgba(251, 113, 133, 0.3) 300deg,
+    transparent 360deg
+  );
+  animation: border-spin 4s linear infinite;
+  z-index: -1;
+}
+
+/* ─── Gradient text ──────────────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(135deg, #e11d48 0%, #f43f5e 50%, #fb7185 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
