@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, ChevronDown, Sun, Moon } from "lucide-react";
 import { navLinks } from "@/lib/data";
 import MobileMenu from "./MobileMenu";
+import AnimatedLogo from "./AnimatedLogo";
 import { useTheme } from "@/components/ThemeProvider";
 
 export default function Navbar() {
@@ -66,9 +67,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
-            <Link href="/" className="text-xl font-bold text-text-primary tracking-tight">
-              Digital Karvan
-            </Link>
+            <AnimatedLogo />
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-8">
