@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -8,9 +8,10 @@ import CustomCursor from "@/components/layout/CustomCursor";
 import NavigationProgress from "@/components/layout/NavigationProgress";
 import PageTransition from "@/components/layout/PageTransition";
 
-const geistSans = Geist({
+const spaceGrotesk = Space_Grotesk({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const viewport: Viewport = {
@@ -51,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${spaceGrotesk.variable}`} suppressHydrationWarning>
       <body className="min-h-screen flex flex-col bg-bg-primary text-text-primary">
         <ThemeProvider>
           <CustomCursor />
