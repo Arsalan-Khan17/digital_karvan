@@ -2,47 +2,42 @@
 
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { animate } from "animejs";
+import { gsap } from "@/lib/gsap";
 
 export default function NavigationProgress() {
-  const barRef = useRef<HTMLDivElement>(null);
-  const glowRef = useRef<HTMLDivElement>(null);
+  const barRef     = useRef<HTMLDivElement>(null);
+  const glowRef    = useRef<HTMLDivElement>(null);
   const pendingNav = useRef(false);
-  const prevPath = useRef<string | null>(null);
+  const prevPath   = useRef<string | null>(null);
+  const tweenRef   = useRef<gsap.core.Tween | null>(null);
 
-  // Detect clicks on internal <a> tags → start the bar
   useEffect(() => {
     const onDocClick = (e: MouseEvent) => {
       const link = (e.target as Element).closest<HTMLAnchorElement>("a[href]");
       if (!link) return;
-
       const href = link.getAttribute("href") ?? "";
-      // Ignore: hash links, external URLs, mailto/tel, same page
       if (
         !href ||
         href.startsWith("#") ||
         href.startsWith("mailto:") ||
         href.startsWith("tel:") ||
         /^https?:\/\//.test(href)
-      )
-        return;
+      ) return;
 
-      const bar = barRef.current;
+      const bar  = barRef.current;
       const glow = glowRef.current;
       if (!bar || !glow) return;
 
       pendingNav.current = true;
+      tweenRef.current?.kill();
 
-      // Reset & show
-      bar.style.width = "0%";
-      bar.style.opacity = "1";
-      glow.style.opacity = "1";
+      gsap.set([bar, glow], { opacity: 1 });
+      gsap.set(bar, { width: "0%" });
 
-      // Fill to ~75 % — stalls until page arrives
-      animate(bar, {
-        width: ["0%", "75%"],
-        duration: 700,
-        ease: "outExpo",
+      tweenRef.current = gsap.to(bar, {
+        width: "75%",
+        duration: 0.7,
+        ease: "power2.out",
       });
     };
 
@@ -50,8 +45,8 @@ export default function NavigationProgress() {
     return () => document.removeEventListener("click", onDocClick);
   }, []);
 
-  // pathname changes = navigation complete → finish and hide the bar
   const pathname = usePathname();
+
   useEffect(() => {
     if (prevPath.current === null) {
       prevPath.current = pathname;
@@ -62,33 +57,20 @@ export default function NavigationProgress() {
     prevPath.current = pathname;
     pendingNav.current = false;
 
-    const bar = barRef.current;
+    const bar  = barRef.current;
     const glow = glowRef.current;
     if (!bar || !glow) return;
 
-    // Rush to 100 %
-    animate(bar, {
-      width: "100%",
-      duration: 180,
-      ease: "outSine",
-      onComplete: () => {
-        // Fade out
-        animate([bar, glow], {
-          opacity: 0,
-          duration: 280,
-          ease: "outSine",
-          delay: 80,
-          onComplete: () => {
-            bar.style.width = "0%";
-          },
-        });
-      },
-    });
+    tweenRef.current?.kill();
+
+    const tl = gsap.timeline();
+    tl.to(bar, { width: "100%", duration: 0.18, ease: "power2.in" })
+      .to([bar, glow], { opacity: 0, duration: 0.28, ease: "power2.out", delay: 0.08 })
+      .set(bar, { width: "0%" });
   }, [pathname]);
 
   return (
     <>
-      {/* Bar */}
       <div
         ref={barRef}
         aria-hidden="true"
@@ -99,7 +81,6 @@ export default function NavigationProgress() {
           background: "linear-gradient(90deg, #e11d48 0%, #fb7185 60%, #fda4af 100%)",
         }}
       />
-      {/* Trailing glow dot */}
       <div
         ref={glowRef}
         aria-hidden="true"
@@ -108,7 +89,7 @@ export default function NavigationProgress() {
           width: 80,
           height: 6,
           opacity: 0,
-          right: "calc(100% - var(--bar-right, 75%))",
+          right: "calc(100% - 75%)",
           background: "radial-gradient(ellipse 80% 100% at 50% 0%, rgba(225,29,72,0.8) 0%, transparent 100%)",
           filter: "blur(4px)",
           transform: "translateY(-2px)",

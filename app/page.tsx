@@ -1,6 +1,7 @@
 import Hero from "@/components/home/Hero";
 import PartnersMarquee from "@/components/home/PartnersMarquee";
 import Mission from "@/components/home/Mission";
+import ScrollMarquee from "@/components/home/ScrollMarquee";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import PortfolioPreview from "@/components/home/PortfolioPreview";
 import CoreValues from "@/components/home/CoreValues";
@@ -15,6 +16,7 @@ export default function HomePage() {
       <Hero />
       <PartnersMarquee />
       <Mission />
+      <ScrollMarquee />
       <ServicesPreview />
       <PortfolioPreview />
       <CoreValues />

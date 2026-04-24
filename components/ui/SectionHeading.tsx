@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { gsap, SplitText, useGSAP } from "@/lib/gsap";
 
 interface SectionHeadingProps {
   title: string;
@@ -15,15 +16,44 @@ export default function SectionHeading({
   centered = false,
   className = "",
 }: SectionHeadingProps) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const h2 = wrapRef.current?.querySelector("h2");
+    if (!h2) return;
+    const split = SplitText.create(h2, { type: "words", mask: "words" });
+    gsap.from(split.words, {
+      y: "110%",
+      opacity: 0,
+      duration: 0.65,
+      stagger: 0.07,
+      ease: "power3.out",
+      scrollTrigger: { trigger: h2, start: "top 88%", once: true },
+    });
+    if (subtitle) {
+      const p = wrapRef.current?.querySelector("p");
+      if (p) {
+        gsap.from(p, {
+          opacity: 0,
+          y: 20,
+          duration: 0.6,
+          delay: 0.2,
+          ease: "power2.out",
+          scrollTrigger: { trigger: wrapRef.current, start: "top 88%", once: true },
+        });
+      }
+    }
+  }, { scope: wrapRef });
+
   return (
-    <motion.div
+    <div
+      ref={wrapRef}
       className={`${centered ? "text-center" : ""} ${className}`}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6 }}
     >
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary leading-tight">
+      <h2
+        className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary leading-tight"
+        style={{ overflow: "hidden" }}
+      >
         {title}
       </h2>
       {subtitle && (
@@ -31,6 +61,6 @@ export default function SectionHeading({
           {subtitle}
         </p>
       )}
-    </motion.div>
+    </div>
   );
 }

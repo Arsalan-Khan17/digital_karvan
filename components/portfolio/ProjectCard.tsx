@@ -1,10 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/lib/data";
 import Badge from "@/components/ui/Badge";
+import { gsap, useGSAP } from "@/lib/gsap";
 
 interface ProjectCardProps {
   project: Project;
@@ -12,20 +13,36 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    gsap.from(cardRef.current, {
+      opacity: 0,
+      y: 40,
+      scale: 0.95,
+      duration: 0.7,
+      delay: (index % 3) * 0.08,
+      ease: "power3.out",
+      scrollTrigger: { trigger: cardRef.current, start: "top 88%", once: true },
+    });
+
+    // Scale on hover via GSAP for silky feel
+    const el = cardRef.current?.querySelector(".card-inner") as HTMLElement;
+    if (!el) return;
+    const enter = () => gsap.to(el, { scale: 1.025, duration: 0.35, ease: "power2.out" });
+    const leave = () => gsap.to(el, { scale: 1,     duration: 0.4,  ease: "power3.out" });
+    el.addEventListener("mouseenter", enter);
+    el.addEventListener("mouseleave", leave);
+    return () => {
+      el.removeEventListener("mouseenter", enter);
+      el.removeEventListener("mouseleave", leave);
+    };
+  }, { scope: cardRef });
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
-    >
+    <div ref={cardRef}>
       <Link href={`/portfolio/${project.slug}`}>
-        <motion.div
-          className="group rounded-2xl overflow-hidden bg-bg-card border border-border-subtle hover:border-text-primary/20 transition-all duration-300"
-          whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.2 }}
-        >
-          {/* Image */}
+        <div className="card-inner group rounded-2xl overflow-hidden bg-bg-card border border-border-subtle hover:border-text-primary/20 transition-colors duration-300">
           <div
             className={`aspect-video bg-gradient-to-br ${project.imageGradient} relative overflow-hidden`}
           >
@@ -36,7 +53,6 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               </div>
             </div>
           </div>
-          {/* Info */}
           <div className="p-5">
             <div className="flex flex-wrap gap-2 mb-3">
               {project.categories.map((cat) => (
@@ -46,8 +62,8 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             <h3 className="font-semibold text-text-primary leading-snug mb-1">{project.title}</h3>
             <p className="text-xs text-text-muted">{project.date}</p>
           </div>
-        </motion.div>
+        </div>
       </Link>
-    </motion.div>
+    </div>
   );
 }

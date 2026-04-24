@@ -238,10 +238,95 @@ body.menu-open {
   z-index: -1;
 }
 
+/* ─── Slow spin (used by portfolio panel rings) ─────────────── */
+@keyframes spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
 /* ─── Gradient text ──────────────────────────────────────────── */
 .text-gradient {
   background: linear-gradient(135deg, #e11d48 0%, #f43f5e 50%, #fb7185 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* ─── GSAP clip-path helpers ─────────────────────────────────── */
+/* Mask wrapper for SplitText mask animations */
+[data-gsap-mask] {
+  overflow: hidden;
+  display: inline-block;
+}
+
+/* Perspective helpers for 3D card animations */
+.perspective-800  { perspective: 800px; }
+.perspective-1200 { perspective: 1200px; }
+
+/* Prevent FOUC on GSAP-animated elements that start hidden */
+.gsap-hidden { opacity: 0; }
+
+/* ─── Horizontal scroll track  ──────────────────────────────── */
+/* Prevents height-collapse during pinned horizontal scroll */
+.horizontal-scroll-pin {
+  overflow: hidden;
+  will-change: transform;
+}
+
+/* ─── Scroll-driven marquee text ─────────────────────────────── */
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-large {
+  display: flex;
+  white-space: nowrap;
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 900;
+  line-height: 1;
+  animation: marquee-scroll 18s linear infinite;
+  will-change: transform;
+  user-select: none;
+}
+
+/* ─── GSAP SplitText char overflow clip ─────────────────────── */
+.split-parent {
+  overflow: hidden;
+  display: block;
+}
+
+/* ─── Number reveal counter ─────────────────────────────────── */
+.counter-wrap {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* ─── Floating label animation ───────────────────────────────── */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(-1deg); }
+  50%       { transform: translateY(-12px) rotate(1deg); }
+}
+
+.float-label {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+/* ─── Accent line draw ───────────────────────────────────────── */
+.line-draw {
+  position: relative;
+}
+.line-draw::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.line-draw:hover::after,
+.line-draw.active::after {
+  width: 100%;
 }

@@ -1,42 +1,40 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
 import { usePathname } from "next/navigation";
+import { gsap, useGSAP } from "@/lib/gsap";
 
-// Framer Motion variant — exit animations don't fire reliably in Next.js App Router
-// (the component unmounts before the exit can play), so we animate entry only.
-// Using `key={pathname}` forces a fresh mount → re-triggers the enter animation
-// on every route change.
+// Each route change remounts this component via key={pathname}.
+// useGSAP fires on mount → plays the enter animation once.
+// No color overlay, no curtain — just a clean blur-dissolve.
 
-const variants = {
-  hidden: { opacity: 0, y: 18, filter: "blur(6px)" },
-  visible: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: {
-      duration: 0.42,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-    },
-  },
-};
+function PageEnter({ children }: { children: React.ReactNode }) {
+  const wrapRef = useRef<HTMLDivElement>(null);
 
-export default function PageTransition({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const pathname = usePathname();
+  useGSAP(() => {
+    gsap.fromTo(
+      wrapRef.current,
+      { opacity: 0, y: 16, filter: "blur(8px)", scale: 0.98 },
+      {
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+        scale: 1,
+        duration: 0.55,
+        ease: "power3.out",
+        clearProps: "filter,transform",
+      }
+    );
+  }, { scope: wrapRef });
 
   return (
-    <motion.div
-      key={pathname}
-      variants={variants}
-      initial="hidden"
-      animate="visible"
-      style={{ minHeight: "100%", display: "contents" }}
-    >
+    <div ref={wrapRef} style={{ minHeight: "100%", display: "contents" }}>
       {children}
-    </motion.div>
+    </div>
   );
+}
+
+export default function PageTransition({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  return <PageEnter key={pathname}>{children}</PageEnter>;
 }
