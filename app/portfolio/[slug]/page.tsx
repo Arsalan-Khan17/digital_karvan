@@ -32,6 +32,12 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   const nextProject = projects[(projectIndex + 1) % projects.length];
   const prevProject = projects[(projectIndex - 1 + projects.length) % projects.length];
 
+  const styleMainImage = {
+    backgroundSize: "cover",
+    backgroundImage: `url(${project.mainImage})`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center center",
+  };
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────── */}
@@ -158,7 +164,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
       {/* ── Hero mockup placeholder ───────────────────────── */}
       <section className="bg-bg-primary px-5 sm:px-6 lg:px-8 pb-14 md:pb-20">
         <div className="max-w-7xl mx-auto">
-          <div
+          <div style={styleMainImage}
             className={`rounded-3xl aspect-video w-full bg-gradient-to-br ${project.imageGradient} border border-border-subtle flex items-center justify-center`}
           >
             <div className="text-center">
