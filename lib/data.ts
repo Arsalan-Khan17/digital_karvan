@@ -75,6 +75,8 @@ export interface Project {
   description: string;
   overviewParagraphs: string[];
   mainImage : string;
+  screenshot_1 : string;
+  screenshot_2 : string;
   challenge: string;
   challengeDetail: string;
   solution: string;
@@ -103,6 +105,8 @@ export const projects: Project[] = [
       "We redesigned and rebuilt the full digital presence: a premium marketing website showcasing their destinations and services, and a secure agent portal for managing client trip requests, itinerary documents, and communications. The result is a cohesive digital experience that reflects the quality of the service itself.",
     ],
     mainImage : '/images/portfolio/smartflyer/smartflyer.png',
+    screenshot_1 : '/images/portfolio/smartflyer/smartflyer-ui-1.png',
+    screenshot_2 : '/images/portfolio/smartflyer/smartflyer-ui-2.png',
     challenge: "An outdated website was failing to convert high-intent luxury travellers, undermining a premium brand.",
     challengeDetail: "Despite a strong reputation and a high-value client base, Smartflyer's website generated a bounce rate of 72% and a conversion rate of just 0.8%. The design felt generic, the booking enquiry form was buried, and the mobile experience was unusable. Competitors with inferior service offerings were winning enquiries purely on digital presentation.",
     solution: "Designed a premium, responsive marketing site with an intuitive enquiry flow and a secure CRM-integrated agent portal.",
@@ -147,6 +151,8 @@ export const projects: Project[] = [
       'We engineered the full stack — from the deep learning inference pipeline to the browser-based audio studio — with a focus on output quality, latency, and ease of use. The platform handles multi-speaker projects, emotion-aware synthesis, and direct export to major distribution formats.',
     ],
     mainImage : '/images/portfolio/vocal-fusion/vocal-fusion-featured.png',
+    screenshot_1 : '',
+    screenshot_2 : '',
     challenge: 'Content creators needed efficient ways to produce voiceovers without expensive studio sessions.',
     challengeDetail: 'Professional voiceover production required booking studios, coordinating with voice talent, and waiting days for revisions — a process that cost thousands per project and made iteration nearly impossible. Independent creators and small studios were priced out entirely. Existing off-the-shelf voice tools produced robotic output that audiences immediately rejected.',
     solution: 'Developed a real-time voice cloning system requiring only a 30-second sample, producing broadcast-quality output.',
@@ -191,6 +197,8 @@ export const projects: Project[] = [
       'We delivered a comprehensive data dashboard that consolidates feeds from multiple core banking systems into a single, interactive view. Branch managers, regional directors, and C-suite executives each have tailored role-based dashboards surfacing the KPIs most relevant to their responsibilities.',
     ],
     mainImage : '',
+    screenshot_1 : '',
+    screenshot_2 : '',
     challenge: 'Disparate data sources and legacy systems made consolidated reporting nearly impossible.',
     challengeDetail: 'The bank operated across 40+ branches, each running slightly different legacy systems with incompatible data schemas. Monthly performance reports were produced manually by a dedicated team of analysts, taking up to 5 days to compile. Real-time visibility into deposits, lending, and branch KPIs simply did not exist, making it impossible to identify and act on performance trends quickly.',
     solution: 'Built a unified analytics dashboard integrating multiple data sources with real-time updates and role-based views.',
@@ -235,6 +243,8 @@ export const projects: Project[] = [
       'We designed a custom data model in Azure Synapse that powers an intuitive PowerBI frontend, complete with AI-assisted forecasting, territory heat maps, and rep-level performance scorecards. The solution is fully self-service — managers can slice by region, product, or time period without analyst support.',
     ],
     mainImage : '/images/portfolio/addidas/adidas_featured.png',
+    screenshot_1 : '',
+    screenshot_2 : '',
     challenge: 'Sales managers lacked real-time visibility into team performance and pipeline health across regions.',
     challengeDetail: 'Revenue forecasting was done manually in spreadsheets, with regional managers submitting weekly updates that were aggregated by a central analyst. The process took 2 days per cycle and produced forecasts with a ±22% variance. Pipeline hygiene was poor — no standardised stage definitions, inconsistent CRM usage, and no early-warning system for at-risk deals.',
     solution: 'Created an interactive PowerBI solution with custom DAX measures, AI forecasting, and drill-through to individual opportunities.',
@@ -279,6 +289,8 @@ export const projects: Project[] = [
       'The system accepts a campaign brief, generates a script via LLM, synthesises a voiceover, selects relevant stock footage using semantic search, composites all elements via FFmpeg, and delivers a rendered MP4 in under 10 minutes. The PoC was validated against a real campaign and presented to the client\'s board as the basis for a full product build.',
     ],
     mainImage : '/images/portfolio/streamVi/video-featured.png',
+    screenshot_1 : '',
+    screenshot_2 : '',
     challenge: 'Marketing teams needed scalable video content but lacked the production resources to meet client demand.',
     challengeDetail: 'The agency was producing 40–60 short-form videos per month manually — each taking 6–8 hours of editor time for scripting, recording, editing, and delivery. As client demand grew, the bottleneck became critical. Hiring more editors was not economically viable, and the quality of rushed output was deteriorating. A scalable automated solution was needed urgently.',
     solution: 'Built an AI pipeline that takes a text brief and produces a fully composed, broadcast-ready video in under 10 minutes.',
@@ -323,6 +335,8 @@ export const projects: Project[] = [
       'We designed and built a full-stack solution combining a custom-trained machine learning pipeline with a clean, intuitive web interface. The result is a platform that processes documents in seconds, learns from corrections, and integrates seamlessly with existing enterprise workflows via REST API.',
     ],
     mainImage : '/images/portfolio/docx/DocExtract-feature.png',
+    screenshot_1 : '',
+    screenshot_2 : '',
     challenge: 'Manual document processing was time-consuming and error-prone, costing businesses significant resources.',
     challengeDetail: 'The client\'s operations team was manually keying data from thousands of PDFs, scanned invoices, and structured forms every week. Accuracy hovered around 94%, meaning roughly 1 in 17 documents contained errors that propagated downstream into accounting and compliance systems. The process was entirely manual, non-auditable, and impossible to scale without proportional headcount growth.',
     solution: 'Built an AI-powered extraction engine with a clean web interface for real-time document processing.',
@@ -367,6 +381,8 @@ export const projects: Project[] = [
       'We conducted a 12-week diagnostic engagement spanning web properties, internal tooling, client onboarding journeys, and consultant-facing platforms. The output was a phased transformation roadmap, three of whose priority initiatives we subsequently delivered — resulting in measurable improvements across NPS, onboarding time, and consultant productivity.',
     ],
     mainImage : '/images/portfolio/smartflyer/smartflyer.png',
+    screenshot_1 : '',
+    screenshot_2 : '',
     challenge: 'Legacy digital infrastructure and fragmented client journeys were causing client churn and stalling growth.',
     challengeDetail: 'OVB\'s digital estate had grown organically across 14 country operations with minimal central governance. Each market operated a different client portal, consultant CRM, and onboarding workflow. Cross-border client management was nearly impossible. New consultant onboarding took an average of 22 days due to manual verification and document processes. Client NPS sat at 31 — well below the industry benchmark of 47.',
     solution: 'A phased digital transformation: unified client portal, automated onboarding, and a consultant productivity platform.',
@@ -411,6 +427,8 @@ export const projects: Project[] = [
       'We designed and delivered a full-featured LMS from the ground up: a rich course authoring environment for instructors, a fluid learning interface for students, live cohort sessions, progress analytics, and a certification engine — all running on a cloud-native architecture designed to scale to 50,000+ concurrent users.',
     ],
     mainImage : '/images/portfolio/LMS/courses.png',
+    screenshot_1 : '',
+    screenshot_2 : '',
     challenge: 'A legacy third-party LMS was limiting growth, causing performance issues, and delivering a poor learner experience.',
     challengeDetail: 'The existing platform could not support more than 1,200 concurrent users without degraded performance, forcing the institute to throttle enrolments. The course authoring tools were inflexible, preventing instructors from creating the interactive content types that modern learners expect. Completion rates sat at 41% — far below the 70%+ industry benchmark — largely attributed to a disengaging learner UX. Switching to a custom platform was a strategic imperative.',
     solution: 'Built a cloud-native LMS with rich course authoring, adaptive learning paths, and an infrastructure that scales to 50K+ users.',
