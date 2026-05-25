@@ -39,11 +39,17 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     };
   }, { scope: cardRef });
 
+  const style = {
+    backgroundSize: "cover",
+    backgroundImage: `url(${project.logoUrl})`,
+    backgroundRepeat: "no-repeat",
+  backgroundPosition: "center center",
+  };
   return (
     <div ref={cardRef}>
       <Link href={`/portfolio/${project.slug}`}>
         <div className="card-inner group rounded-2xl overflow-hidden bg-bg-card border border-border-subtle hover:border-text-primary/20 transition-colors duration-300">
-          <div
+          <div style={style}
             className={`aspect-video bg-gradient-to-br ${project.imageGradient} relative overflow-hidden`}
           >
             <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
