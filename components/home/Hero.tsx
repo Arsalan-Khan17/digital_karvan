@@ -234,7 +234,7 @@ export default function Hero() {
           style={{ transformOrigin: "center" }}
         >
           <span className="w-1.5 h-1.5 rounded-full bg-accent inline-block animate-pulse" />
-          Digital Agency — UK &amp; UAE
+          Digital Agency
         </div>
 
         {/* Headline */}

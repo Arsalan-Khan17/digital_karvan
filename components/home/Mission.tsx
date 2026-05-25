@@ -177,7 +177,7 @@ export default function Mission() {
                   End-to-end digital solutions — from brand identity to complex web applications.
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {["Web Development", "Branding", "UI/UX Design", "AI & Data", "Maintenance"].map((tag) => (
+                  {["AI & Data","Web Development", "Branding", "UI/UX Design", "Maintenance"].map((tag) => (
                     <span
                       key={tag}
                       className="px-3 py-1 rounded-full text-xs bg-bg-elevated border border-border-default text-text-secondary group-hover:border-accent/20 group-hover:text-text-primary transition-colors duration-300"
@@ -189,22 +189,22 @@ export default function Mission() {
               </div>
 
               {/* Bottom-left */}
-              <div className="p-5 rounded-2xl bg-bg-elevated border border-border-subtle flex flex-col justify-between min-h-[140px] glow-card transition-all duration-300">
-                <p className="text-xs text-text-muted">Offices</p>
-                <div>
-                  <p className="text-sm font-semibold text-text-primary">United Kingdom</p>
-                  <p className="text-xs text-text-muted mt-0.5">Coventry, England</p>
-                  <p className="text-sm font-semibold text-text-primary mt-3">UAE</p>
-                  <p className="text-xs text-text-muted mt-0.5">Dubai Region</p>
-                </div>
-              </div>
+              {/*<div className="p-5 rounded-2xl bg-bg-elevated border border-border-subtle flex flex-col justify-between min-h-[140px] glow-card transition-all duration-300">*/}
+              {/*  <p className="text-xs text-text-muted">Offices</p>*/}
+              {/*  <div>*/}
+              {/*    <p className="text-sm font-semibold text-text-primary">United Kingdom</p>*/}
+              {/*    <p className="text-xs text-text-muted mt-0.5">Coventry, England</p>*/}
+              {/*    <p className="text-sm font-semibold text-text-primary mt-3">UAE</p>*/}
+              {/*    <p className="text-xs text-text-muted mt-0.5">Dubai Region</p>*/}
+              {/*  </div>*/}
+              {/*</div>*/}
 
               {/* Bottom-right — accent card */}
               <div className="relative p-5 rounded-2xl bg-accent/10 border border-accent/20 flex flex-col justify-between min-h-[140px] overflow-hidden group">
                 <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true" />
                 <p className="relative text-xs text-text-muted">Response time</p>
                 <div className="relative">
-                  <p className="text-4xl font-bold text-accent" style={{ textShadow: "0 0 20px rgba(225,29,72,0.4)" }}>24h</p>
+                  <p className="text-3xl font-bold text-accent" style={{ textShadow: "0 0 20px rgba(225,29,72,0.4)" }}> Less than 24h </p>
                   <p className="text-xs text-text-secondary mt-1">
                     We respond to every enquiry within one business day, guaranteed.
                   </p>

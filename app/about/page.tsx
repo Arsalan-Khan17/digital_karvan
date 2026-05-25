@@ -79,7 +79,7 @@ export default function AboutPage() {
           </h2>
           <p className="text-2xl text-text-secondary max-w-2xl leading-relaxed mb-6">
             We exist to help businesses thrive in the digital world. Our mission is to
-            deliver innovative, high-quality digital solutions that create real, measurable
+            deliver innovative, high quality digital solutions that create real, measurable
             impact for our clients and their customers.
           </p>
           <p className="text-2xl text-text-secondary max-w-2xl leading-relaxed">
