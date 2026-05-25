@@ -11,7 +11,16 @@
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
   --color-accent: var(--accent);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Light mode (default) */
@@ -23,8 +32,8 @@
   --border-subtle: #dee2e6;
   --border-default: #ced4da;
   --text-primary: #111827;
-  --text-secondary: #6b7280;
-  --text-muted: #9ca3af;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
   --accent: #e11d48;
   /* Explicit rgba for navbar — avoids color-mix() CSS variable issues on Safari */
   --navbar-bg: rgba(255, 255, 255, 0.95);
@@ -39,8 +48,8 @@
   --border-subtle: #222222;
   --border-default: #333333;
   --text-primary: #ffffff;
-  --text-secondary: #a1a1aa;
-  --text-muted: #52525b;
+  --text-secondary: #d4d4d8;
+  --text-muted: #71717a;
   --accent: #e11d48;
   --navbar-bg: rgba(0, 0, 0, 0.95);
 }
@@ -62,6 +71,47 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   scroll-behavior: smooth;
+}
+
+/* ─── Focus visible ─────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ─── Skip navigation link ───────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -999;
+}
+.skip-link:focus {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  z-index: 10000;
+  padding: 12px 20px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
 }
 
 /* ─── 100vh Safari fix ───────────────────────────────────────
@@ -94,7 +144,7 @@ textarea {
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* Prevent horizontal overflow caused by animations */
@@ -243,6 +293,10 @@ body.menu-open {
   from { transform: translate(-50%, -50%) rotate(0deg); }
   to   { transform: translate(-50%, -50%) rotate(360deg); }
 }
+
+/* ─── Value card number (black light / white dark) ──────────── */
+.value-number { color: #000000; }
+.dark .value-number { color: #ffffff; }
 
 /* ─── Gradient text ──────────────────────────────────────────── */
 .text-gradient {

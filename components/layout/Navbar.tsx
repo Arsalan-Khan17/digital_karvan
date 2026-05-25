@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -16,6 +16,7 @@ export default function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -153,9 +154,13 @@ export default function Navbar() {
                 Get a Quote
               </Link>
               <button
+                id="mobile-menu-btn"
+                ref={hamburgerRef}
                 onClick={() => setMobileOpen(true)}
-                className="lg:hidden p-2 text-text-secondary hover:text-text-primary transition-colors"
-                aria-label="Open menu"
+                className="lg:hidden p-2.5 min-h-[44px] min-w-[44px] text-text-secondary hover:text-text-primary transition-colors"
+                aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
+                aria-expanded={mobileOpen}
+                aria-controls="mobile-menu-panel"
               >
                 <Menu size={22} />
               </button>
@@ -165,9 +170,11 @@ export default function Navbar() {
       </motion.header>
 
       <MobileMenu
+        id="mobile-menu-panel"
         isOpen={mobileOpen}
         onClose={() => setMobileOpen(false)}
         pathname={pathname}
+        triggerRef={hamburgerRef}
       />
     </>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import type React from "react";
 import Link from "next/link";
 import { X, Sun, Moon } from "lucide-react";
 import { navLinks } from "@/lib/data";
@@ -11,13 +12,16 @@ interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
   pathname: string;
+  id?: string;
+  triggerRef?: React.RefObject<HTMLButtonElement | null>;
 }
 
-export default function MobileMenu({ isOpen, onClose, pathname }: MobileMenuProps) {
+export default function MobileMenu({ isOpen, onClose, pathname, id, triggerRef }: MobileMenuProps) {
   const { theme, toggleTheme } = useTheme();
-  const menuRef    = useRef<HTMLDivElement>(null);
-  const listRef    = useRef<HTMLUListElement>(null);
-  const tlRef      = useRef<gsap.core.Timeline | null>(null);
+  const menuRef      = useRef<HTMLDivElement>(null);
+  const listRef      = useRef<HTMLUListElement>(null);
+  const tlRef        = useRef<gsap.core.Timeline | null>(null);
+  const firstLinkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     const menu = menuRef.current;
@@ -42,6 +46,11 @@ export default function MobileMenu({ isOpen, onClose, pathname }: MobileMenuProp
           },
           "-=0.2"
         );
+      // Move focus to first nav link after animation completes
+      const focusTimer = setTimeout(() => {
+        firstLinkRef.current?.focus();
+      }, 450);
+      return () => clearTimeout(focusTimer);
     } else {
       tlRef.current
         .to(list.children, {
@@ -52,13 +61,62 @@ export default function MobileMenu({ isOpen, onClose, pathname }: MobileMenuProp
           ease: "power2.in",
         })
         .to(menu, { x: "100%", duration: 0.35, ease: "power4.in" }, "-=0.15")
-        .set(menu, { display: "none" });
+        .set(menu, { display: "none", onComplete: () => {
+          triggerRef?.current?.focus();
+        }});
     }
   }, [isOpen]);
 
+  // Focus trap — keep Tab key inside the menu while open, Escape to close
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const menu = menuRef.current;
+      if (!menu) return;
+
+      if (e.key === "Escape") {
+        e.preventDefault();
+        onClose();
+        triggerRef?.current?.focus();
+        return;
+      }
+
+      if (e.key === "Tab") {
+        const focusable = Array.from(
+          menu.querySelectorAll<HTMLElement>(
+            'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          )
+        );
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose, triggerRef]);
+
   return (
     <div
+      id={id}
       ref={menuRef}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Navigation menu"
       className="fixed inset-0 z-50 bg-bg-primary flex flex-col"
       style={{
         display: "none",
@@ -81,7 +139,7 @@ export default function MobileMenu({ isOpen, onClose, pathname }: MobileMenuProp
           </button>
           <button
             onClick={onClose}
-            className="p-2.5 text-text-secondary hover:text-text-primary transition-colors"
+            className="p-3 text-text-secondary hover:text-text-primary transition-colors"
             aria-label="Close menu"
           >
             <X size={22} />
@@ -91,11 +149,13 @@ export default function MobileMenu({ isOpen, onClose, pathname }: MobileMenuProp
 
       <nav className="flex-1 overflow-y-auto overscroll-contain px-5 sm:px-6 py-6">
         <ul ref={listRef} className="space-y-1">
-          {navLinks.map((link) => (
+          {navLinks.map((link, index) => (
             <li key={link.href}>
               <Link
                 href={link.href}
+                ref={index === 0 ? firstLinkRef : undefined}
                 onClick={onClose}
+                aria-current={pathname === link.href ? "page" : undefined}
                 className={`block text-2xl font-medium py-3.5 border-b border-border-subtle transition-colors ${
                   pathname === link.href ? "text-text-primary" : "text-text-secondary"
                 }`}

@@ -10,7 +10,7 @@ import { useTheme } from "@/components/ThemeProvider";
 
 const HeroScene = dynamic(() => import("./HeroScene"), { ssr: false });
 
-const HEADLINE = "Where Integrity, Excellence, and Collaboration Drive Digital Innovation.";
+const HEADLINE = "We design and build digital products that grow ambitious businesses.";
 
 const stats = [
   { value: 50, suffix: "+", label: "Projects" },
@@ -89,26 +89,12 @@ export default function Hero() {
       );
     }
 
-    // Stats counter cascade
+    // Stats fade-in cascade (counter animation handled by IntersectionObserver)
     tl.from(
       statsRef.current,
       { opacity: 0, y: 30, duration: 0.5, ease: "power3.out" },
       1.35
-    ).add(() => {
-      stats.forEach((stat, i) => {
-        const el = statNumRefs.current[i];
-        if (!el) return;
-        gsap.to({ val: 0 }, {
-          val: stat.value,
-          duration: 1.8,
-          delay: i * 0.15,
-          ease: "power2.out",
-          onUpdate: function () {
-            el.textContent = String(Math.round(this.targets()[0].val));
-          },
-        });
-      });
-    }, 1.35);
+    );
 
     // Scroll indicator bob
     tl.from(
@@ -138,6 +124,48 @@ export default function Hero() {
     });
 
   }, { scope: containerRef });
+
+  // Counter animation via IntersectionObserver
+  useEffect(() => {
+    const container = statsRef.current;
+    if (!container) return;
+
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // If reduced-motion, just ensure final values are shown (they already are via JSX) and bail
+    if (prefersReduced) return;
+
+    let animated = false;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (animated) return;
+        const entry = entries[0];
+        if (!entry.isIntersecting) return;
+        animated = true;
+        observer.disconnect();
+
+        stats.forEach((stat, i) => {
+          const el = statNumRefs.current[i];
+          if (!el) return;
+          const startVal = Math.floor(stat.value * 0.4);
+          gsap.to({ val: startVal }, {
+            val: stat.value,
+            duration: 1.8,
+            delay: i * 0.15,
+            ease: "power2.out",
+            onUpdate: function () {
+              el.textContent = String(Math.round(this.targets()[0].val));
+            },
+          });
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
 
   // Magnetic hover on CTA buttons
   useEffect(() => {
@@ -181,8 +209,8 @@ export default function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background: isDark
-            ? "radial-gradient(ellipse 75% 65% at 50% 50%, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.10) 60%, transparent 100%)"
-            : "radial-gradient(ellipse 80% 70% at 50% 50%, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.30) 55%, transparent 100%)",
+            ? "radial-gradient(ellipse 75% 65% at 50% 50%, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.20) 60%, transparent 100%)"
+            : "radial-gradient(ellipse 80% 70% at 50% 50%, rgba(255,255,255,0.80) 0%, rgba(255,255,255,0.40) 55%, transparent 100%)",
         }}
         aria-hidden="true"
       />
@@ -212,8 +240,8 @@ export default function Hero() {
         {/* Headline */}
         <h1
           ref={headlineRef}
-          className="text-[2.1rem] sm:text-5xl md:text-6xl lg:text-[4.2rem] font-bold leading-[1.12] text-text-primary"
-          style={{ perspective: "600px" }}
+          className="text-[2.1rem] sm:text-5xl md:text-6xl lg:text-[4.2rem] font-bold leading-[1.12] text-text-primary mx-auto"
+          style={{ perspective: "600px", maxWidth: "min(860px, 90vw)" }}
         >
           {HEADLINE}
         </h1>
@@ -237,6 +265,9 @@ export default function Hero() {
           <Button variant="primary" size="lg" href="/contact">
             Get a Free Quote
           </Button>
+          <Button variant="ghost" size="lg" href="/contact?type=call" className="border border-border-default">
+            Book a Discovery Call
+          </Button>
           <Button variant="ghost" size="lg" href="/portfolio">
             View Our Work
           </Button>
@@ -254,7 +285,7 @@ export default function Hero() {
               )}
               <div className="text-center">
                 <p className="text-2xl sm:text-3xl font-bold text-text-primary tabular-nums">
-                  <span ref={(el) => { statNumRefs.current[i] = el; }}>0</span>
+                  <span ref={(el) => { statNumRefs.current[i] = el; }}>{stat.value}</span>
                   <span className="text-accent">{stat.suffix}</span>
                 </p>
                 <p className="text-xs text-text-muted mt-0.5 uppercase tracking-widest">{stat.label}</p>

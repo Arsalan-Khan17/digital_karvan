@@ -87,7 +87,7 @@ export default function Team() {
           style={{ perspective: "1000px" }}
         >
           {team.map((member, i) => (
-            <div key={member.id} className="text-center">
+            <div key={member.id} className="text-center flex flex-col items-center p-4 rounded-2xl bg-bg-card border border-border-subtle hover:border-border-default transition-colors">
               {/* Avatar with orbiting ring */}
               <div className="relative mx-auto w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-4">
                 {/* Spinning conic ring */}
@@ -97,10 +97,18 @@ export default function Team() {
                     background: "conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(225,29,72,0.6) 300deg, rgba(251,113,133,0.3) 330deg, transparent 360deg)",
                   }}
                 />
-                <div className="absolute inset-[3px] rounded-full bg-gradient-to-br from-bg-elevated to-bg-card border border-border-default flex items-center justify-center">
-                  <span className="text-xl sm:text-2xl font-bold text-text-primary/30">
-                    {member.name.charAt(0)}
-                  </span>
+                <div className="absolute inset-[3px] rounded-full bg-gradient-to-br from-bg-elevated to-bg-card border border-border-default flex items-center justify-center overflow-hidden">
+                  {member.imageUrl ? (
+                    <img
+                      src={member.imageUrl}
+                      alt={`Portrait of ${member.name}, ${member.role}`}
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  ) : (
+                    <span className="text-xl sm:text-2xl font-bold text-text-primary/30">
+                      {member.name.charAt(0)}
+                    </span>
+                  )}
                   {member.isFounder && (
                     <span className="absolute -top-1 -right-1 px-2 py-0.5 rounded-full bg-accent text-white text-[10px] font-semibold whitespace-nowrap">
                       Co-Founder
@@ -110,6 +118,21 @@ export default function Team() {
               </div>
               <h3 className="font-semibold text-text-primary text-sm sm:text-base">{member.name}</h3>
               <p className="text-xs sm:text-sm text-text-secondary mt-0.5">{member.role}</p>
+              <p className="text-xs text-text-muted mt-2 leading-relaxed line-clamp-3">{member.bio}</p>
+              {member.linkedin !== null && (
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${member.name} on LinkedIn`}
+                  className="inline-flex items-center gap-1 mt-3 text-xs text-text-muted hover:text-accent transition-colors focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 min-h-[44px] min-w-[44px] justify-center rounded-md"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                  <span className="sr-only">LinkedIn</span>
+                </a>
+              )}
             </div>
           ))}
         </div>

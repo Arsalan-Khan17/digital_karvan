@@ -432,13 +432,56 @@ export interface TeamMember {
   role: string;
   isFounder: boolean;
   imageUrl: string;
+  bio: string;
+  linkedin: string | null;
 }
 
 export const team: TeamMember[] = [
-  { id: '1', name: 'Azam Tariq', role: 'Co-Founder & Managing Director', isFounder: true, imageUrl: '' },
-  { id: '2', name: 'Muhammad Arsalan Khan', role: 'Technical Lead, Web Development', isFounder: false, imageUrl: '' },
-  { id: '3', name: 'Shaheryar Khan', role: 'Lead AI Engineer', isFounder: false, imageUrl: '' },
-  { id: '4', name: 'Touseef Khan', role: 'Project Manager', isFounder: false, imageUrl: '' },
+  {
+    id: '1',
+    name: 'Azam Tariq',
+    role: 'Co-Founder & Managing Director',
+    isFounder: true,
+    imageUrl: '',
+    bio: 'Azam leads Digital Karvan with a decade of experience in digital strategy and business development. He has helped clients across the UK and UAE translate ambitious ideas into measurable digital outcomes.',
+    linkedin: 'https://linkedin.com/in/azam-tariq',
+  },
+  {
+    id: '2',
+    name: 'Muhammad Arsalan Khan',
+    role: 'Technical Lead, Web Development',
+    isFounder: false,
+    imageUrl: '',
+    bio: 'Arsalan architects and builds the high-performance web applications that power Digital Karvan projects. He specialises in Next.js, React, and scalable full-stack systems that are as maintainable as they are fast.',
+    linkedin: 'https://linkedin.com/in/arsalan-khan17',
+  },
+  {
+    id: '3',
+    name: 'Shaheryar Khan',
+    role: 'Lead AI Engineer',
+    isFounder: false,
+    imageUrl: '',
+    bio: 'Shaheryar leads Digital Karvan\'s AI and machine learning work, building intelligent systems that automate processes and generate insight. His background spans computer vision, NLP, and production ML pipelines.',
+    linkedin: null,
+  },
+  {
+    id: '4',
+    name: 'Touseef Khan',
+    role: 'Project Manager',
+    isFounder: false,
+    imageUrl: '',
+    bio: 'Touseef ensures every project runs on time, on budget, and to the highest standard. With a background in enterprise delivery, he keeps communication clear and expectations aligned from discovery to launch.',
+    linkedin: null,
+  },
+  {
+    id: '5',
+    name: 'Ayaan Khan',
+    role: 'Tech Consultant',
+    isFounder: false,
+    imageUrl: '',
+    bio: 'Ayaan advises on technology strategy and helps clients navigate complex technical decisions. He brings a breadth of experience across modern stacks and enterprise systems to every engagement.',
+    linkedin: null,
+  },
 ];
 
 // Testimonials

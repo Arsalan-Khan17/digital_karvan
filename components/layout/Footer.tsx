@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Globe, Share2, ExternalLink, Mail, Phone, MapPin } from "lucide-react";
+import { Globe, Share2, ExternalLink, Mail, Phone } from "lucide-react";
 import FooterNewsletter from "./FooterNewsletter";
 
 export default function Footer() {
@@ -111,32 +111,6 @@ export default function Footer() {
               Contact Info
             </h3>
             <ul className="space-y-4">
-              <li className="flex gap-3">
-                <MapPin size={16} className="text-text-muted mt-0.5 shrink-0" />
-                <div>
-                  <p className="text-xs font-medium text-text-muted mb-1">UK Office</p>
-                  <p className="text-sm text-text-secondary">Charter Avenue, Coventry</p>
-                  <a
-                    href="tel:+447377259354"
-                    className="text-sm text-text-secondary hover:text-text-primary transition-colors"
-                  >
-                    +44 737 7259 354
-                  </a>
-                </div>
-              </li>
-              <li className="flex gap-3">
-                <MapPin size={16} className="text-text-muted mt-0.5 shrink-0" />
-                <div>
-                  <p className="text-xs font-medium text-text-muted mb-1">UAE Office</p>
-                  <p className="text-sm text-text-secondary">Leehove 40, 2678 MC De Lier, Netherlands</p>
-                  <a
-                    href="tel:+31174705811"
-                    className="text-sm text-text-secondary hover:text-text-primary transition-colors"
-                  >
-                    +31 174 705 811
-                  </a>
-                </div>
-              </li>
               <li className="flex gap-3">
                 <Mail size={16} className="text-text-muted mt-0.5 shrink-0" />
                 <a
