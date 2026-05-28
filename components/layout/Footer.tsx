@@ -24,7 +24,7 @@ export default function Footer() {
               <FooterNewsletter />
             </div>
             {/* Socials */}
-            <div className="mt-6 flex gap-3">
+            {/* <div className="mt-6 flex gap-3">
               <a
                 href="https://linkedin.com"
                 target="_blank"
@@ -52,7 +52,7 @@ export default function Footer() {
               >
                 <ExternalLink size={16} />
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* Quick Links */}
@@ -65,8 +65,8 @@ export default function Footer() {
                 { label: "Home", href: "/" },
                 { label: "About Us", href: "/about" },
                 { label: "Portfolio", href: "/portfolio" },
-                { label: "Blog", href: "/blog" },
-                { label: "Careers", href: "/careers" },
+                // { label: "Blog", href: "/blog" },
+                // { label: "Careers", href: "/careers" },
                 { label: "Contact", href: "/contact" },
               ].map((item) => (
                 <li key={item.href}>
@@ -136,7 +136,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 md:mt-16 pt-6 md:pt-8 border-t border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-text-muted">
-            © 2025 Digital Karvan. All rights reserved.
+            © 2026 Digital Karvan. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link href="/privacy-policy" className="text-xs text-text-muted hover:text-text-primary transition-colors">
