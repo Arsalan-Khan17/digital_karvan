@@ -1,0 +1,655 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=e4]:
+    - generic [ref=e5]: DigitalKarvan
+    - generic [ref=e6]: 0/ 100
+    - generic [ref=e7]: Designing the experienceInitialising
+  - banner [ref=e8]:
+    - generic [ref=e10]:
+      - link "Digital Karvan — home" [ref=e11] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e12]: DigitalKarvan
+      - navigation [ref=e13]:
+        - link "Home" [ref=e14] [cursor=pointer]:
+          - /url: /
+        - button "Services" [ref=e16]:
+          - text: Services
+          - img [ref=e17]
+        - link "Portfolio" [ref=e19] [cursor=pointer]:
+          - /url: /portfolio
+        - link "About" [ref=e20] [cursor=pointer]:
+          - /url: /about
+        - link "Contact" [ref=e21] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=e22]:
+        - button "Toggle theme" [ref=e23]:
+          - img [ref=e24]
+        - link "Get a Quote" [ref=e30] [cursor=pointer]:
+          - /url: /contact
+  - main [ref=e31]:
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - generic [ref=e34]:
+          - generic [ref=e35]: Digital Agency
+          - heading "We design and build digital products that grow ambitious businesses." [level=1] [ref=e37]
+          - paragraph [ref=e38]: We partner with ambitious businesses — from startups to enterprise — to design and build websites, brand identities, and digital products that convert visitors into customers and ideas into growth.
+          - generic [ref=e39]:
+            - link "Get a Free Quote" [ref=e40] [cursor=pointer]:
+              - /url: /contact
+              - generic [ref=e41]: Get a Free Quote
+            - link "Book a Discovery Call" [ref=e42] [cursor=pointer]:
+              - /url: /contact?type=call
+              - generic [ref=e43]: Book a Discovery Call
+            - link "View Our Work" [ref=e44] [cursor=pointer]:
+              - /url: /portfolio
+              - generic [ref=e45]: View Our Work
+          - generic [ref=e46]:
+            - generic [ref=e48]:
+              - paragraph [ref=e49]: 50+
+              - paragraph [ref=e50]: Projects
+            - generic [ref=e53]:
+              - paragraph [ref=e54]: 20+
+              - paragraph [ref=e55]: Clients
+            - generic [ref=e58]:
+              - paragraph [ref=e59]: 3+
+              - paragraph [ref=e60]: Years
+            - generic [ref=e63]:
+              - paragraph [ref=e64]: "2"
+              - paragraph [ref=e65]: Offices
+        - generic [ref=e66]:
+          - generic [ref=e67]: Scroll
+          - img [ref=e68]
+      - region "Clients we've worked with" [ref=e70]:
+        - paragraph [ref=e72]: Trusted By
+        - generic [ref=e73]:
+          - list "Client logos" [ref=e75]:
+            - listitem [ref=e76]:
+              - generic [ref=e78]:
+                - generic [ref=e79]: DE
+                - generic [ref=e80]: DocExtract
+            - listitem [ref=e81]:
+              - generic [ref=e83]:
+                - generic [ref=e84]: VA
+                - generic [ref=e85]: VoiceAI Studios
+            - listitem [ref=e86]:
+              - generic [ref=e88]:
+                - generic [ref=e89]: BOK
+                - generic [ref=e90]: Bank of Khyber
+            - listitem [ref=e91]:
+              - generic [ref=e93]:
+                - generic [ref=e94]: SF
+                - generic [ref=e95]: Smartflyer Travel
+            - listitem [ref=e96]:
+              - generic [ref=e98]:
+                - generic [ref=e99]: OVB
+                - generic [ref=e100]: OVB Holdings AG
+            - listitem [ref=e101]:
+              - generic [ref=e103]:
+                - generic [ref=e104]: MG
+                - generic [ref=e105]: MediaGen Corp
+            - listitem [ref=e106]:
+              - generic [ref=e108]:
+                - generic [ref=e109]: ETI
+                - generic [ref=e110]: EduTech Institute
+            - listitem [ref=e111]:
+              - generic [ref=e113]:
+                - generic [ref=e114]: ESC
+                - generic [ref=e115]: Enterprise Sales Corp
+          - list [ref=e117]:
+            - listitem [ref=e118]:
+              - generic [ref=e120]:
+                - generic [ref=e121]: DE
+                - generic [ref=e122]: DocExtract
+            - listitem [ref=e123]:
+              - generic [ref=e125]:
+                - generic [ref=e126]: VA
+                - generic [ref=e127]: VoiceAI Studios
+            - listitem [ref=e128]:
+              - generic [ref=e130]:
+                - generic [ref=e131]: BOK
+                - generic [ref=e132]: Bank of Khyber
+            - listitem [ref=e133]:
+              - generic [ref=e135]:
+                - generic [ref=e136]: SF
+                - generic [ref=e137]: Smartflyer Travel
+            - listitem [ref=e138]:
+              - generic [ref=e140]:
+                - generic [ref=e141]: OVB
+                - generic [ref=e142]: OVB Holdings AG
+            - listitem [ref=e143]:
+              - generic [ref=e145]:
+                - generic [ref=e146]: MG
+                - generic [ref=e147]: MediaGen Corp
+            - listitem [ref=e148]:
+              - generic [ref=e150]:
+                - generic [ref=e151]: ETI
+                - generic [ref=e152]: EduTech Institute
+            - listitem [ref=e153]:
+              - generic [ref=e155]:
+                - generic [ref=e156]: ESC
+                - generic [ref=e157]: Enterprise Sales Corp
+      - generic [ref=e160]:
+        - generic [ref=e161]:
+          - paragraph [ref=e162]: Our Mission
+          - heading "Building Digital Excellence, One Project at a Time" [level=2] [ref=e163]
+          - generic [ref=e164]:
+            - paragraph [ref=e165]: At Digital Karvan, we believe exceptional digital experiences are built on a foundation of trust, craftsmanship, and genuine partnership. We embed ourselves in each client's world — understanding their challenges, their audience, and the outcomes that actually matter — before a single line of code is written or a pixel placed.
+            - paragraph [ref=e166]: Our team spans design, engineering, and strategy. We bring the same level of rigour and dedication to a two-page brochure site as we do to a complex enterprise platform. Because good work doesn't scale down — it either meets the standard or it doesn't.
+          - generic [ref=e167]:
+            - generic [ref=e168]:
+              - paragraph [ref=e169]: 0+
+              - paragraph [ref=e170]: Projects Delivered
+              - paragraph [ref=e171]: Across web, branding, AI, and enterprise data
+            - generic [ref=e172]:
+              - paragraph [ref=e173]: 0+
+              - paragraph [ref=e174]: Happy Clients
+              - paragraph [ref=e175]: From funded startups to FTSE-listed institutions
+            - generic [ref=e176]:
+              - paragraph [ref=e177]: 0+
+              - paragraph [ref=e178]: Years of Craft
+              - paragraph [ref=e179]: Consistent delivery since our first engagement
+          - link "Our story & values" [ref=e180] [cursor=pointer]:
+            - /url: /about
+            - text: Our story & values
+            - img [ref=e181]
+        - generic [ref=e184]:
+          - generic [ref=e185]:
+            - paragraph [ref=e186]: What we do
+            - paragraph [ref=e187]: End-to-end digital solutions — from brand identity to complex web applications.
+            - generic [ref=e188]:
+              - generic [ref=e189]: AI & Data
+              - generic [ref=e190]: Web Development
+              - generic [ref=e191]: Branding
+              - generic [ref=e192]: UI/UX Design
+              - generic [ref=e193]: Maintenance
+          - generic [ref=e194]:
+            - paragraph [ref=e196]: Response time
+            - generic [ref=e197]:
+              - paragraph [ref=e198]: Less than 24h
+              - paragraph [ref=e199]: We respond to every enquiry within one business day, guaranteed.
+      - generic [ref=e200]:
+        - generic [ref=e201]:
+          - generic [ref=e202]: Design
+          - generic [ref=e203]: •
+          - generic [ref=e204]: Build
+          - generic [ref=e205]: •
+          - generic [ref=e206]: Launch
+          - generic [ref=e207]: •
+          - generic [ref=e208]: Grow
+          - generic [ref=e209]: •
+          - generic [ref=e210]: Iterate
+          - generic [ref=e211]: •
+          - generic [ref=e212]: Design
+          - generic [ref=e213]: •
+          - generic [ref=e214]: Build
+          - generic [ref=e215]: •
+          - generic [ref=e216]: Launch
+          - generic [ref=e217]: •
+          - generic [ref=e218]: Grow
+          - generic [ref=e219]: •
+          - generic [ref=e220]: Iterate
+          - generic [ref=e221]: •
+          - generic [ref=e222]: Design
+          - generic [ref=e223]: •
+          - generic [ref=e224]: Build
+          - generic [ref=e225]: •
+          - generic [ref=e226]: Launch
+          - generic [ref=e227]: •
+          - generic [ref=e228]: Grow
+          - generic [ref=e229]: •
+          - generic [ref=e230]: Iterate
+          - generic [ref=e231]: •
+        - generic [ref=e232]:
+          - generic [ref=e233]: Strategy
+          - generic [ref=e234]: •
+          - generic [ref=e235]: Identity
+          - generic [ref=e236]: •
+          - generic [ref=e237]: Code
+          - generic [ref=e238]: •
+          - generic [ref=e239]: Data
+          - generic [ref=e240]: •
+          - generic [ref=e241]: AI
+          - generic [ref=e242]: •
+          - generic [ref=e243]: Strategy
+          - generic [ref=e244]: •
+          - generic [ref=e245]: Identity
+          - generic [ref=e246]: •
+          - generic [ref=e247]: Code
+          - generic [ref=e248]: •
+          - generic [ref=e249]: Data
+          - generic [ref=e250]: •
+          - generic [ref=e251]: AI
+          - generic [ref=e252]: •
+          - generic [ref=e253]: Strategy
+          - generic [ref=e254]: •
+          - generic [ref=e255]: Identity
+          - generic [ref=e256]: •
+          - generic [ref=e257]: Code
+          - generic [ref=e258]: •
+          - generic [ref=e259]: Data
+          - generic [ref=e260]: •
+          - generic [ref=e261]: AI
+          - generic [ref=e262]: •
+      - generic [ref=e264]:
+        - generic [ref=e265]:
+          - generic [ref=e266]:
+            - paragraph [ref=e267]: What We Do
+            - heading "Our Services" [level=2] [ref=e268]
+          - link "All services" [ref=e269] [cursor=pointer]:
+            - /url: /services
+            - text: All services
+            - img [ref=e270]
+        - generic [ref=e272]:
+          - link "01 Website Design & Development We design and build stunning, high-performance websites tailored to your brand. UI/UX Design Responsive Web Design Web App Development +3 more Learn more" [ref=e275] [cursor=pointer]:
+            - /url: /services/website-development
+            - generic [ref=e276]:
+              - img [ref=e280]
+              - generic [ref=e282]: "01"
+              - heading "Website Design & Development" [level=3] [ref=e283]
+              - paragraph [ref=e284]: We design and build stunning, high-performance websites tailored to your brand.
+              - generic [ref=e285]:
+                - generic [ref=e286]: UI/UX Design
+                - generic [ref=e287]: Responsive Web Design
+                - generic [ref=e288]: Web App Development
+                - generic [ref=e289]: +3 more
+              - generic [ref=e290]:
+                - text: Learn more
+                - img [ref=e291]
+          - link "02 Branding & Identity Design Craft a distinctive brand identity that resonates with your target audience. UX Audits Design Thinking Brand Methodologies +3 more Learn more" [ref=e295] [cursor=pointer]:
+            - /url: /services/branding-identity
+            - generic [ref=e296]:
+              - img [ref=e300]
+              - generic [ref=e306]: "02"
+              - heading "Branding & Identity Design" [level=3] [ref=e307]
+              - paragraph [ref=e308]: Craft a distinctive brand identity that resonates with your target audience.
+              - generic [ref=e309]:
+                - generic [ref=e310]: UX Audits
+                - generic [ref=e311]: Design Thinking
+                - generic [ref=e312]: Brand Methodologies
+                - generic [ref=e313]: +3 more
+              - generic [ref=e314]:
+                - text: Learn more
+                - img [ref=e315]
+          - link "03 Website Maintenance & Support Keep your digital presence secure, up-to-date, and performing at its best. Regular Updates Performance Monitoring Bug Fixes +3 more Learn more" [ref=e319] [cursor=pointer]:
+            - /url: /services/maintenance-support
+            - generic [ref=e320]:
+              - img [ref=e324]
+              - generic [ref=e326]: "03"
+              - heading "Website Maintenance & Support" [level=3] [ref=e327]
+              - paragraph [ref=e328]: Keep your digital presence secure, up-to-date, and performing at its best.
+              - generic [ref=e329]:
+                - generic [ref=e330]: Regular Updates
+                - generic [ref=e331]: Performance Monitoring
+                - generic [ref=e332]: Bug Fixes
+                - generic [ref=e333]: +3 more
+              - generic [ref=e334]:
+                - text: Learn more
+                - img [ref=e335]
+          - link "04 Consultation & Technical Guidance Expert digital strategy and technical guidance to help your business thrive. Expert Digital Strategy Technical Problem-Solving Emerging Technology Advisory +3 more Learn more" [ref=e339] [cursor=pointer]:
+            - /url: /services/consultation
+            - generic [ref=e340]:
+              - img [ref=e344]
+              - generic [ref=e346]: "04"
+              - heading "Consultation & Technical Guidance" [level=3] [ref=e347]
+              - paragraph [ref=e348]: Expert digital strategy and technical guidance to help your business thrive.
+              - generic [ref=e349]:
+                - generic [ref=e350]: Expert Digital Strategy
+                - generic [ref=e351]: Technical Problem-Solving
+                - generic [ref=e352]: Emerging Technology Advisory
+                - generic [ref=e353]: +3 more
+              - generic [ref=e354]:
+                - text: Learn more
+                - img [ref=e355]
+      - generic [ref=e357]:
+        - generic [ref=e359]:
+          - generic [ref=e360]:
+            - paragraph [ref=e361]: Our Work
+            - heading "Selected Work" [level=2] [ref=e362]
+          - link "Full portfolio" [ref=e363] [cursor=pointer]:
+            - /url: /portfolio
+            - text: Full portfolio
+            - img [ref=e364]
+        - generic [ref=e367]:
+          - generic [ref=e368]:
+            - generic: "01"
+            - generic [ref=e372]:
+              - generic [ref=e373]:
+                - generic [ref=e374]: 01 / 06
+                - generic [ref=e377]: Website
+              - heading "Smartflyer Website & Portal" [level=3] [ref=e378]
+              - paragraph [ref=e379]: A premium travel website and agent portal for Smartflyer, a luxury travel concierge service.
+              - generic [ref=e380]:
+                - generic [ref=e381]:
+                  - paragraph [ref=e382]: +45%
+                  - paragraph [ref=e383]: Conversion rate increase
+                - generic [ref=e384]:
+                  - paragraph [ref=e385]: "-60%"
+                  - paragraph [ref=e386]: Bounce rate reduction
+                - generic [ref=e387]:
+                  - paragraph [ref=e388]: 3hrs
+                  - paragraph [ref=e389]: Saved per booking (admin)
+              - link "View Case Study" [ref=e390] [cursor=pointer]:
+                - /url: /portfolio/smartflyer-website
+                - text: View Case Study
+                - img [ref=e391]
+            - generic [ref=e395]:
+              - paragraph [ref=e396]: Jul 27, 2025
+              - generic [ref=e397]:
+                - generic [ref=e398]: Next.js
+                - generic [ref=e399]: Tailwind CSS
+                - generic [ref=e400]: Strapi
+                - generic [ref=e401]: PostgreSQL
+          - generic [ref=e402]:
+            - generic: "02"
+            - generic [ref=e406]:
+              - generic [ref=e407]:
+                - generic [ref=e408]: 02 / 06
+                - generic [ref=e410]:
+                  - generic [ref=e411]: Technology
+                  - generic [ref=e412]: Website
+              - heading "LMS" [level=3] [ref=e413]
+              - paragraph [ref=e414]: A comprehensive Learning Management System built for scale — serving thousands of concurrent learners across educational and corporate environments.
+              - generic [ref=e415]:
+                - generic [ref=e416]:
+                  - paragraph [ref=e417]: 41% → 78%
+                  - paragraph [ref=e418]: Course completion rate
+                - generic [ref=e419]:
+                  - paragraph [ref=e420]: 10K+
+                  - paragraph [ref=e421]: Active learners
+                - generic [ref=e422]:
+                  - paragraph [ref=e423]: 9,400
+                  - paragraph [ref=e424]: Peak concurrent users
+              - link "View Case Study" [ref=e425] [cursor=pointer]:
+                - /url: /portfolio/lms
+                - text: View Case Study
+                - img [ref=e426]
+            - generic [ref=e430]:
+              - paragraph [ref=e431]: Nov 14, 2023
+              - generic [ref=e432]:
+                - generic [ref=e433]: React
+                - generic [ref=e434]: Node.js
+                - generic [ref=e435]: GraphQL
+                - generic [ref=e436]: MongoDB
+          - generic [ref=e437]:
+            - generic: "03"
+            - generic [ref=e441]:
+              - generic [ref=e442]:
+                - generic [ref=e443]: 03 / 06
+                - generic [ref=e445]:
+                  - generic [ref=e446]: Technology
+                  - generic [ref=e447]: Website
+              - heading "AI Voice Cloning Technology" [level=3] [ref=e448]
+              - paragraph [ref=e449]: A cutting-edge voice synthesis platform enabling realistic voice cloning for content creators.
+              - generic [ref=e450]:
+                - generic [ref=e451]:
+                  - paragraph [ref=e452]: 10×
+                  - paragraph [ref=e453]: Faster content production
+                - generic [ref=e454]:
+                  - paragraph [ref=e455]: 500+
+                  - paragraph [ref=e456]: Creators onboarded in Q1
+                - generic [ref=e457]:
+                  - paragraph [ref=e458]: 10K hrs
+                  - paragraph [ref=e459]: Audio generated
+              - link "View Case Study" [ref=e460] [cursor=pointer]:
+                - /url: /portfolio/ai-voice-cloning
+                - text: View Case Study
+                - img [ref=e461]
+            - generic [ref=e465]:
+              - paragraph [ref=e466]: Mar 10, 2026
+              - generic [ref=e467]:
+                - generic [ref=e468]: React
+                - generic [ref=e469]: PyTorch
+                - generic [ref=e470]: FastAPI
+                - generic [ref=e471]: WebRTC
+          - generic [ref=e472]:
+            - generic: "04"
+            - generic [ref=e476]:
+              - generic [ref=e477]:
+                - generic [ref=e478]: 04 / 06
+                - generic [ref=e481]: Technology
+              - heading "Bank of Khyber Dashboard" [level=3] [ref=e482]
+              - paragraph [ref=e483]: Enterprise banking dashboard providing real-time financial analytics and branch performance metrics.
+              - generic [ref=e484]:
+                - generic [ref=e485]:
+                  - paragraph [ref=e486]: 5 days → 15min
+                  - paragraph [ref=e487]: Reporting cycle time
+                - generic [ref=e488]:
+                  - paragraph [ref=e489]: 40+
+                  - paragraph [ref=e490]: Branches connected
+                - generic [ref=e491]:
+                  - paragraph [ref=e492]: 60+
+                  - paragraph [ref=e493]: KPIs tracked
+              - link "View Case Study" [ref=e494] [cursor=pointer]:
+                - /url: /portfolio/bank-of-khyber-dashboard
+                - text: View Case Study
+                - img [ref=e495]
+            - generic [ref=e499]:
+              - paragraph [ref=e500]: Mar 10, 2026
+              - generic [ref=e501]:
+                - generic [ref=e502]: React
+                - generic [ref=e503]: D3.js
+                - generic [ref=e504]: Node.js
+                - generic [ref=e505]: SQL Server
+          - generic [ref=e506]:
+            - generic: "05"
+            - generic [ref=e510]:
+              - generic [ref=e511]:
+                - generic [ref=e512]: 05 / 06
+                - generic [ref=e515]: Technology
+              - heading "Sales Performance Dashboard – PowerBI" [level=3] [ref=e516]
+              - paragraph [ref=e517]: Comprehensive PowerBI sales analytics dashboard for enterprise sales teams with custom KPIs and AI-driven forecasting.
+              - generic [ref=e518]:
+                - generic [ref=e519]:
+                  - paragraph [ref=e520]: 35%
+                  - paragraph [ref=e521]: Improvement in forecast accuracy
+                - generic [ref=e522]:
+                  - paragraph [ref=e523]: 20%
+                  - paragraph [ref=e524]: Increase in team productivity
+                - generic [ref=e525]:
+                  - paragraph [ref=e526]: 150+
+                  - paragraph [ref=e527]: Custom DAX measures
+              - link "View Case Study" [ref=e528] [cursor=pointer]:
+                - /url: /portfolio/sales-performance-dashboard
+                - text: View Case Study
+                - img [ref=e529]
+            - generic [ref=e533]:
+              - paragraph [ref=e534]: Mar 8, 2026
+              - generic [ref=e535]:
+                - generic [ref=e536]: PowerBI
+                - generic [ref=e537]: DAX
+                - generic [ref=e538]: Azure Synapse
+                - generic [ref=e539]: SQL Server
+          - generic [ref=e540]:
+            - generic: "06"
+            - generic [ref=e544]:
+              - generic [ref=e545]:
+                - generic [ref=e546]: 06 / 06
+                - generic [ref=e548]:
+                  - generic [ref=e549]: Technology
+                  - generic [ref=e550]: Website
+              - heading "AI Video Automation – PoC" [level=3] [ref=e551]
+              - paragraph [ref=e552]: Proof of concept for automated video generation using AI — from script to finished video without human editing.
+              - generic [ref=e553]:
+                - generic [ref=e554]:
+                  - paragraph [ref=e555]: 80%
+                  - paragraph [ref=e556]: Production cost reduction
+                - generic [ref=e557]:
+                  - paragraph [ref=e558]: 8 min
+                  - paragraph [ref=e559]: End-to-end generation time
+                - generic [ref=e560]:
+                  - paragraph [ref=e561]: 12 videos
+                  - paragraph [ref=e562]: Produced in pilot
+              - link "View Case Study" [ref=e563] [cursor=pointer]:
+                - /url: /portfolio/ai-video-automation
+                - text: View Case Study
+                - img [ref=e564]
+            - generic [ref=e568]:
+              - paragraph [ref=e569]: Mar 4, 2026
+              - generic [ref=e570]:
+                - generic [ref=e571]: Python
+                - generic [ref=e572]: FFmpeg
+                - generic [ref=e573]: OpenAI GPT-4
+                - generic [ref=e574]: CLIP
+      - generic [ref=e576]:
+        - generic [ref=e577]:
+          - paragraph [ref=e578]: What Guides Us
+          - heading "Our Core Values" [level=2] [ref=e579]
+          - paragraph [ref=e580]: Three principles that govern how we work, who we hire, and how we show up for our clients.
+        - generic [ref=e581]:
+          - generic [ref=e583]:
+            - generic [ref=e584]: "01"
+            - heading "Integrity" [level=3] [ref=e585]
+            - paragraph [ref=e586]: We say what we mean and do what we say. No scope surprises, no hidden trade-offs, no over-promising. Our clients trust us precisely because we tell them the truth — even when it is not what they want to hear.
+          - generic [ref=e588]:
+            - generic [ref=e589]: "02"
+            - heading "Excellence" [level=3] [ref=e590]
+            - paragraph [ref=e591]: "We hold ourselves to a standard that goes beyond the brief. Every component, every interaction, every line of copy is reviewed against the question: is this genuinely the best it can be? Mediocre work does not leave our studio."
+          - generic [ref=e593]:
+            - generic [ref=e594]: "03"
+            - heading "Collaboration" [level=3] [ref=e595]
+            - paragraph [ref=e596]: The best digital work is co-created. We embed ourselves in our clients' thinking, share our process openly, and treat their business goals as our own. A great outcome is a shared outcome — we only succeed when you do.
+      - generic [ref=e598]:
+        - generic [ref=e599]:
+          - paragraph [ref=e600]: The People Behind the Work
+          - heading "Meet Our Team" [level=2] [ref=e601]
+          - paragraph [ref=e602]: A small, focused team of designers, engineers, and strategists who are genuinely invested in the success of every project they touch.
+        - generic [ref=e603]:
+          - generic [ref=e604]:
+            - generic [ref=e606]:
+              - generic [ref=e607]: A
+              - generic [ref=e608]: Co-Founder
+            - heading "Azam Tariq" [level=3] [ref=e609]
+            - paragraph [ref=e610]: Managing Partner
+            - paragraph
+          - generic [ref=e611]:
+            - generic [ref=e614]: A
+            - heading "Ayaan Khan" [level=3] [ref=e615]
+            - paragraph [ref=e616]: Business Development Strategy Head
+            - paragraph
+          - generic [ref=e617]:
+            - generic [ref=e620]: T
+            - heading "Touseef Ahmad" [level=3] [ref=e621]
+            - paragraph [ref=e622]: Full-Stack Engineer
+            - paragraph
+          - generic [ref=e623]:
+            - generic [ref=e626]: M
+            - heading "Muhammad Arsalan Khan" [level=3] [ref=e627]
+            - paragraph [ref=e628]: Full-Stack Developer
+            - paragraph
+          - generic [ref=e629]:
+            - generic [ref=e632]: S
+            - heading "Shaheryar Khan" [level=3] [ref=e633]
+            - paragraph [ref=e634]: Lead AI & Full-Stack Engineer
+            - paragraph
+      - generic [ref=e636]:
+        - generic [ref=e637]:
+          - paragraph [ref=e638]: Client Stories
+          - heading "What Our Clients Say" [level=2] [ref=e639]
+        - generic [ref=e640]:
+          - generic [ref=e642]:
+            - img [ref=e643]
+            - paragraph [ref=e646]: “Working with Digital Karvan was an incredible experience. Their attention to detail and commitment to excellence truly sets them apart. Our new website exceeded all expectations — and our conversion rate proves it.”
+            - generic [ref=e647]:
+              - generic [ref=e648]: S
+              - generic [ref=e649]:
+                - paragraph [ref=e650]: Sarah Coleman
+                - paragraph [ref=e651]: Head of Marketing, Smartflyer Travel
+          - generic [ref=e652]:
+            - button "Previous testimonial" [ref=e653]:
+              - img [ref=e654]
+            - generic [ref=e656]:
+              - button "Go to testimonial 1" [ref=e657]
+              - button "Go to testimonial 2" [ref=e658]
+              - button "Go to testimonial 3" [ref=e659]
+            - button "Next testimonial" [ref=e660]:
+              - img [ref=e661]
+      - generic [ref=e664]:
+        - generic [ref=e665]:
+          - paragraph [ref=e666]: Start Your Project
+          - heading "Get a Free Quote" [level=2] [ref=e667]
+          - paragraph [ref=e668]: Tell us about your project. The more detail you share, the better we can tailor our response. We reply within one business day, always.
+        - generic [ref=e669]:
+          - textbox [ref=e670]
+          - status [ref=e671]: Step 1 of 2
+          - generic [ref=e672]:
+            - generic [ref=e673]:
+              - generic [ref=e674]: Full Name *
+              - textbox "Full Name *" [ref=e675]:
+                - /placeholder: John Smith
+            - generic [ref=e676]:
+              - generic [ref=e677]: Email *
+              - textbox "Email *" [ref=e678]:
+                - /placeholder: john@company.com
+            - generic [ref=e679]:
+              - generic [ref=e680]: How can we help? *
+              - textbox "How can we help? *" [ref=e681]:
+                - /placeholder: Tell us about your project...
+            - button "Continue — Add More Details" [ref=e682]
+            - paragraph [ref=e683]: We respond to every enquiry within one business day. No spam, ever.
+  - contentinfo [ref=e684]:
+    - generic [ref=e685]:
+      - generic [ref=e686]:
+        - generic [ref=e687]:
+          - link "Digital Karvan" [ref=e688] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=e689]: Where integrity, excellence, and collaboration drive digital innovation. We build exceptional digital experiences for forward-thinking businesses.
+          - generic [ref=e690]:
+            - paragraph [ref=e691]: Newsletter
+            - generic [ref=e692]:
+              - textbox "Your email" [ref=e693]
+              - button "Go" [ref=e694]
+        - generic [ref=e695]:
+          - heading "Quick Links" [level=3] [ref=e696]
+          - list [ref=e697]:
+            - listitem [ref=e698]:
+              - link "Home" [ref=e699] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e700]:
+              - link "About Us" [ref=e701] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e702]:
+              - link "Portfolio" [ref=e703] [cursor=pointer]:
+                - /url: /portfolio
+            - listitem [ref=e704]:
+              - link "Contact" [ref=e705] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e706]:
+          - heading "Services" [level=3] [ref=e707]
+          - list [ref=e708]:
+            - listitem [ref=e709]:
+              - link "Website Development" [ref=e710] [cursor=pointer]:
+                - /url: /services/website-development
+            - listitem [ref=e711]:
+              - link "Branding & Identity" [ref=e712] [cursor=pointer]:
+                - /url: /services/branding-identity
+            - listitem [ref=e713]:
+              - link "Maintenance & Support" [ref=e714] [cursor=pointer]:
+                - /url: /services/maintenance-support
+            - listitem [ref=e715]:
+              - link "Consultation" [ref=e716] [cursor=pointer]:
+                - /url: /services/consultation
+        - generic [ref=e717]:
+          - heading "Contact Info" [level=3] [ref=e718]
+          - list [ref=e719]:
+            - listitem [ref=e720]:
+              - img [ref=e721]
+              - link "contact@digitalkarvan.com" [ref=e724] [cursor=pointer]:
+                - /url: mailto:contact@digitalkarvan.com
+            - listitem [ref=e725]:
+              - img [ref=e726]
+              - link "+44 737 7259 354" [ref=e728] [cursor=pointer]:
+                - /url: tel:+447377259354
+      - generic [ref=e729]:
+        - paragraph [ref=e730]: © 2026 Digital Karvan. All rights reserved.
+        - generic [ref=e731]:
+          - link "Privacy Policy" [ref=e732] [cursor=pointer]:
+            - /url: /privacy-policy
+          - link "Terms" [ref=e733] [cursor=pointer]:
+            - /url: /terms-and-conditions
+          - link "Cookies" [ref=e734] [cursor=pointer]:
+            - /url: /cookie-policy
+  - generic:
+    - button "Open chat assistant"
+  - button "Open Next.js Dev Tools" [ref=e740] [cursor=pointer]:
+    - img [ref=e741]

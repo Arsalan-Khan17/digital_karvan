@@ -67,7 +67,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           </h1>
 
           <div className="flex items-center gap-3 mb-10 pb-10 border-b border-border-subtle">
-            <div className="w-8 h-8 rounded-full bg-bg-elevated border border-border-default flex items-center justify-center text-xs font-bold text-text-primary/40">
+            <div className="w-8 h-8 rounded-full bg-bg-elevated border border-border-default flex items-center justify-center text-xs font-bold text-text-primary/60">
               {post.author.charAt(0)}
             </div>
             <div>
@@ -81,7 +81,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           />
 
           {/* Content */}
-          <div className="prose prose-invert max-w-none">
+          <div className="prose dark:prose-invert max-w-none">
             <p className="text-text-secondary leading-relaxed text-lg">{post.content}</p>
           </div>
         </div>
@@ -95,7 +95,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {relatedPosts.map((related) => (
                 <Link key={related.id} href={`/blog/${related.slug}`}>
-                  <div className="group rounded-2xl overflow-hidden bg-bg-card border border-border-subtle hover:border-white/20 transition-all duration-300">
+                  <div className="group rounded-2xl overflow-hidden bg-bg-card border border-border-subtle hover:border-accent/40 transition-all duration-300">
                     <div className={`aspect-video bg-gradient-to-br ${related.imageGradient}`} />
                     <div className="p-5">
                       <Badge className="mb-3">{related.category}</Badge>

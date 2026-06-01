@@ -35,7 +35,7 @@ export default function BlogPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {blogPosts.map((post) => (
               <Link key={post.id} href={`/blog/${post.slug}`}>
-                <div className="group rounded-2xl overflow-hidden bg-bg-card border border-border-subtle hover:border-white/20 transition-all duration-300">
+                <div className="group rounded-2xl overflow-hidden bg-bg-card border border-border-subtle hover:border-accent/40 transition-all duration-300">
                   <div className={`aspect-video bg-gradient-to-br ${post.imageGradient}`} />
                   <div className="p-6">
                     <div className="flex items-center gap-3 mb-4">

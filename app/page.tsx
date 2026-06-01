@@ -3,6 +3,7 @@ import PartnersMarquee from "@/components/home/PartnersMarquee";
 import Mission from "@/components/home/Mission";
 import ScrollMarquee from "@/components/home/ScrollMarquee";
 import ServicesPreview from "@/components/home/ServicesPreview";
+import Process from "@/components/home/Process";
 import PortfolioPreview from "@/components/home/PortfolioPreview";
 import CoreValues from "@/components/home/CoreValues";
 import Team from "@/components/home/Team";
@@ -18,6 +19,7 @@ export default function HomePage() {
       <Mission />
       <ScrollMarquee />
       <ServicesPreview />
+      <Process />
       <PortfolioPreview />
       <CoreValues />
       <Team />

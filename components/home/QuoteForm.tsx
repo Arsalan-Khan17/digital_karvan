@@ -1,9 +1,9 @@
 "use client";
 
+import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle } from "lucide-react";
-import { useState } from "react";
+import { gsap, useGSAP } from "@/lib/gsap";
 
 interface QuoteFormData {
   name: string;
@@ -25,24 +25,26 @@ const serviceOptions = [
   "Consultation & Technical Guidance",
 ];
 
+const labelClass = "block text-[0.7rem] uppercase tracking-[0.1em] text-text-muted mb-2";
+const errorClass = "text-xs text-accent-bright mt-1.5";
+
 export default function QuoteForm() {
   const [step, setStep] = useState<1 | 2>(1);
   const [submitted, setSubmitted] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const stepRef = useRef<HTMLDivElement>(null);
 
   const {
     register,
     handleSubmit,
     trigger,
-    watch,
     formState: { errors, isSubmitting },
   } = useForm<QuoteFormData>({ mode: "onTouched" });
 
-  const watchedName = watch("name");
-  const watchedEmail = watch("email");
-  const watchedMessage = watch("message");
-
+  // TODO(backend): no contact endpoint exists yet — this is a stubbed submit
+  // (honeypot + simulated latency, then success UI). Wire to a real handler/API
+  // when one is available. Do NOT treat submissions as delivered.
   const onSubmit = async (data: QuoteFormData) => {
-    // Honeypot check — silently succeed if bot filled the hidden field
     if (data._honey) {
       setSubmitted(true);
       return;
@@ -56,353 +58,219 @@ export default function QuoteForm() {
     if (valid) setStep(2);
   };
 
-  const inputClasses =
-    "w-full px-4 py-3 bg-bg-elevated border border-border-default rounded-xl text-text-primary placeholder-text-muted focus:outline-none focus:border-text-primary/40 transition-colors text-sm";
-  const labelClasses = "block text-sm font-medium text-text-secondary mb-2";
-  const errorClasses = "text-xs text-red-400 mt-1";
-  const positiveClasses = "text-xs text-green-400 mt-1";
+  // Entrance reveal
+  useGSAP(
+    () => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      gsap.from(".c-reveal", {
+        opacity: 0,
+        y: 26,
+        duration: 0.85,
+        ease: "power3.out",
+        stagger: 0.1,
+        scrollTrigger: { trigger: sectionRef.current, start: "top 80%", once: true },
+      });
+    },
+    { scope: sectionRef }
+  );
 
-  if (submitted) {
-    return (
-      <section className="py-16 md:py-24 bg-bg-secondary">
-        <div className="max-w-3xl mx-auto px-5 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4 }}
-          >
-            <CheckCircle size={52} className="text-accent mx-auto mb-6" />
-            <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-4">
-              Thanks — we will be in touch.
-            </h2>
-            <p className="text-text-secondary text-base sm:text-lg max-w-md mx-auto">
-              We review every enquiry personally and respond within one business day.
-              Keep an eye on your inbox.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-    );
-  }
+  // Crossfade the step container on step change
+  useGSAP(
+    () => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      if (!stepRef.current) return;
+      gsap.fromTo(stepRef.current, { opacity: 0, x: step === 1 ? -18 : 18 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" });
+    },
+    { dependencies: [step, submitted], scope: sectionRef }
+  );
 
   return (
-    <section className="py-16 md:py-24 bg-bg-secondary">
-      <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
-        <motion.div
-          className="text-center mb-10"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-        >
-          <p className="text-xs font-medium text-text-muted uppercase tracking-widest mb-3">
-            Start Your Project
-          </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">
-            Get a Free Quote
+    <section
+      ref={sectionRef}
+      id="contact"
+      className="contact bg-bg-secondary border-t border-border-subtle py-[clamp(4.5rem,11vh,9rem)]"
+    >
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 grid lg:grid-cols-[1.05fr_1fr] gap-[clamp(2.5rem,6vw,6rem)] items-start">
+        {/* Left — info */}
+        <div>
+          <span className="c-reveal eyebrow">Start Your Project</span>
+          <h2 className="c-reveal sec-title text-[clamp(2.2rem,5.5vw,4.6rem)] font-normal leading-[1] tracking-[-0.02em] text-text-primary mt-6">
+            Get a <em>Free</em> Quote
           </h2>
-          <p className="mt-4 text-text-secondary text-sm sm:text-base max-w-lg mx-auto">
-            Tell us about your project. The more detail you share, the better we can
-            tailor our response. We reply within one business day, always.
+          <p className="c-reveal text-text-secondary leading-[1.7] mt-6 max-w-[42ch]">
+            Tell us about your project. The more detail you share, the better we can tailor our response. We reply
+            within one business day, always.
           </p>
-        </motion.div>
+          <div className="c-reveal mt-10 flex flex-col gap-4">
+            <a
+              href="mailto:contact@digitalkarvan.com"
+              className="flex items-center gap-3 text-[1.05rem] text-text-secondary hover:text-accent-soft transition-colors"
+            >
+              <span className="w-[42px] h-[42px] shrink-0 border border-border-default rounded-full grid place-items-center text-accent-soft">
+                ✉
+              </span>
+              contact@digitalkarvan.com
+            </a>
+            <a
+              href="tel:+447377259354"
+              className="flex items-center gap-3 text-[1.05rem] text-text-secondary hover:text-accent-soft transition-colors"
+            >
+              <span className="w-[42px] h-[42px] shrink-0 border border-border-default rounded-full grid place-items-center text-accent-soft">
+                ☎
+              </span>
+              +44 737 7259 354
+            </a>
+          </div>
+        </div>
 
-        <motion.form
+        {/* Right — form */}
+        <form
           onSubmit={handleSubmit(onSubmit)}
-          className="p-5 sm:p-8 md:p-12 rounded-2xl bg-bg-card border border-border-subtle overflow-hidden relative"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          className="c-reveal bg-bg-primary border border-border-subtle rounded-[18px] p-[clamp(1.6rem,3vw,2.4rem)]"
         >
           {/* Honeypot anti-spam field */}
           <input
             type="text"
             {...register("_honey")}
             tabIndex={-1}
+            autoComplete="off"
             aria-hidden="true"
-            style={{
-              position: "absolute",
-              left: "-9999px",
-              width: "1px",
-              height: "1px",
-              overflow: "hidden",
-            }}
+            className="absolute -left-[9999px] w-px h-px overflow-hidden"
           />
 
-          {/* Step indicator */}
-          <p role="status" className="text-xs text-text-muted text-center mb-6">
-            Step {step} of 2
-          </p>
+          {submitted ? (
+            <div className="text-center py-6">
+              <CheckCircle size={48} className="text-accent mx-auto mb-5" />
+              <h3 className="text-2xl font-medium text-text-primary mb-3">Thanks — we&apos;ll be in touch.</h3>
+              <p className="text-text-secondary max-w-sm mx-auto leading-relaxed">
+                We review every enquiry personally and respond within one business day. Keep an eye on your inbox.
+              </p>
+            </div>
+          ) : (
+            <>
+              <p className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-accent-soft mb-7" role="status">
+                Step {step} of 2
+              </p>
 
-          <AnimatePresence mode="wait">
-            {step === 1 ? (
-              <motion.div
-                key="step1"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.25 }}
-                className="space-y-5 sm:space-y-6"
-              >
-                {/* Full Name */}
-                <div>
-                  <label htmlFor="name" className={labelClasses}>
-                    Full Name *
-                  </label>
-                  <input
-                    id="name"
-                    type="text"
-                    aria-required="true"
-                    aria-describedby={errors.name ? "name-error" : undefined}
-                    {...register("name", { required: "Full name is required" })}
-                    className={inputClasses}
-                    placeholder="John Smith"
-                  />
-                  {errors.name ? (
-                    <p id="name-error" className={errorClasses}>
-                      {errors.name.message}
-                    </p>
-                  ) : watchedName ? (
-                    <p className={positiveClasses}>Looks good ✓</p>
-                  ) : null}
-                </div>
+              <div ref={stepRef}>
+                {step === 1 ? (
+                  <div className="space-y-6">
+                    <div className="cfield">
+                      <label htmlFor="name" className={labelClass}>Full Name *</label>
+                      <input id="name" type="text" placeholder="Jane Doe" {...register("name", { required: "Full name is required" })} />
+                      {errors.name && <p className={errorClass}>{errors.name.message}</p>}
+                    </div>
+                    <div className="cfield">
+                      <label htmlFor="email" className={labelClass}>Email *</label>
+                      <input
+                        id="email"
+                        type="email"
+                        placeholder="jane@company.com"
+                        {...register("email", {
+                          required: "Email is required",
+                          pattern: { value: /^\S+@\S+\.\S+$/, message: "Enter a valid email address" },
+                        })}
+                      />
+                      {errors.email && <p className={errorClass}>{errors.email.message}</p>}
+                    </div>
+                    <div className="cfield">
+                      <label htmlFor="message" className={labelClass}>How can we help? *</label>
+                      <textarea
+                        id="message"
+                        rows={3}
+                        placeholder="A few lines about your project…"
+                        {...register("message", { required: "Please tell us about your project" })}
+                      />
+                      {errors.message && <p className={errorClass}>{errors.message.message}</p>}
+                    </div>
 
-                {/* Email */}
-                <div>
-                  <label htmlFor="email" className={labelClasses}>
-                    Email *
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    aria-required="true"
-                    aria-describedby={errors.email ? "email-error" : undefined}
-                    {...register("email", {
-                      required: "Email is required",
-                      pattern: { value: /^\S+@\S+\.\S+$/, message: "Invalid email address" },
-                    })}
-                    className={inputClasses}
-                    placeholder="john@company.com"
-                  />
-                  {errors.email ? (
-                    <p id="email-error" className={errorClasses}>
-                      {errors.email.message}
-                    </p>
-                  ) : watchedEmail ? (
-                    <p className={positiveClasses}>Looks good ✓</p>
-                  ) : null}
-                </div>
-
-                {/* Message */}
-                <div>
-                  <label htmlFor="message" className={labelClasses}>
-                    How can we help? *
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    aria-required="true"
-                    aria-describedby={errors.message ? "message-error" : undefined}
-                    {...register("message", { required: "Please tell us about your project" })}
-                    className={`${inputClasses} resize-none`}
-                    placeholder="Tell us about your project..."
-                  />
-                  {errors.message ? (
-                    <p id="message-error" className={errorClasses}>
-                      {errors.message.message}
-                    </p>
-                  ) : watchedMessage ? (
-                    <p className={positiveClasses}>Looks good ✓</p>
-                  ) : null}
-                </div>
-
-                <button
-                  type="button"
-                  onClick={handleContinue}
-                  className="w-full py-4 bg-accent text-white font-semibold rounded-xl hover:bg-red-700 transition-colors text-sm sm:text-base"
-                >
-                  Continue — Add More Details
-                </button>
-
-                <p className="text-center text-xs text-text-muted">
-                  We respond to every enquiry within one business day. No spam, ever.
-                </p>
-              </motion.div>
-            ) : (
-              <motion.div
-                key="step2"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 20 }}
-                transition={{ duration: 0.25 }}
-                className="space-y-5 sm:space-y-6"
-              >
-                {/* Phone + Company */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                  <div>
-                    <label htmlFor="phone" className={labelClasses}>
-                      Phone (optional)
-                    </label>
-                    <input
-                      id="phone"
-                      type="tel"
-                      inputMode="tel"
-                      aria-describedby={errors.phone ? "phone-error" : undefined}
-                      {...register("phone")}
-                      className={inputClasses}
-                      placeholder="+44 7XX XXX XXXX"
-                    />
-                    {errors.phone && (
-                      <p id="phone-error" className={errorClasses}>
-                        {errors.phone.message}
-                      </p>
-                    )}
-                  </div>
-                  <div>
-                    <label htmlFor="company" className={labelClasses}>
-                      Company Name (optional)
-                    </label>
-                    <input
-                      id="company"
-                      type="text"
-                      aria-describedby={errors.company ? "company-error" : undefined}
-                      {...register("company")}
-                      className={inputClasses}
-                      placeholder="Acme Ltd"
-                    />
-                    {errors.company && (
-                      <p id="company-error" className={errorClasses}>
-                        {errors.company.message}
-                      </p>
-                    )}
-                  </div>
-                </div>
-
-                {/* Company URL */}
-                <div>
-                  <label htmlFor="companyUrl" className={labelClasses}>
-                    Company Website (optional)
-                  </label>
-                  <input
-                    id="companyUrl"
-                    type="url"
-                    aria-describedby={errors.companyUrl ? "companyUrl-error" : undefined}
-                    {...register("companyUrl")}
-                    className={inputClasses}
-                    placeholder="https://yourcompany.com"
-                  />
-                  {errors.companyUrl && (
-                    <p id="companyUrl-error" className={errorClasses}>
-                      {errors.companyUrl.message}
-                    </p>
-                  )}
-                </div>
-
-                {/* Budget + Region */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                  <div>
-                    <label htmlFor="budget" className={labelClasses}>
-                      Budget (optional)
-                    </label>
-                    <select
-                      id="budget"
-                      aria-describedby={errors.budget ? "budget-error" : undefined}
-                      {...register("budget")}
-                      className={inputClasses}
-                    >
-                      <option value="">Select budget range</option>
-                      <option value="under-5k">Under £5,000</option>
-                      <option value="5k-15k">£5,000 – £15,000</option>
-                      <option value="15k-30k">£15,000 – £30,000</option>
-                      <option value="30k-plus">£30,000+</option>
-                    </select>
-                    {errors.budget && (
-                      <p id="budget-error" className={errorClasses}>
-                        {errors.budget.message}
-                      </p>
-                    )}
-                  </div>
-                  <div>
-                    <label htmlFor="region" className={labelClasses}>
-                      Your Region (optional)
-                    </label>
-                    <select
-                      id="region"
-                      aria-describedby={errors.region ? "region-error" : undefined}
-                      {...register("region")}
-                      className={inputClasses}
-                    >
-                      <option value="">Select region</option>
-                      <option value="uk">United Kingdom</option>
-                      <option value="uae">UAE / Middle East</option>
-                      <option value="eu">Europe</option>
-                      <option value="us">United States</option>
-                      <option value="other">Other</option>
-                    </select>
-                    {errors.region && (
-                      <p id="region-error" className={errorClasses}>
-                        {errors.region.message}
-                      </p>
-                    )}
-                  </div>
-                </div>
-
-                {/* Services */}
-                <div>
-                  <p className={labelClasses}>Services Needed (optional)</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-1">
-                    {serviceOptions.map((svc) => {
-                      const svcId = `service-${svc.replace(/\s+/g, "-").toLowerCase()}`;
-                      return (
-                        <label
-                          key={svc}
-                          htmlFor={svcId}
-                          className="flex items-start gap-3 cursor-pointer group"
-                        >
-                          <input
-                            id={svcId}
-                            type="checkbox"
-                            value={svc}
-                            {...register("services")}
-                            className="mt-0.5 rounded border-border-default bg-bg-elevated text-accent focus:ring-0 focus:ring-offset-0"
-                          />
-                          <span className="text-sm text-text-secondary group-hover:text-text-primary transition-colors leading-snug">
-                            {svc}
-                          </span>
-                        </label>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* Actions */}
-                <div className="flex flex-col gap-3">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full py-4 bg-accent text-white font-semibold rounded-xl hover:bg-red-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed text-sm sm:text-base"
-                  >
-                    {isSubmitting ? "Sending..." : "Submit Enquiry"}
-                  </button>
-                  <div className="text-center">
-                    <button
-                      type="button"
-                      onClick={() => setStep(1)}
-                      className="text-sm text-text-muted underline hover:text-text-secondary transition-colors"
-                    >
-                      ← Back
+                    <button type="button" onClick={handleContinue} className="btn btn--solid w-full justify-center">
+                      <span className="lbl">Continue — Add More Details</span>
+                      <span className="arr">→</span>
                     </button>
+                    <p className="text-sm text-text-muted">We respond to every enquiry within one business day. No spam, ever.</p>
                   </div>
-                </div>
+                ) : (
+                  <div className="space-y-6">
+                    <div className="grid sm:grid-cols-2 gap-5">
+                      <div className="cfield">
+                        <label htmlFor="phone" className={labelClass}>Phone (optional)</label>
+                        <input id="phone" type="tel" inputMode="tel" placeholder="+44 7XX XXX XXXX" {...register("phone")} />
+                      </div>
+                      <div className="cfield">
+                        <label htmlFor="company" className={labelClass}>Company (optional)</label>
+                        <input id="company" type="text" placeholder="Acme Ltd" {...register("company")} />
+                      </div>
+                    </div>
+                    <div className="cfield">
+                      <label htmlFor="companyUrl" className={labelClass}>Company Website (optional)</label>
+                      <input id="companyUrl" type="url" placeholder="https://yourcompany.com" {...register("companyUrl")} />
+                    </div>
+                    <div className="grid sm:grid-cols-2 gap-5">
+                      <div className="cfield">
+                        <label htmlFor="budget" className={labelClass}>Budget (optional)</label>
+                        <select id="budget" {...register("budget")}>
+                          <option value="">Select budget range</option>
+                          <option value="under-5k">Under £5,000</option>
+                          <option value="5k-15k">£5,000 – £15,000</option>
+                          <option value="15k-30k">£15,000 – £30,000</option>
+                          <option value="30k-plus">£30,000+</option>
+                        </select>
+                      </div>
+                      <div className="cfield">
+                        <label htmlFor="region" className={labelClass}>Region (optional)</label>
+                        <select id="region" {...register("region")}>
+                          <option value="">Select region</option>
+                          <option value="uk">United Kingdom</option>
+                          <option value="uae">UAE / Middle East</option>
+                          <option value="eu">Europe</option>
+                          <option value="us">United States</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div>
+                      <p className={labelClass}>Services Needed (optional)</p>
+                      <div className="grid sm:grid-cols-2 gap-3 mt-2">
+                        {serviceOptions.map((svc) => {
+                          const svcId = `service-${svc.replace(/\s+/g, "-").toLowerCase()}`;
+                          return (
+                            <label key={svc} htmlFor={svcId} className="flex items-start gap-3 cursor-pointer group">
+                              <input
+                                id={svcId}
+                                type="checkbox"
+                                value={svc}
+                                {...register("services")}
+                                className="mt-0.5 accent-[var(--accent)]"
+                              />
+                              <span className="text-sm text-text-secondary group-hover:text-text-primary transition-colors leading-snug">
+                                {svc}
+                              </span>
+                            </label>
+                          );
+                        })}
+                      </div>
+                    </div>
 
-                <p className="text-center text-xs text-text-muted">
-                  We respond to every enquiry within one business day. No spam, ever.
-                </p>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.form>
+                    <div className="flex flex-col gap-3">
+                      <button type="submit" disabled={isSubmitting} className="btn btn--solid w-full justify-center disabled:opacity-60">
+                        <span className="lbl">{isSubmitting ? "Sending…" : "Submit Enquiry"}</span>
+                        <span className="arr">→</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setStep(1)}
+                        className="text-sm text-text-muted hover:text-text-secondary transition-colors"
+                      >
+                        ← Back
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </>
+          )}
+        </form>
       </div>
     </section>
   );

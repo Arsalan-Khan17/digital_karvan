@@ -35,11 +35,16 @@ export default function MobileMenu({ isOpen, onClose, pathname, id, triggerRef }
       gsap.set(menu, { display: "flex", x: "100%", opacity: 1 });
       tlRef.current
         .to(menu, { x: "0%", duration: 0.45, ease: "power4.out" })
-        .from(
+        // fromTo (not from): the close tween may have left the links at
+        // opacity:0 (incl. StrictMode's mount double-invoke), and `from`
+        // would animate "from 0 to the current 0" — a no-op. fromTo pins
+        // the end state so links always become visible.
+        .fromTo(
           list.children,
+          { opacity: 0, x: -24 },
           {
-            opacity: 0,
-            x: -24,
+            opacity: 1,
+            x: 0,
             duration: 0.35,
             stagger: 0.06,
             ease: "power3.out",
@@ -126,8 +131,13 @@ export default function MobileMenu({ isOpen, onClose, pathname, id, triggerRef }
     >
       {/* Header */}
       <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-border-subtle shrink-0">
-        <Link href="/" className="text-lg sm:text-xl font-bold text-text-primary" onClick={onClose}>
-          Digital Karvan
+        <Link
+          href="/"
+          className="flex items-center gap-2.5 text-lg sm:text-xl font-semibold text-text-primary"
+          onClick={onClose}
+        >
+          <span className="brand-dot" aria-hidden="true" />
+          Digital<span className="text-accent">Karvan</span>
         </Link>
         <div className="flex items-center gap-1">
           <button
@@ -156,7 +166,7 @@ export default function MobileMenu({ isOpen, onClose, pathname, id, triggerRef }
                 ref={index === 0 ? firstLinkRef : undefined}
                 onClick={onClose}
                 aria-current={pathname === link.href ? "page" : undefined}
-                className={`block text-2xl font-medium py-3.5 border-b border-border-subtle transition-colors ${
+                className={`block text-3xl sm:text-4xl font-medium py-3.5 border-b border-border-subtle transition-colors hover:text-accent ${
                   pathname === link.href ? "text-text-primary" : "text-text-secondary"
                 }`}
               >
@@ -169,7 +179,7 @@ export default function MobileMenu({ isOpen, onClose, pathname, id, triggerRef }
                       <Link
                         href={item.href}
                         onClick={onClose}
-                        className="block text-base text-text-muted py-2.5 transition-colors"
+                        className="block text-base text-text-muted py-2.5 transition-colors hover:text-accent"
                       >
                         {item.label}
                       </Link>
@@ -186,7 +196,7 @@ export default function MobileMenu({ isOpen, onClose, pathname, id, triggerRef }
         <Link
           href="/contact"
           onClick={onClose}
-          className="block w-full text-center py-4 bg-accent text-white font-medium rounded-full hover:bg-red-700 transition-colors"
+          className="block w-full text-center py-4 bg-gradient-to-r from-accent to-accent-bright text-white font-semibold rounded-full shadow-[0_10px_36px_-10px_rgba(225,29,72,0.8)] transition-shadow hover:shadow-[0_12px_44px_-8px_rgba(225,29,72,0.9)]"
         >
           Get a Quote
         </Link>

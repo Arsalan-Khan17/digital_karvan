@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Jost } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -7,6 +8,22 @@ import CustomCursor from "@/components/layout/CustomCursor";
 import NavigationProgress from "@/components/layout/NavigationProgress";
 import PageTransition from "@/components/layout/PageTransition";
 import ChatWidget from "@/components/chat/ChatWidget";
+import SmoothScrollProvider from "@/components/layout/SmoothScrollProvider";
+import Atmosphere from "@/components/layout/Atmosphere";
+import ScrollProgress from "@/components/layout/ScrollProgress";
+import Preloader from "@/components/layout/Preloader";
+
+// Jost = closest free web substitute for the brand's Century Gothic. Variable
+// font (all weights), exposed as --font-jost and used after Century Gothic in
+// the --font-sans stack (globals.css).
+const jost = Jost({
+  subsets: ["latin"],
+  variable: "--font-jost",
+  display: "swap",
+});
+
+// Runs before paint to apply the saved theme (dark by default) — prevents FOUC.
+const themeInitScript = `(function(){try{var t=localStorage.getItem('theme');var d=document.documentElement;if(t==='light'){d.classList.remove('dark')}else{d.classList.add('dark')}}catch(e){document.documentElement.classList.add('dark')}})();`;
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -63,8 +80,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={jost.variable} suppressHydrationWarning>
       <body className="min-h-screen flex flex-col bg-bg-primary text-text-primary">
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <script
           type="application/ld+json"
@@ -102,14 +120,19 @@ export default function RootLayout({
           }}
         />
         <ThemeProvider>
-          <CustomCursor />
-          <NavigationProgress />
-          <Navbar />
-          <main id="main-content" className="flex-1">
-            <PageTransition>{children}</PageTransition>
-          </main>
-          <Footer />
-          <ChatWidget />
+          <SmoothScrollProvider>
+            <Preloader />
+            <Atmosphere />
+            <ScrollProgress />
+            <CustomCursor />
+            <NavigationProgress />
+            <Navbar />
+            <main id="main-content" className="flex-1">
+              <PageTransition>{children}</PageTransition>
+            </main>
+            <Footer />
+            <ChatWidget />
+          </SmoothScrollProvider>
         </ThemeProvider>
       </body>
     </html>

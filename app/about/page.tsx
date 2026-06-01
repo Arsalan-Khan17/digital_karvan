@@ -175,7 +175,7 @@ export default function AboutPage() {
             {team.map((member) => (
               <div key={member.id} className="text-center">
                 <div className="relative mx-auto w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-bg-elevated to-bg-card border border-border-default flex items-center justify-center mb-4">
-                  <span className="text-3xl font-bold text-text-primary/30">
+                  <span className="text-3xl font-bold text-text-primary/60">
                     {member.name.charAt(0)}
                   </span>
                   {member.isFounder && (

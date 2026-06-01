@@ -102,7 +102,7 @@ export default function CareersPage() {
             {jobs.map((job) => (
               <div
                 key={job.id}
-                className="group p-5 sm:p-6 md:p-8 rounded-2xl bg-bg-card border border-border-subtle hover:border-white/20 transition-all duration-300"
+                className="group p-5 sm:p-6 md:p-8 rounded-2xl bg-bg-card border border-border-subtle hover:border-accent/40 transition-all duration-300"
               >
                 <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 md:gap-6">
                   <div className="flex-1">

@@ -262,7 +262,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                   className="object-cover"
                 />
               ) : (
-                <p className="text-text-primary/20 text-sm">UI Screenshot 1</p>
+                <p className="text-text-primary/50 text-sm">UI Screenshot 1</p>
               )}
             </div>
             )}

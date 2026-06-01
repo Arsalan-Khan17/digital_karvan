@@ -1,0 +1,1493 @@
+[     130ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[     713ms] [LOG] [Fast Refresh] done in 691ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[     812ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[     855ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   72565ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   72626ms] [LOG] [Fast Refresh] done in 127ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   82599ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   82679ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   82806ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   82904ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   82968ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   83029ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   83090ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   83151ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   83212ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   83275ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   83339ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   83400ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   83461ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   83538ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   83601ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   83651ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   83710ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   83770ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   83850ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   83926ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   83987ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   84050ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   84113ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   84176ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   84241ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   84299ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   84362ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   84423ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   84487ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   84549ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   84612ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   84674ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   84735ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   84798ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   84868ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   84938ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   85003ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   85080ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   85143ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   85205ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   85269ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   85332ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   85395ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   85458ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   85521ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   85584ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   85647ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   85710ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   85775ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   85836ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   85905ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   85978ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   86044ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   86103ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   86167ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   86233ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   86292ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   86357ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   86418ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   86494ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   86560ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   86624ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   86696ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   86748ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   86811ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   86872ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   86933ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   86997ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   87057ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   87126ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   87185ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   87247ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   87312ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   87372ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   87436ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   87499ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   87564ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   87625ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   87688ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   87752ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   87815ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   87882ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   87939ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   88000ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   88065ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   88126ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   88188ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   88250ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   88313ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   88375ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   88439ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   88500ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   88566ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   88625ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   88689ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   88751ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   88815ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   88879ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   88941ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   89003ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   89094ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   89163ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   89223ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   89285ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   89348ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   89410ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   89472ms] [ERROR] ./components/home/Hero.tsx:208:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  206 |     </section>
+  207 |   );
+> 208 | }
+      | ^
+  209 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/home/Hero.tsx
+    ./app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[   89601ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   89764ms] [LOG] [Fast Refresh] done in 171ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431

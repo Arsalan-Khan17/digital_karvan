@@ -9,8 +9,9 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1 lg:col-span-1">
-            <Link href="/" className="text-xl font-bold text-text-primary">
-              Digital Karvan
+            <Link href="/" className="inline-flex items-center gap-2.5 text-xl font-semibold text-text-primary">
+              <span className="brand-dot" aria-hidden="true" />
+              <span>Digital<span className="text-accent">Karvan</span></span>
             </Link>
             <p className="mt-4 text-text-secondary text-sm leading-relaxed">
               Where integrity, excellence, and collaboration drive digital innovation. We build
@@ -57,7 +58,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-sm font-semibold text-text-primary uppercase tracking-wider mb-4">
+            <h3 className="text-[0.72rem] font-semibold text-accent-soft uppercase tracking-[0.16em] mb-4">
               Quick Links
             </h3>
             <ul className="space-y-3">
@@ -83,7 +84,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-sm font-semibold text-text-primary uppercase tracking-wider mb-4">
+            <h3 className="text-[0.72rem] font-semibold text-accent-soft uppercase tracking-[0.16em] mb-4">
               Services
             </h3>
             <ul className="space-y-3">
@@ -107,7 +108,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-sm font-semibold text-text-primary uppercase tracking-wider mb-4">
+            <h3 className="text-[0.72rem] font-semibold text-accent-soft uppercase tracking-[0.16em] mb-4">
               Contact Info
             </h3>
             <ul className="space-y-4">

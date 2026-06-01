@@ -131,12 +131,12 @@ export default function HeroScene({ isDark = true }: HeroSceneProps) {
 
     // ── Animation loop ───────────────────────────────────────────────────
     let raf: number;
-    const clock = new THREE.Clock();
+    const startTime = performance.now();
     let prevDark = isDarkRef.current;
 
     const animate = () => {
       raf = requestAnimationFrame(animate);
-      const t = clock.getElapsedTime();
+      const t = (performance.now() - startTime) / 1000;
 
       // Hot-swap material colours when theme flips
       const dark = isDarkRef.current;

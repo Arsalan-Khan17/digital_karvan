@@ -43,7 +43,7 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
         <div className="aspect-square rounded-2xl bg-gradient-to-br from-bg-elevated to-bg-card border border-border-subtle flex items-center justify-center max-w-md mx-auto">
           <div className="text-center px-8">
             <div className="w-16 h-16 rounded-2xl bg-bg-elevated border border-border-default mx-auto mb-6 flex items-center justify-center">
-              <span className="text-text-primary/30 text-2xl font-bold">
+              <span className="text-text-primary/60 text-2xl font-bold">
                 {service.title.charAt(0)}
               </span>
             </div>

@@ -1,307 +1,208 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
-import { gsap, SplitText, ScrambleTextPlugin, useGSAP } from "@/lib/gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Button from "@/components/ui/Button";
-import { ChevronDown } from "lucide-react";
+import { useEffect, useRef } from "react";
+import Link from "next/link";
+import { gsap, useGSAP, ScrollTrigger, SplitText } from "@/lib/gsap";
 import { useTheme } from "@/components/ThemeProvider";
+import { useIntroReady } from "@/hooks/useIntroReady";
+import { useMagnetic } from "@/hooks/useMagnetic";
+import LaptopScene from "./LaptopScene";
 
 const HeroScene = dynamic(() => import("./HeroScene"), { ssr: false });
-
-const HEADLINE = "We design and build digital products that grow ambitious businesses.";
 
 const stats = [
   { value: 50, suffix: "+", label: "Projects" },
   { value: 20, suffix: "+", label: "Clients" },
-  { value: 3,  suffix: "+", label: "Years" },
-  { value: 2,  suffix: "",  label: "Offices" },
+  { value: 3, suffix: "+", label: "Years" },
+  { value: 2, suffix: "", label: "Offices" },
 ];
 
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null);
-  const headlineRef  = useRef<HTMLHeadingElement>(null);
-  const badgeRef     = useRef<HTMLDivElement>(null);
-  const subtitleRef  = useRef<HTMLParagraphElement>(null);
-  const ctaRef       = useRef<HTMLDivElement>(null);
-  const statsRef     = useRef<HTMLDivElement>(null);
-  const scrollRef    = useRef<HTMLDivElement>(null);
-  const statNumRefs  = useRef<(HTMLSpanElement | null)[]>([]);
+  const copyRef = useRef<HTMLDivElement>(null);
+  const headlineRef = useRef<HTMLHeadingElement>(null);
+  const pillRef = useRef<HTMLSpanElement>(null);
+  const leadRef = useRef<HTMLParagraphElement>(null);
+  const actionsRef = useRef<HTMLDivElement>(null);
+  const artWrapRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const glowRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const statNumRefs = useRef<(HTMLSpanElement | null)[]>([]);
+
+  const cta1 = useMagnetic<HTMLAnchorElement>(0.3);
+  const cta2 = useMagnetic<HTMLAnchorElement>(0.3);
+
   const { theme } = useTheme();
   const isDark = theme === "dark";
+  const ready = useIntroReady();
 
-  useGSAP(() => {
-    if (!headlineRef.current) return;
+  // ── Copy / headline intro (synced to the preloader curtain) + scroll-exit ──
+  useGSAP(
+    () => {
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const copyBits = [pillRef.current, leadRef.current, actionsRef.current];
 
-    const split = SplitText.create(headlineRef.current, {
-      type: "words,chars",
-      mask: "chars",
-    });
+      if (reduced) return; // static, fully-visible
 
-    const tl = gsap.timeline({ defaults: { ease: "back.out(1.6)" } });
+      if (!ready) {
+        // Hide until the curtain lifts (runs in useLayoutEffect → no flash).
+        gsap.set(headlineRef.current, { autoAlpha: 0 });
+        gsap.set(copyBits, { opacity: 0, y: 24 });
+        return;
+      }
 
-    // Badge: scramble in
-    tl.fromTo(
-      badgeRef.current,
-      { opacity: 0, scale: 0.7, rotationX: -40 },
-      { opacity: 1, scale: 1, rotationX: 0, duration: 0.7, ease: "back.out(2)" },
-      0
-    );
-
-    // Headline chars fly in with 3-axis spin
-    tl.from(
-      split.chars,
-      {
-        opacity: 0,
-        y: 80,
-        rotationX: -90,
-        scaleX: 0.4,
-        transformOrigin: "50% 0%",
-        duration: 0.55,
-        stagger: { amount: 0.9, from: "start" },
-        ease: "back.out(1.8)",
-      },
-      0.15
-    );
-
-    // Subtitle wipe-in from left
-    tl.fromTo(
-      subtitleRef.current,
-      { clipPath: "inset(0 100% 0 0)", opacity: 0 },
-      { clipPath: "inset(0 0% 0 0)", opacity: 1, duration: 0.8, ease: "power4.out" },
-      0.8
-    );
-
-    // CTA buttons bounce up
-    if (ctaRef.current) {
-      tl.from(
-        ctaRef.current.children,
-        {
-          opacity: 0,
-          y: 40,
-          scale: 0.85,
-          duration: 0.6,
-          stagger: 0.12,
-          ease: "back.out(2)",
-        },
-        1.1
+      // Split the headline into masked lines (auto-fits the column at any size)
+      // and rise them into view; copy fades up just after.
+      const split = SplitText.create(headlineRef.current, { type: "lines", mask: "lines" });
+      gsap.set(headlineRef.current, { autoAlpha: 1 });
+      gsap.fromTo(split.lines, { yPercent: 120 }, { yPercent: 0, duration: 1.05, ease: "expo.out", stagger: 0.09 });
+      gsap.fromTo(
+        copyBits,
+        { y: 24, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, ease: "power3.out", stagger: 0.12, delay: 0.35 }
       );
-    }
 
-    // Stats fade-in cascade (counter animation handled by IntersectionObserver)
-    tl.from(
-      statsRef.current,
-      { opacity: 0, y: 30, duration: 0.5, ease: "power3.out" },
-      1.35
-    );
-
-    // Scroll indicator bob
-    tl.from(
-      scrollRef.current,
-      { opacity: 0, y: 20, duration: 0.6, ease: "power2.out" },
-      1.9
-    );
-    gsap.to(scrollRef.current, {
-      y: 8,
-      duration: 1.6,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut",
-      delay: 2.5,
-    });
-
-    // Parallax on scroll
-    gsap.to(headlineRef.current, {
-      yPercent: -25,
-      ease: "none",
-      scrollTrigger: {
+      // Scroll-exit parallax: the scene drifts/scales/fades, copy lifts slightly.
+      const st = {
         trigger: containerRef.current,
         start: "top top",
         end: "bottom top",
-        scrub: 1.5,
-      },
-    });
+        scrub: true as const,
+      };
+      gsap.to(artWrapRef.current, { yPercent: -14, scale: 0.94, opacity: 0.55, ease: "none", scrollTrigger: st });
+      gsap.to(copyRef.current, { yPercent: -6, ease: "none", scrollTrigger: st });
+      gsap.to(gridRef.current, { yPercent: 6, ease: "none", scrollTrigger: st });
+      gsap.to(glowRef.current, { yPercent: 16, ease: "none", scrollTrigger: st });
+    },
+    { scope: containerRef, dependencies: [ready] }
+  );
 
-  }, { scope: containerRef });
-
-  // Counter animation via IntersectionObserver
+  // ── Stat counters (count up when in view; reduced motion shows finals) ──
   useEffect(() => {
     const container = statsRef.current;
     if (!container) return;
-
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    // If reduced-motion, just ensure final values are shown (they already are via JSX) and bail
-    if (prefersReduced) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     let animated = false;
-
     const observer = new IntersectionObserver(
       (entries) => {
-        if (animated) return;
-        const entry = entries[0];
-        if (!entry.isIntersecting) return;
+        if (animated || !entries[0].isIntersecting) return;
         animated = true;
         observer.disconnect();
-
         stats.forEach((stat, i) => {
           const el = statNumRefs.current[i];
           if (!el) return;
-          const startVal = Math.floor(stat.value * 0.4);
-          gsap.to({ val: startVal }, {
+          const counter = { val: 0 };
+          gsap.to(counter, {
             val: stat.value,
-            duration: 1.8,
-            delay: i * 0.15,
+            duration: 1.6,
+            delay: i * 0.12,
             ease: "power2.out",
-            onUpdate: function () {
-              el.textContent = String(Math.round(this.targets()[0].val));
+            onUpdate() {
+              el.textContent = String(Math.round(counter.val));
             },
           });
         });
       },
-      { threshold: 0.25 }
+      { threshold: 0.5 }
     );
-
     observer.observe(container);
     return () => observer.disconnect();
   }, []);
 
-  // Magnetic hover on CTA buttons
+  // Recompute pinned/scrubbed triggers once the hero scene is laid out.
   useEffect(() => {
-    const btns = ctaRef.current?.querySelectorAll("a, button");
-    if (!btns) return;
-    const cleanups: (() => void)[] = [];
-
-    btns.forEach((btn) => {
-      const el = btn as HTMLElement;
-      const onMove = (e: MouseEvent) => {
-        const rect = el.getBoundingClientRect();
-        const cx = rect.left + rect.width / 2;
-        const cy = rect.top + rect.height / 2;
-        const dx = (e.clientX - cx) * 0.35;
-        const dy = (e.clientY - cy) * 0.35;
-        gsap.to(el, { x: dx, y: dy, duration: 0.4, ease: "power2.out" });
-      };
-      const onLeave = () => {
-        gsap.to(el, { x: 0, y: 0, duration: 0.7, ease: "elastic.out(1, 0.4)" });
-      };
-      el.addEventListener("mousemove", onMove);
-      el.addEventListener("mouseleave", onLeave);
-      cleanups.push(() => {
-        el.removeEventListener("mousemove", onMove);
-        el.removeEventListener("mouseleave", onLeave);
-      });
-    });
-
-    return () => cleanups.forEach((fn) => fn());
+    const id = window.setTimeout(() => ScrollTrigger.refresh(), 300);
+    return () => window.clearTimeout(id);
   }, []);
 
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-16 lg:pt-20 bg-bg-primary"
+      className="relative min-h-screen flex flex-col overflow-hidden pt-24 pb-8 lg:pt-28 lg:pb-10 bg-bg-primary"
     >
-      <HeroScene isDark={isDark} />
-
-      {/* Vignette */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: isDark
-            ? "radial-gradient(ellipse 75% 65% at 50% 50%, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.20) 60%, transparent 100%)"
-            : "radial-gradient(ellipse 80% 70% at 50% 50%, rgba(255,255,255,0.80) 0%, rgba(255,255,255,0.40) 55%, transparent 100%)",
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Accent glow */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, rgba(225,29,72,0.08) 0%, transparent 70%)",
-          filter: "blur(40px)",
-        }}
-        aria-hidden="true"
-      />
-
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-5 sm:px-6 text-center">
-
-        {/* Badge */}
+      {/* Background: subdued Three.js backdrop + grid + brand glow */}
+      <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute inset-0 opacity-45">
+          <HeroScene isDark={isDark} />
+        </div>
+        <div ref={gridRef} className="hero-grid" />
         <div
-          ref={badgeRef}
-          className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-border-default bg-bg-card text-text-secondary text-xs sm:text-sm mb-9 md:mb-12 opacity-0"
-          style={{ transformOrigin: "center" }}
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-accent inline-block animate-pulse" />
-          Digital Agency
+          ref={glowRef}
+          className="absolute -right-[6vw] -top-[8vw] w-[56vw] h-[56vw] rounded-full"
+          style={{
+            background: "radial-gradient(circle, rgba(225,29,72,0.30), rgba(225,29,72,0) 62%)",
+            filter: "blur(18px)",
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 flex-1 flex items-center w-full">
+        <div className="w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 grid lg:grid-cols-[1.15fr_0.85fr] gap-8 lg:gap-10 items-center">
+        {/* Copy */}
+        <div ref={copyRef} className="order-2 lg:order-1">
+          <span
+            ref={pillRef}
+            className="inline-flex items-center gap-2.5 border border-border-default rounded-full px-3.5 py-1.5 text-sm text-text-secondary mb-6"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60 animate-ping" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+            </span>
+            Available for new projects
+          </span>
+
+          <h1
+            ref={headlineRef}
+            className="hero-headline font-normal leading-[1.06] tracking-[-0.02em] text-[clamp(2.3rem,5vw,4.5rem)] text-text-primary max-w-[15ch]"
+          >
+            We design &amp; build digital products that grow <em>ambitious</em> businesses.
+          </h1>
+
+          <p ref={leadRef} className="text-text-secondary text-base sm:text-lg leading-relaxed max-w-[46ch] mt-6">
+            We partner with ambitious businesses — from startups to enterprise — to design and build websites,
+            brand identities, and digital products that convert visitors into customers and ideas into growth.
+          </p>
+
+          <div ref={actionsRef} className="flex flex-wrap gap-3 mt-8">
+            <Link ref={cta1} href="/contact" className="btn btn--solid">
+              <span className="lbl">Get a Free Quote</span>
+              <span className="arr">→</span>
+            </Link>
+            <Link ref={cta2} href="/portfolio" className="btn">
+              <span className="lbl">View Our Work</span>
+            </Link>
+          </div>
         </div>
 
-        {/* Headline */}
-        <h1
-          ref={headlineRef}
-          className="text-[2.1rem] sm:text-5xl md:text-6xl lg:text-[4.2rem] font-bold leading-[1.12] text-text-primary mx-auto"
-          style={{ perspective: "600px", maxWidth: "min(860px, 90vw)" }}
-        >
-          {HEADLINE}
-        </h1>
-
-        {/* Subtitle */}
-        <p
-          ref={subtitleRef}
-          className="mt-7 md:mt-9 text-base sm:text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed opacity-0"
-          style={{ clipPath: "inset(0 100% 0 0)" }}
-        >
-          We partner with ambitious businesses — from startups to enterprise — to design
-          and build websites, brand identities, and digital products that convert visitors
-          into customers and ideas into growth.
-        </p>
-
-        {/* CTAs */}
-        <div
-          ref={ctaRef}
-          className="mt-8 md:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
-        >
-          <Button variant="primary" size="lg" href="/contact">
-            Get a Free Quote
-          </Button>
-          <Button variant="ghost" size="lg" href="/contact?type=call" className="border border-border-default">
-            Book a Discovery Call
-          </Button>
-          <Button variant="ghost" size="lg" href="/portfolio">
-            View Our Work
-          </Button>
+        {/* Animated scene */}
+        <div ref={artWrapRef} className="order-1 lg:order-2 w-full max-w-[420px] sm:max-w-[460px] mx-auto lg:max-w-none">
+          <LaptopScene />
         </div>
-
-        {/* Stats */}
-        <div
-          ref={statsRef}
-          className="mt-14 flex items-center justify-center flex-wrap opacity-0"
-        >
-          {stats.map((stat, i) => (
-            <div key={i} className="flex items-center">
-              {i > 0 && (
-                <div className="w-px h-7 bg-border-default mx-6 sm:mx-10 shrink-0 hidden sm:block" />
-              )}
-              <div className="text-center">
-                <p className="text-2xl sm:text-3xl font-bold text-text-primary tabular-nums">
-                  <span ref={(el) => { statNumRefs.current[i] = el; }}>{stat.value}</span>
-                  <span className="text-accent">{stat.suffix}</span>
-                </p>
-                <p className="text-xs text-text-muted mt-0.5 uppercase tracking-widest">{stat.label}</p>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Stats strip */}
       <div
-        ref={scrollRef}
-        className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-0"
+        ref={statsRef}
+        className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 mt-10 lg:mt-6 shrink-0"
       >
-        <span className="text-[9px] text-text-muted uppercase tracking-[0.2em]">Scroll</span>
-        <ChevronDown size={14} className="text-text-muted" />
+        <div className="grid grid-cols-2 sm:grid-cols-4 border-t border-border-subtle">
+          {stats.map((stat, i) => (
+            <div
+              key={stat.label}
+              className="py-4 sm:py-6 pr-4 border-r border-border-subtle last:border-r-0 [&:nth-child(2)]:border-r-0 sm:[&:nth-child(2)]:border-r [&:nth-child(even)]:pl-5 sm:[&:nth-child(3)]:pl-5"
+            >
+              <p className="text-[clamp(2rem,4vw,3.2rem)] font-normal leading-none tracking-[-0.02em] text-text-primary tabular-nums">
+                <span ref={(el) => { statNumRefs.current[i] = el; }}>{stat.value}</span>
+                <span className="text-accent">{stat.suffix}</span>
+              </p>
+              <p className="text-[0.7rem] uppercase tracking-[0.18em] text-text-muted mt-2">{stat.label}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

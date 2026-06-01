@@ -32,10 +32,14 @@ export default function CustomCursor() {
     };
 
     const attachListeners = () => {
-      document.querySelectorAll("a, button, [role='button'], input, textarea, select, label").forEach((el) => {
-        el.addEventListener("mouseenter", onMouseEnterEl);
-        el.addEventListener("mouseleave", onMouseLeaveEl);
-      });
+      document
+        .querySelectorAll(
+          "a, button, [role='button'], input, textarea, select, label, .magnetic, .tilt, [data-cursor='hover']"
+        )
+        .forEach((el) => {
+          el.addEventListener("mouseenter", onMouseEnterEl);
+          el.addEventListener("mouseleave", onMouseLeaveEl);
+        });
     };
     attachListeners();
 
@@ -45,14 +49,15 @@ export default function CustomCursor() {
 
     const tick = () => {
       raf = requestAnimationFrame(tick);
-      ringX += (dotX - ringX) * 0.13;
-      ringY += (dotY - ringY) * 0.13;
+      ringX += (dotX - ringX) * 0.18;
+      ringY += (dotY - ringY) * 0.18;
 
+      // Offsets are half the element size (6px dot, 36px ring) to keep centred.
       if (dotRef.current) {
-        dotRef.current.style.transform = `translate(${dotX - 4}px, ${dotY - 4}px)`;
+        dotRef.current.style.transform = `translate(${dotX - 3}px, ${dotY - 3}px)`;
       }
       if (ringRef.current) {
-        ringRef.current.style.transform = `translate(${ringX - 16}px, ${ringY - 16}px)`;
+        ringRef.current.style.transform = `translate(${ringX - 18}px, ${ringY - 18}px)`;
       }
     };
     tick();

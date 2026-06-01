@@ -230,7 +230,7 @@ export const projects: Project[] = [
     client: 'VoiceAI Studios',
   },
   {
-    id: '3',
+    id: '4',
     slug: 'bank-of-khyber-dashboard',
     title: 'Bank of Khyber Dashboard',
     categories: ['Technology'],
@@ -276,7 +276,7 @@ export const projects: Project[] = [
     client: 'Bank of Khyber',
   },
   {
-    id: '4',
+    id: '5',
     slug: 'sales-performance-dashboard',
     title: 'Sales Performance Dashboard – PowerBI',
     categories: ['Technology'],
@@ -322,7 +322,7 @@ export const projects: Project[] = [
     client: 'Enterprise Sales Corp',
   },
   {
-    id: '5',
+    id: '6',
     slug: 'ai-video-automation',
     title: 'AI Video Automation – PoC',
     categories: ['Technology', 'Website'],
@@ -368,7 +368,7 @@ export const projects: Project[] = [
     client: 'MediaGen Corp',
   },
   {
-    id: '6',
+    id: '7',
     slug: 'docextract',
     title: 'DocExtract',
     categories: ['Technology', 'Website'],
@@ -511,7 +511,7 @@ export const team: TeamMember[] = [
   },
   {
     id: '5',
-    name: 'Shaheryar Khan',
+    name: 'Shaheryar Ashfaq',
     role: 'Lead AI & Full-Stack Engineer​',
     isFounder: false,
     imageUrl: '',

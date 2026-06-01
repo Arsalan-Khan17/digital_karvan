@@ -2,215 +2,145 @@
 
 import { useRef } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { gsap, SplitText, useGSAP } from "@/lib/gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
 
 const highlights = [
-  { value: 50, suffix: "+", label: "Projects Delivered", description: "Across web, branding, AI, and enterprise data" },
-  { value: 20, suffix: "+", label: "Happy Clients", description: "From funded startups to FTSE-listed institutions" },
-  { value: 3,  suffix: "+", label: "Years of Craft", description: "Consistent delivery since our first engagement" },
+  { value: 50, suffix: "+", label: "Projects Delivered" },
+  { value: 20, suffix: "+", label: "Happy Clients" },
+  { value: 3, suffix: "+", label: "Years of Craft" },
 ];
 
 export default function Mission() {
-  const sectionRef  = useRef<HTMLElement>(null);
-  const leftRef     = useRef<HTMLDivElement>(null);
-  const rightRef    = useRef<HTMLDivElement>(null);
-  const headingRef  = useRef<HTMLHeadingElement>(null);
-  const bodyRef     = useRef<HTMLDivElement>(null);
-  const statsRef    = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
   const statNumRefs = useRef<(HTMLSpanElement | null)[]>([]);
-  const cardsRef    = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    // Left column — reveal with clip
-    gsap.fromTo(
-      leftRef.current,
-      { clipPath: "inset(0 0 100% 0)", opacity: 1 },
-      {
-        clipPath: "inset(0 0 0% 0)",
-        duration: 1,
-        ease: "power4.out",
-        scrollTrigger: { trigger: leftRef.current, start: "top 80%", once: true },
-      }
-    );
+  useGSAP(
+    () => {
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduced) return; // static, fully-visible (JSX keeps the final stat values)
 
-    // Heading chars stagger
-    if (headingRef.current) {
-      const split = SplitText.create(headingRef.current, { type: "words", mask: "words" });
-      gsap.from(split.words, {
-        y: "100%",
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.06,
-        ease: "power3.out",
-        scrollTrigger: { trigger: headingRef.current, start: "top 82%", once: true },
+      // Motion users see the count-up from 0 (set pre-paint to avoid a flash);
+      // reduced-motion users keep the final value rendered in JSX.
+      statNumRefs.current.forEach((el) => {
+        if (el) el.textContent = "0";
       });
-    }
 
-    // Body paragraphs
-    const paras = bodyRef.current?.querySelectorAll("p");
-    if (paras) {
-      gsap.from(Array.from(paras), {
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: { trigger: bodyRef.current, start: "top 82%", once: true },
-      });
-    }
-
-    // Stats counter
-    ScrollTrigger.create({
-      trigger: statsRef.current,
-      start: "top 80%",
-      once: true,
-      onEnter: () => {
-        highlights.forEach((stat, i) => {
-          const el = statNumRefs.current[i];
-          if (!el) return;
-          const obj = { val: 0 };
-          gsap.to(obj, {
-            val: stat.value,
-            duration: 1.8,
-            delay: i * 0.12,
-            ease: "power2.out",
-            onUpdate: () => { el.textContent = String(Math.round(obj.val)); },
-            onComplete: () => { el.textContent = String(stat.value); },
-          });
+      const reveal = (target: gsap.TweenTarget, start = "top 84%", extra: gsap.TweenVars = {}) =>
+        gsap.from(target, {
+          opacity: 0,
+          y: 28,
+          duration: 0.9,
+          ease: "power3.out",
+          scrollTrigger: { trigger: target as Element, start, once: true },
+          ...extra,
         });
-      },
-    });
 
-    // Right cards — fly in with 3D rotation
-    const cards = cardsRef.current?.children;
-    if (cards) {
-      gsap.from(Array.from(cards), {
-        opacity: 0,
-        y: 60,
-        rotationX: 25,
-        rotationY: -15,
-        scale: 0.9,
-        transformOrigin: "50% 50% -80px",
-        duration: 0.8,
-        stagger: { amount: 0.4, from: "start" },
-        ease: "back.out(1.4)",
-        scrollTrigger: { trigger: cardsRef.current, start: "top 78%", once: true },
+      // Left column reveals (heading handled by scramble below)
+      reveal(".m-eyebrow");
+      reveal(".m-mini", "top 86%", { stagger: 0.12 });
+      // Right column reveals
+      reveal(".m-lede");
+      reveal(".m-body", "top 86%", { stagger: 0.12 });
+      reveal(".m-cta");
+
+      // Heading: text-decode / scramble reveal (preserves the accent <em>)
+      if (headingRef.current) {
+        const segs = Array.from(headingRef.current.querySelectorAll<HTMLElement>("[data-scramble]"));
+        const texts = segs.map((s) => s.textContent || "");
+        ScrollTrigger.create({
+          trigger: headingRef.current,
+          start: "top 82%",
+          once: true,
+          onEnter: () => {
+            segs.forEach((s, i) => {
+              gsap.to(s, {
+                duration: 1 + i * 0.2,
+                ease: "none",
+                scrambleText: { text: texts[i], chars: "01<>/#%&*", speed: 1 },
+              });
+            });
+          },
+        });
+      }
+
+      // Mini-stat counters
+      ScrollTrigger.create({
+        trigger: statsRef.current,
+        start: "top 85%",
+        once: true,
+        onEnter: () => {
+          highlights.forEach((stat, i) => {
+            const el = statNumRefs.current[i];
+            if (!el) return;
+            const counter = { val: 0 };
+            gsap.to(counter, {
+              val: stat.value,
+              duration: 1.6,
+              delay: i * 0.12,
+              ease: "power2.out",
+              onUpdate: () => { el.textContent = String(Math.round(counter.val)); },
+            });
+          });
+        },
       });
-    }
-  }, { scope: sectionRef });
+    },
+    { scope: sectionRef }
+  );
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 bg-bg-secondary relative overflow-hidden">
-      <div
-        className="absolute top-1/2 -translate-y-1/2 -left-40 w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, rgba(225,29,72,0.05) 0%, transparent 70%)",
-          filter: "blur(60px)",
-        }}
-        aria-hidden="true"
-      />
-
+    <section
+      ref={sectionRef}
+      id="mission"
+      className="bg-bg-secondary border-y border-border-subtle py-[clamp(4.5rem,11vh,9rem)] relative overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-
+        <div className="grid lg:grid-cols-2 gap-[clamp(2rem,5vw,5rem)] items-start">
           {/* Left */}
-          <div ref={leftRef} style={{ clipPath: "inset(0 0 100% 0)" }}>
-            <p className="text-xs font-medium text-text-muted uppercase tracking-widest mb-4">
-              Our Mission
-            </p>
+          <div>
+            <span className="m-eyebrow eyebrow">Our Mission</span>
             <h2
               ref={headingRef}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary leading-tight"
-              style={{ perspective: "500px" }}
+              className="sec-title text-[clamp(2rem,4.4vw,3.4rem)] font-normal leading-[1.08] tracking-[-0.02em] text-text-primary mt-6"
             >
-              Building Digital Excellence,{" "}
-              <span className="text-accent">One Project</span> at a Time
+              <span data-scramble>Building digital</span>{" "}
+              <em data-scramble>excellence</em>
+              <span data-scramble>, one project at a time.</span>
             </h2>
 
-            <div ref={bodyRef}>
-              <p className="mt-6 text-text-secondary leading-relaxed text-base sm:text-lg">
-                At Digital Karvan, we believe exceptional digital experiences are built on a
-                foundation of trust, craftsmanship, and genuine partnership. We embed ourselves
-                in each client&apos;s world — understanding their challenges, their audience,
-                and the outcomes that actually matter — before a single line of code is written
-                or a pixel placed.
-              </p>
-              <p className="mt-4 text-text-secondary leading-relaxed text-sm sm:text-base">
-                Our team spans design, engineering, and strategy. We bring the same level of
-                rigour and dedication to a two-page brochure site as we do to a complex
-                enterprise platform. Because good work doesn&apos;t scale down — it either
-                meets the standard or it doesn&apos;t.
-              </p>
-            </div>
-
-            <div ref={statsRef} className="mt-8 grid grid-cols-3 gap-4 sm:gap-6">
+            <div ref={statsRef} className="flex flex-wrap gap-x-10 gap-y-6 mt-9">
               {highlights.map((stat, i) => (
-                <div key={stat.label} className="group">
-                  <p className="text-2xl sm:text-3xl font-bold text-text-primary tabular-nums">
-                    <span ref={(el) => { statNumRefs.current[i] = el; }}>0</span>
+                <div key={stat.label} className="m-mini">
+                  <p className="text-[clamp(1.9rem,3.6vw,2.8rem)] font-normal leading-none tracking-[-0.02em] text-text-primary tabular-nums">
+                    <span ref={(el) => { statNumRefs.current[i] = el; }}>{stat.value}</span>
                     <span className="text-accent">{stat.suffix}</span>
                   </p>
-                  <p className="text-xs sm:text-sm font-medium text-text-primary mt-1">{stat.label}</p>
-                  <p className="text-xs text-text-muted mt-0.5 hidden sm:block">{stat.description}</p>
+                  <p className="text-[0.68rem] uppercase tracking-[0.16em] text-text-muted mt-2">{stat.label}</p>
                 </div>
               ))}
             </div>
-
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 mt-8 text-sm text-text-secondary hover:text-text-primary transition-colors group"
-            >
-              Our story &amp; values
-              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
           </div>
 
-          {/* Right — visual cards */}
+          {/* Right */}
           <div>
-            <div ref={cardsRef} className="grid grid-cols-2 gap-4" style={{ perspective: "800px" }}>
-              {/* Large top card */}
-              <div className="col-span-2 p-6 rounded-2xl bg-bg-card border border-border-subtle glow-card transition-all duration-300 group">
-                <p className="text-xs font-medium text-text-muted uppercase tracking-widest mb-2">What we do</p>
-                <p className="text-text-primary font-semibold leading-snug">
-                  End-to-end digital solutions — from brand identity to complex web applications.
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {["AI & Data","Web Development", "Branding", "UI/UX Design", "Maintenance"].map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 rounded-full text-xs bg-bg-elevated border border-border-default text-text-secondary group-hover:border-accent/20 group-hover:text-text-primary transition-colors duration-300"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Bottom-left */}
-              {/*<div className="p-5 rounded-2xl bg-bg-elevated border border-border-subtle flex flex-col justify-between min-h-[140px] glow-card transition-all duration-300">*/}
-              {/*  <p className="text-xs text-text-muted">Offices</p>*/}
-              {/*  <div>*/}
-              {/*    <p className="text-sm font-semibold text-text-primary">United Kingdom</p>*/}
-              {/*    <p className="text-xs text-text-muted mt-0.5">Coventry, England</p>*/}
-              {/*    <p className="text-sm font-semibold text-text-primary mt-3">UAE</p>*/}
-              {/*    <p className="text-xs text-text-muted mt-0.5">Dubai Region</p>*/}
-              {/*  </div>*/}
-              {/*</div>*/}
-
-              {/* Bottom-right — accent card */}
-              <div className="relative p-5 rounded-2xl bg-accent/10 border border-accent/20 flex flex-col justify-between min-h-[140px] overflow-hidden group">
-                <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true" />
-                <p className="relative text-xs text-text-muted">Response time</p>
-                <div className="relative">
-                  <p className="text-3xl font-bold text-accent" style={{ textShadow: "0 0 20px rgba(225,29,72,0.4)" }}> Less than 24h </p>
-                  <p className="text-xs text-text-secondary mt-1">
-                    We respond to every enquiry within one business day, guaranteed.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <p className="m-lede text-[clamp(1.45rem,2.4vw,2.1rem)] leading-[1.34] tracking-[-0.01em] text-text-primary">
+              We believe exceptional digital experiences are built on a foundation of{" "}
+              <em className="text-accent not-italic">trust, craftsmanship, and genuine partnership.</em>
+            </p>
+            <p className="m-body text-text-secondary text-[1.04rem] leading-[1.75] mt-7 max-w-[54ch]">
+              We embed ourselves in each client&apos;s world — understanding their challenges, their audience, and
+              the outcomes that actually matter — before a single line of code is written or a pixel placed.
+            </p>
+            <p className="m-body text-text-secondary text-[1.04rem] leading-[1.75] mt-5 max-w-[54ch]">
+              Our team spans design, engineering, and strategy. We bring the same rigour to a two-page brochure
+              site as we do to a complex enterprise platform. Because good work doesn&apos;t scale down — it
+              either meets the standard or it doesn&apos;t.
+            </p>
+            <Link href="/about" className="m-cta btn mt-8">
+              <span className="lbl">Our story &amp; values</span>
+              <span className="arr">→</span>
+            </Link>
           </div>
         </div>
       </div>

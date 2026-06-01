@@ -9,6 +9,7 @@ import { navLinks } from "@/lib/data";
 import MobileMenu from "./MobileMenu";
 import AnimatedLogo from "./AnimatedLogo";
 import { useTheme } from "@/components/ThemeProvider";
+import { useMagnetic } from "@/hooks/useMagnetic";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -17,18 +18,17 @@ export default function Navbar() {
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
   const hamburgerRef = useRef<HTMLButtonElement>(null);
+  const ctaRef = useMagnetic<HTMLAnchorElement>(0.3);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Portfolio detail pages (/portfolio/<slug>) render a permanently dark hero
-  // (dark gradient + black/60 overlay) behind the transparent navbar. While the
-  // navbar is still transparent (not scrolled), force light text so the menu is
-  // legible regardless of the active theme — in light mode the normal dark text
-  // would vanish against the dark hero.
+  // behind the transparent navbar. While still transparent, force light text.
   const hasDarkHero = /^\/portfolio\/[^/]+\/?$/.test(pathname);
   const onDark = hasDarkHero && !scrolled;
 
@@ -58,10 +58,10 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
-  const activeLinkClass = onDark ? "text-white" : "text-text-primary";
   const idleLinkClass = onDark
     ? "text-white/70 hover:text-white"
     : "text-text-secondary hover:text-text-primary";
+  const activeLinkClass = onDark ? "text-white" : "text-text-primary";
   const iconBtnClass = onDark
     ? "text-white/80 hover:text-white"
     : "text-text-secondary hover:text-text-primary";
@@ -69,20 +69,24 @@ export default function Navbar() {
   return (
     <>
       <motion.header
-        // Use --navbar-bg (explicit rgba) instead of bg-bg-primary/95 which relies on
-        // color-mix() + CSS variables — unreliable on older Safari versions.
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled
-            ? "backdrop-blur-md border-b border-border-subtle"
-            : "bg-transparent"
+        className={`fixed top-0 left-0 right-0 z-40 transition-[padding,background,border-color] duration-400 ${
+          scrolled ? "border-b border-border-subtle py-2" : "border-b border-transparent py-3.5"
         }`}
-        style={scrolled ? { backgroundColor: "var(--navbar-bg)" } : undefined}
+        style={
+          scrolled
+            ? {
+                backgroundColor: "var(--navbar-bg)",
+                backdropFilter: "blur(14px) saturate(140%)",
+                WebkitBackdropFilter: "blur(14px) saturate(140%)",
+              }
+            : undefined
+        }
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+          <div className="flex items-center justify-between">
             {/* Logo */}
             <AnimatedLogo onDark={onDark} />
 
@@ -99,7 +103,7 @@ export default function Navbar() {
                       onMouseLeave={() => setServicesOpen(false)}
                     >
                       <button
-                        className={`flex items-center gap-1 text-sm font-medium transition-colors ${
+                        className={`line-draw${isActive ? " active" : ""} flex items-center gap-1 text-sm font-medium transition-colors ${
                           isActive ? activeLinkClass : idleLinkClass
                         }`}
                       >
@@ -109,13 +113,10 @@ export default function Navbar() {
                           className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
                         />
                       </button>
-                      {isActive && (
-                        <span className="absolute bottom-0 left-0 right-0 h-px bg-accent" />
-                      )}
                       <AnimatePresence>
                         {servicesOpen && (
                           <motion.div
-                            className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-bg-card border border-border-default rounded-xl overflow-hidden shadow-2xl"
+                            className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 bg-bg-card border border-border-default rounded-xl overflow-hidden shadow-2xl"
                             initial={{ opacity: 0, y: -8 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -8 }}
@@ -137,19 +138,15 @@ export default function Navbar() {
                   );
                 }
                 return (
-                  <div key={link.href} className="relative">
-                    <Link
-                      href={link.href}
-                      className={`text-sm font-medium transition-colors ${
-                        isActive ? activeLinkClass : idleLinkClass
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                    {isActive && (
-                      <span className="absolute -bottom-1 left-0 right-0 h-px bg-accent" />
-                    )}
-                  </div>
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`line-draw${isActive ? " active" : ""} text-sm font-medium transition-colors ${
+                      isActive ? activeLinkClass : idleLinkClass
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
                 );
               })}
             </nav>
@@ -164,8 +161,9 @@ export default function Navbar() {
                 {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
               </button>
               <Link
+                ref={ctaRef}
                 href="/contact"
-                className="hidden lg:inline-flex items-center px-5 py-2 text-sm font-medium bg-accent text-white rounded-full hover:bg-red-700 transition-colors"
+                className="hidden lg:inline-flex items-center px-5 py-2.5 text-sm font-semibold text-white rounded-full bg-gradient-to-r from-accent to-accent-bright shadow-[0_8px_30px_-10px_rgba(225,29,72,0.7)] transition-shadow hover:shadow-[0_10px_36px_-8px_rgba(225,29,72,0.85)] will-change-transform"
               >
                 Get a Quote
               </Link>
