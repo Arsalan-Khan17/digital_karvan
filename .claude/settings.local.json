@@ -3,7 +3,19 @@
     "allow": [
       "Bash(npm run:*)",
       "Bash(npm run *)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(curl -sS -X POST https://digitalkarvan-chatbot.onrender.com/chat -H \"Content-Type: application/json\" -d \"{\\\\\"message\\\\\":\\\\\"hello\\\\\"}\" --max-time 60 -i)",
+      "Bash(curl -sS -X OPTIONS https://digitalkarvan-chatbot.onrender.com/chat -H \"Origin: https://digitalkarvan.com\" -H \"Access-Control-Request-Method: POST\" -H \"Access-Control-Request-Headers: content-type\" --max-time 30 -i)",
+      "Bash(curl -sS -X POST https://digitalkarvan-chatbot.onrender.com/chat -H \"Origin: https://digitalkarvan.com\" -H \"Content-Type: application/json\" -d \"{\\\\\"message\\\\\":\\\\\"hi\\\\\"}\" --max-time 60 -i)",
+      "Bash(curl -sS -X OPTIONS https://digitalkarvan-chatbot.onrender.com/chat -H \"Origin: http://localhost:3000\" -H \"Access-Control-Request-Method: POST\" -H \"Access-Control-Request-Headers: content-type\" --max-time 30 -i)",
+      "Bash(echo \"=== tsc exit: $? ===\")",
+      "Bash(echo '=== POST localhost:__TRACKED_VAR__/api/chat ===')",
+      "Bash(curl -sS -X POST http://localhost:__TRACKED_VAR__/api/chat -H 'Content-Type: application/json' -d '{\"message\":\"What services does Digital Karvan offer?\"}' --max-time 70 -w '\\\\n[HTTP %{http_code}, %{time_total}s]\\\\n')",
+      "Bash(curl -sS -X POST \"http://localhost:3000/api/chat\" -H \"Content-Type: application/json\" -d \"{\\\\\"message\\\\\":\\\\\"  \\\\\"}\" -w \"\\\\n[HTTP %{http_code}]\\\\n\" --max-time 20)",
+      "Bash(curl -sS \"http://localhost:3000/api/chat\" -w \"\\\\n[HTTP %{http_code}]\\\\n\" --max-time 20)",
+      "Bash(taskkill //PID 256633 //F)",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(curl -sS \"http://localhost:3000/api/chat\" -X POST -H \"Content-Type: application/json\" -d \"{\\\\\"message\\\\\":\\\\\"ping\\\\\"}\" -w \"[HTTP %{http_code}]\" --max-time 15 -o /dev/null)"
     ]
   }
 }

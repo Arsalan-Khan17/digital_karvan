@@ -5,7 +5,7 @@ import Link from "next/link";
 import { gsap } from "@/lib/gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export default function AnimatedLogo() {
+export default function AnimatedLogo({ onDark = false }: { onDark?: boolean }) {
   const dRef      = useRef<HTMLSpanElement>(null);
   const igitalRef = useRef<HTMLSpanElement>(null);
   const kRef      = useRef<HTMLSpanElement>(null);
@@ -83,10 +83,10 @@ export default function AnimatedLogo() {
         igital
       </span>
 
-      <span ref={kRef} className="text-text-primary ml-1.5 inline-block">K</span>
+      <span ref={kRef} className={`${onDark ? "text-white" : "text-text-primary"} ml-1.5 inline-block`}>K</span>
       <span
         ref={arvanRef}
-        className="font-normal text-text-primary overflow-hidden whitespace-nowrap"
+        className={`font-normal ${onDark ? "text-white" : "text-text-primary"} overflow-hidden whitespace-nowrap`}
         style={{ maxWidth: "4.5rem", display: "inline-block" }}
       >
         arvan

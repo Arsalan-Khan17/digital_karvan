@@ -6,6 +6,7 @@ import ThemeProvider from "@/components/ThemeProvider";
 import CustomCursor from "@/components/layout/CustomCursor";
 import NavigationProgress from "@/components/layout/NavigationProgress";
 import PageTransition from "@/components/layout/PageTransition";
+import ChatWidget from "@/components/chat/ChatWidget";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -108,6 +109,7 @@ export default function RootLayout({
             <PageTransition>{children}</PageTransition>
           </main>
           <Footer />
+          <ChatWidget />
         </ThemeProvider>
       </body>
     </html>

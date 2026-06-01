@@ -24,6 +24,14 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Portfolio detail pages (/portfolio/<slug>) render a permanently dark hero
+  // (dark gradient + black/60 overlay) behind the transparent navbar. While the
+  // navbar is still transparent (not scrolled), force light text so the menu is
+  // legible regardless of the active theme — in light mode the normal dark text
+  // would vanish against the dark hero.
+  const hasDarkHero = /^\/portfolio\/[^/]+\/?$/.test(pathname);
+  const onDark = hasDarkHero && !scrolled;
+
   // iOS Safari scroll lock — overflow:hidden alone doesn't work on iOS
   useEffect(() => {
     if (mobileOpen) {
@@ -50,6 +58,14 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
+  const activeLinkClass = onDark ? "text-white" : "text-text-primary";
+  const idleLinkClass = onDark
+    ? "text-white/70 hover:text-white"
+    : "text-text-secondary hover:text-text-primary";
+  const iconBtnClass = onDark
+    ? "text-white/80 hover:text-white"
+    : "text-text-secondary hover:text-text-primary";
+
   return (
     <>
       <motion.header
@@ -68,7 +84,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
-            <AnimatedLogo />
+            <AnimatedLogo onDark={onDark} />
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-8">
@@ -84,7 +100,7 @@ export default function Navbar() {
                     >
                       <button
                         className={`flex items-center gap-1 text-sm font-medium transition-colors ${
-                          isActive ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
+                          isActive ? activeLinkClass : idleLinkClass
                         }`}
                       >
                         {link.label}
@@ -125,7 +141,7 @@ export default function Navbar() {
                     <Link
                       href={link.href}
                       className={`text-sm font-medium transition-colors ${
-                        isActive ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
+                        isActive ? activeLinkClass : idleLinkClass
                       }`}
                     >
                       {link.label}
@@ -142,7 +158,7 @@ export default function Navbar() {
             <div className="flex items-center gap-2 sm:gap-3">
               <button
                 onClick={toggleTheme}
-                className="p-2 text-text-secondary hover:text-text-primary transition-colors rounded-lg hover:bg-bg-elevated"
+                className={`p-2 transition-colors rounded-lg hover:bg-bg-elevated ${iconBtnClass}`}
                 aria-label="Toggle theme"
               >
                 {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
@@ -157,7 +173,7 @@ export default function Navbar() {
                 id="mobile-menu-btn"
                 ref={hamburgerRef}
                 onClick={() => setMobileOpen(true)}
-                className="lg:hidden p-2.5 min-h-[44px] min-w-[44px] text-text-secondary hover:text-text-primary transition-colors"
+                className={`lg:hidden p-2.5 min-h-[44px] min-w-[44px] transition-colors ${iconBtnClass}`}
                 aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
                 aria-expanded={mobileOpen}
                 aria-controls="mobile-menu-panel"
