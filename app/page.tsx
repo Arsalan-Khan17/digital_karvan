@@ -22,7 +22,7 @@ export default function HomePage() {
       <CoreValues />
       <Team />
       <Testimonials />
-      <BlogPreview />
+      {/* <BlogPreview /> */}
       <QuoteForm />
     </>
   );

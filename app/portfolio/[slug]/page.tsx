@@ -34,7 +34,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   const prevProject = projects[(projectIndex - 1 + projects.length) % projects.length];
 
   const styleMainImage = {
-    backgroundSize: "cover",
+    backgroundSize: "contain",
     backgroundImage: `url(${project.mainImage})`,
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center center",
@@ -169,10 +169,10 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             className={`rounded-3xl aspect-video w-full bg-gradient-to-br ${project.imageGradient} border border-border-subtle flex items-center justify-center`}
           >
             <div className="text-center">
-              <div className="w-16 h-16 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mx-auto mb-4">
+              {/* <div className="w-16 h-16 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mx-auto mb-4">
                 <div className="w-8 h-8 rounded-full bg-white/20" />
-              </div>
-              <p className="text-text-primary/30 text-sm">Project Screenshot</p>
+              </div> */}
+              {/* <p className="text-text-primary/30 text-sm">Project Screenshot</p> */}
             </div>
           </div>
         </div>
@@ -250,6 +250,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
       <section className="bg-bg-primary px-5 sm:px-6 lg:px-8 pb-14 md:pb-20">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {project.screenshot_1 && (
             <div
               className={`relative rounded-2xl aspect-video bg-gradient-to-tl ${project.imageGradient} border border-border-subtle flex items-center justify-center shadow-2xl overflow-hidden p-1`}
             >
@@ -264,20 +265,19 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 <p className="text-text-primary/20 text-sm">UI Screenshot 1</p>
               )}
             </div>
-            <div
-              className={`relative rounded-2xl aspect-video bg-gradient-to-br ${project.imageGradient} border border-border-subtle flex items-center justify-center shadow-2xl overflow-hidden p-1`}
-            >
-              {project.screenshot_2 ? (
-                <Image
-                  src={project.screenshot_2}
-                  alt="UI Screenshot 2"
-                  fill
-                  className="object-cover"
-                />
-              ) : (
-                <p className="text-text-primary/20 text-sm">UI Screenshot 2</p>
+            )}
+            {project.screenshot_2 && (
+                <div
+                  className={`relative rounded-2xl aspect-video bg-gradient-to-br ${project.imageGradient} border border-border-subtle flex items-center justify-center shadow-2xl overflow-hidden p-1`}
+                >
+                  <Image
+                    src={project.screenshot_2}
+                    alt="UI Screenshot 2"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
               )}
-            </div>
           </div>
         </div>
       </section>
