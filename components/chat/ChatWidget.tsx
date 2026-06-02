@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send, Bot } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 
 interface ChatMessage {
   role: "user" | "assistant";
@@ -202,7 +203,9 @@ export default function ChatWidget() {
                         : "bg-bg-card border border-border-subtle text-text-secondary rounded-bl-md"
                     }`}
                   >
-                    {m.content}
+                    <ReactMarkdown>
+                      {m.content}
+                    </ReactMarkdown>
                   </div>
                 </motion.div>
               ))}
