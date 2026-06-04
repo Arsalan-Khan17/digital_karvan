@@ -20,9 +20,32 @@ export default function ContactForm() {
     formState: { errors, isSubmitting },
   } = useForm<ContactFormData>();
 
-  const onSubmit = async (_data: ContactFormData) => {
-    await new Promise((res) => setTimeout(res, 800));
-    setSubmitted(true);
+
+  const onSubmit = async (data: ContactFormData) => {
+    // console.log(data);
+    // if (data._honey) {
+    //   setSubmitted(true);
+    //   return;
+    // }
+    // console.log('honey passed');
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      alert("Failed to send request.");
+    }
   };
 
   const inputClasses =

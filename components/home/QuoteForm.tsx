@@ -42,13 +42,30 @@ export default function QuoteForm() {
   const watchedMessage = watch("message");
 
   const onSubmit = async (data: QuoteFormData) => {
-    // Honeypot check — silently succeed if bot filled the hidden field
-    if (data._honey) {
+    // console.log(data);
+    // if (data._honey) {
+    //   setSubmitted(true);
+    //   return;
+    // }
+    // console.log('honey passed');
+    try {
+      const response = await fetch("/api/quote", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send");
+      }
+
       setSubmitted(true);
-      return;
+    } catch (err) {
+      console.error(err);
+      alert("Failed to send enquiry.");
     }
-    await new Promise((res) => setTimeout(res, 800));
-    setSubmitted(true);
   };
 
   const handleContinue = async () => {

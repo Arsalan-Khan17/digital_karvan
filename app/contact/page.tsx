@@ -83,7 +83,7 @@ export default function ContactPage() {
                       </a>
                     </div>
                   </li>
-                  <li className="flex gap-4">
+                  {/* <li className="flex gap-4">
                     <div className="w-10 h-10 rounded-xl bg-bg-elevated border border-border-default flex items-center justify-center shrink-0">
                       <MapPin size={16} className="text-text-secondary" />
                     </div>
@@ -91,8 +91,8 @@ export default function ContactPage() {
                       <p className="text-xs text-text-muted mb-1">UK Office</p>
                       <p className="text-sm text-text-primary">Charter Avenue, Coventry</p>
                     </div>
-                  </li>
-                  <li className="flex gap-4">
+                  </li> */}
+                  {/* <li className="flex gap-4">
                     <div className="w-10 h-10 rounded-xl bg-bg-elevated border border-border-default flex items-center justify-center shrink-0">
                       <MapPin size={16} className="text-text-secondary" />
                     </div>
@@ -106,7 +106,7 @@ export default function ContactPage() {
                         +31 174 705 811
                       </a>
                     </div>
-                  </li>
+                  </li> */}
                   <li className="flex gap-4">
                     <div className="w-10 h-10 rounded-xl bg-bg-elevated border border-border-default flex items-center justify-center shrink-0">
                       <Clock size={16} className="text-text-secondary" />
