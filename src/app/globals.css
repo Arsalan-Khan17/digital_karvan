@@ -1,26 +1,83 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand gradient stops — sampled from the source PDF */
+  --color-brand-coral: #ff6a66;
+  --color-brand-pink: #f5318a;
+  --color-brand-magenta: #d62b79;
+  --color-brand-purple: #8a2be2;
+
+  /* Surfaces */
+  --color-ink: #0a0a0a;
+  --color-card: #f3f3f3;
+  --color-line: #ececec;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Signature diagonal brand gradient (coral → magenta → purple) */
+  --brand-gradient: linear-gradient(
+    103deg,
+    #ff6a66 0%,
+    #f5318a 38%,
+    #d62b79 60%,
+    #8a2be2 100%
+  );
+  /* Soft page wash used behind light sections */
+  --page-wash: radial-gradient(
+      120% 80% at 0% 0%,
+      rgba(245, 49, 138, 0.06) 0%,
+      transparent 50%
+    ),
+    radial-gradient(120% 80% at 100% 20%, rgba(138, 43, 226, 0.06) 0%, transparent 55%);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  background: #ffffff;
+  color: #0a0a0a;
+}
+
+/* ---- Brand utilities ---- */
+.bg-brand-gradient {
+  background-image: var(--brand-gradient);
+}
+
+.text-brand-gradient {
+  background-image: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Section eyebrow chip — skewed gradient-underglow label from the design */
+.eyebrow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 15px;
+  transform: skewX(-10deg);
+}
+.eyebrow > span {
+  display: inline-block;
+  transform: skewX(10deg);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f3f3f3;
+}
+::-webkit-scrollbar-thumb {
+  background: #cdcdcd;
+  border-radius: 9999px;
 }
