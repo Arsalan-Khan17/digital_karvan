@@ -24,6 +24,13 @@ const testimonials: Testimonial[] = [
     name: "David R",
     role: "Founder - Northwind Labs",
   },
+  {
+    quote:
+      "From stuality never slipped. A genuine long-term partner.",
+    name: "Touseef",
+    role: "Founder - DK",
+  },
+  
 ];
 
 function Arrow({ dir }: { dir: "left" | "right" }) {
@@ -101,7 +108,9 @@ export function Testimonials() {
               {testimonials.map((item, i) => {
                 const rel = i - active;
                 const isActive = rel === 0;
-                const x = rel < 0 ? -180 : rel === 0 ? 0 : 184 + (rel - 1) * 144;
+                // active overlaps the first upcoming image by 40%; subsequent
+                // upcoming images sit with a 5px gap between them
+                const x = rel < 0 ? -180 : rel === 0 ? 0 : 184 + (rel - 1) * (NW + 5);
                 const z = rel === 0 ? 50 : rel > 0 ? 40 - rel : 0;
                 return (
                   <div
@@ -110,7 +119,7 @@ export function Testimonials() {
                     style={{
                       width: isActive ? AW : NW,
                       height: isActive ? AH : NH,
-                      transform: `translate(${x}px, -50%)`,
+                      transform: `translate(${x}px, -42%)`,
                       zIndex: z,
                       opacity: rel < 0 ? 0 : 1,
                       pointerEvents: rel < 0 ? "none" : "auto",
