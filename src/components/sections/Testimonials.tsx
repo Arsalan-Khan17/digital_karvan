@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Placeholder } from "@/components/ui/Placeholder";
@@ -46,9 +47,13 @@ export function Testimonials() {
         <div className="mt-12 grid items-stretch gap-8 lg:grid-cols-[1.05fr_0.95fr]">
           {/* Quote card */}
           <div className="rounded-[24px] bg-[#f3f3f3] p-10 text-neutral-900">
-            <span className="text-brand-gradient block text-[80px] font-bold leading-[0.6]">
-              &ldquo;
-            </span>
+            <Image
+              src="/images/testimonial_commas.svg"
+              alt=""
+              width={105}
+              height={82}
+              className="h-12 w-auto"
+            />
             <p className="mt-6 text-[22px] leading-relaxed text-neutral-700">{t.quote}</p>
             <div className="mt-10">
               <div className="text-[26px] font-semibold">{t.name}</div>

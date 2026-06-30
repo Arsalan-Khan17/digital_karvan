@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
-import { clsx } from "@/lib/clsx";
 
 function CodeIcon() {
   return (
@@ -43,7 +42,7 @@ function ArrowRight() {
 }
 
 const services = [
-  { title: "Software Engineering", desc: "Scalable backends, performant frontends, and native mobile apps built for long-term growth.", icon: <CodeIcon />, active: true },
+  { title: "Software Engineering", desc: "Scalable backends, performant frontends, and native mobile apps built for long-term growth.", icon: <CodeIcon /> },
   { title: "AI & Intelligent System", desc: "Integrating LLMs and custom machine learning models into your core business workflows.", icon: <ChipIcon /> },
   { title: "Data & Analytics", desc: "Unlocking insights with custom data pipelines and real-time visualization dashboards.", icon: <ChartIcon /> },
   { title: "Product Designing", desc: "UX-led design systems that ensure your product looks as good as it functions.", icon: <DesignIcon /> },
@@ -77,39 +76,40 @@ export function Services() {
           {services.map((s) => (
             <article
               key={s.title}
-              className={clsx(
-                "flex flex-col rounded-[22px] p-7",
-                s.active
-                  ? "bg-brand-gradient text-white shadow-[0_28px_60px_-22px_rgba(214,43,121,0.65)]"
-                  : "border border-black/8 bg-white text-neutral-900",
-              )}
+              className="group relative flex flex-col overflow-hidden rounded-[22px] border border-black/8 bg-white p-7 text-neutral-900 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_28px_60px_-22px_rgba(214,43,121,0.65)]"
             >
+              {/* gradient revealed on hover */}
               <span
-                className={clsx(
-                  "flex h-14 w-14 items-center justify-center rounded-2xl",
-                  s.active ? "bg-white text-neutral-900" : "bg-brand-gradient text-white",
-                )}
-              >
-                {s.icon}
-              </span>
+                aria-hidden
+                className="bg-brand-gradient absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              />
 
-              <h3 className={clsx("mt-16 border-t pt-5 text-[22px] font-semibold", s.active ? "border-white/25" : "border-black/10")}>
-                {s.title}
-              </h3>
-              <p className={clsx("mt-3 flex-1 text-[15px] leading-relaxed", s.active ? "text-white/90" : "text-neutral-500")}>
-                {s.desc}
-              </p>
+              <div className="relative flex flex-1 flex-col">
+                <span className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl bg-white">
+                  <span
+                    aria-hidden
+                    className="bg-brand-gradient absolute inset-0 transition-opacity duration-300 group-hover:opacity-0"
+                  />
+                  <span className="relative text-white transition-colors duration-300 group-hover:text-neutral-900">
+                    {s.icon}
+                  </span>
+                </span>
 
-              <button
-                type="button"
-                className={clsx(
-                  "mt-7 inline-flex items-center justify-between gap-3 rounded-xl px-5 py-3 text-[15px] font-medium transition",
-                  s.active ? "bg-white/20 text-white hover:bg-white/30" : "bg-neutral-100 text-neutral-900 hover:bg-neutral-200",
-                )}
-              >
-                Get a quote
-                <ArrowRight />
-              </button>
+                <h3 className="mt-16 border-t border-black/10 pt-5 text-[22px] font-semibold transition-colors duration-300 group-hover:border-white/25 group-hover:text-white">
+                  {s.title}
+                </h3>
+                <p className="mt-3 flex-1 text-[15px] leading-relaxed text-neutral-500 transition-colors duration-300 group-hover:text-white/90">
+                  {s.desc}
+                </p>
+
+                <button
+                  type="button"
+                  className="mt-7 inline-flex items-center justify-between gap-3 rounded-xl bg-neutral-100 px-5 py-3 text-[15px] font-medium text-neutral-900 transition-colors duration-300 group-hover:bg-white/20 group-hover:text-white"
+                >
+                  Get a quote
+                  <ArrowRight />
+                </button>
+              </div>
             </article>
           ))}
         </div>

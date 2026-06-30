@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
-import { Logo } from "@/components/ui/Logo";
 import { Button } from "@/components/ui/Button";
 
 const navItems: { label: string; href: string; hasMenu?: boolean }[] = [
@@ -29,7 +29,14 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-white/85 backdrop-blur-md">
       <Container className="flex h-[88px] items-center justify-between gap-6">
         <Link href="#top" aria-label="Digitalkarvan home">
-          <Logo />
+          <Image
+            src="/images/logo-header.svg"
+            alt="Digitalkarvan"
+            width={199}
+            height={40}
+            priority
+            className="h-10 w-auto"
+          />
         </Link>
 
         {/* Desktop nav */}

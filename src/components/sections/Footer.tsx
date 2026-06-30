@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
-import { Logo } from "@/components/ui/Logo";
 
 const columns = [
   {
@@ -34,7 +34,13 @@ export function Footer() {
       <Container>
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="max-w-xs">
-            <Logo tone="light" />
+            <Image
+              src="/images/logo-footer.svg"
+              alt="Digitalkarvan"
+              width={199}
+              height={40}
+              className="h-10 w-auto"
+            />
             <p className="mt-6 text-[15px] leading-relaxed text-neutral-400">
               We offer various IT services to help our clients stay ahead in the
               constantly evolving technology landscape and achieve their goals.
