@@ -11,29 +11,32 @@ import { WhyWorkWithUs } from "@/components/sections/WhyWorkWithUs";
 import { Team } from "@/components/sections/Team";
 import { Faq } from "@/components/sections/Faq";
 import { Contact } from "@/components/sections/Contact";
-import { Footer } from "@/components/sections/Footer";
 import { ScrollFX } from "@/components/fx/ScrollFX";
+import { FooterReveal } from "@/components/fx/FooterReveal";
 
 export default function Home() {
   return (
     <>
       <ScrollFX />
-      <Header />
-      <main>
-        <Hero />
-        <LogoStrip />
-        <Workflow />
-        <Services />
-        <Process />
-        <Stats />
-        <Projects />
-        <Testimonials />
-        <WhyWorkWithUs />
-        <Team />
-        <Faq />
-        <Contact />
-      </main>
-      <Footer />
+      {/* Content layer sits above the pinned footer and scrolls up to reveal it */}
+      <div className="relative z-10 bg-white">
+        <Header />
+        <main>
+          <Hero />
+          <LogoStrip />
+          <Workflow />
+          <Services />
+          <Process />
+          <Stats />
+          <Projects />
+          <Testimonials />
+          <WhyWorkWithUs />
+          <Team />
+          <Faq />
+          <Contact />
+        </main>
+        <FooterReveal />
+      </div>
     </>
   );
 }
