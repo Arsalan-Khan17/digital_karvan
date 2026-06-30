@@ -9,7 +9,7 @@ import { services } from "@/data/services";
 
 const otherNav = [
   { label: "Industries", href: "/#industries", hasMenu: true },
-  { label: "Work", href: "/#work" },
+  { label: "Work", href: "/portfolio" },
   { label: "Process", href: "/#process" },
   { label: "Team", href: "/#team" },
 ];
