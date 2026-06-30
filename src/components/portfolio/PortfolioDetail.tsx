@@ -49,6 +49,19 @@ export function PortfolioDetail({ project }: { project: Project }) {
           </Link>
 
           <div className="mt-8 max-w-3xl" data-anim>
+            {/* Client logo lockup */}
+            <div className="mb-6 inline-flex items-center gap-3 rounded-2xl border border-black/8 bg-white px-5 py-3 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.18)]">
+              <div className="relative h-9 w-32">
+                <Image
+                  src={project.logo}
+                  alt={`${project.client} logo`}
+                  fill
+                  sizes="128px"
+                  className="object-contain object-left"
+                />
+              </div>
+            </div>
+
             <div className="flex flex-wrap items-center gap-2">
               {project.tags.map((t) => (
                 <span key={t} className="rounded-full bg-neutral-900 px-4 py-1.5 text-[13px] font-medium text-white">
