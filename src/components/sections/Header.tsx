@@ -8,8 +8,8 @@ import { Button } from "@/components/ui/Button";
 import { services } from "@/data/services";
 
 const otherNav = [
-  { label: "Industries", href: "/#industries", hasMenu: true },
   { label: "Work", href: "/portfolio" },
+  { label: "About", href: "/about" },
   { label: "Process", href: "/#process" },
   { label: "Team", href: "/#team" },
 ];
@@ -84,7 +84,6 @@ export function Header() {
                 className="flex items-center gap-1 text-[15px] font-medium text-neutral-900 transition-colors hover:text-brand-magenta"
               >
                 {item.label}
-                {item.hasMenu && <Chevron />}
               </Link>
               {i === 0 && <span className="h-4 w-px bg-black/15" />}
             </div>
@@ -98,7 +97,7 @@ export function Header() {
           >
             Testimonials
           </Link>
-          <Button href="/#contact" variant="gradient" className="rounded-xl px-6 py-3">
+          <Button href="/contact" variant="gradient" className="rounded-xl px-6 py-3">
             Contact Us
           </Button>
         </div>
@@ -163,7 +162,7 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Button href="/#contact" variant="gradient" className="mt-2 w-full">
+            <Button href="/contact" variant="gradient" className="mt-2 w-full">
               Contact Us
             </Button>
           </Container>
