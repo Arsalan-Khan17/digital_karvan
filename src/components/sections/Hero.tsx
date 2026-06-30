@@ -39,7 +39,7 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden bg-white" style={{ backgroundImage: "var(--page-wash)" }}>
       <Container className="grid items-center gap-10 pb-12 pt-6 lg:grid-cols-[1.05fr_0.95fr] lg:pb-20 lg:pt-10">
         {/* Left */}
-        <div className="order-2 lg:order-1">
+        <div className="order-2 lg:order-1" data-anim-stagger>
           <h1 className="max-w-[640px] text-[42px] font-bold leading-[1.05] tracking-tight text-black sm:text-[56px] lg:text-[67px]">
             We Build Digital Products That Grow Ambitious Businesses.
           </h1>
@@ -88,7 +88,7 @@ export function Hero() {
         </div>
 
         {/* Right — torus */}
-        <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
+        <div className="order-1 flex justify-center lg:order-2 lg:justify-end" data-anim>
           <Image
             src="/images/hero-section-vector.svg"
             alt="Abstract 3D torus"

@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Placeholder } from "@/components/ui/Placeholder";
@@ -33,10 +35,22 @@ export function Team() {
   const m = members[active];
   const go = (delta: number) => setActive((i) => (i + delta + members.length) % members.length);
 
+  const bioRef = useRef<HTMLDivElement>(null);
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        bioRef.current,
+        { autoAlpha: 0, y: 16 },
+        { autoAlpha: 1, y: 0, duration: 0.5, ease: "power2.out" },
+      );
+    },
+    { dependencies: [active] },
+  );
+
   return (
     <section id="team" className="bg-white py-16 lg:py-20">
       <Container>
-        <div className="overflow-hidden rounded-[28px] bg-[#f4f4f4] p-8 sm:p-12">
+        <div className="overflow-hidden rounded-[28px] bg-[#f4f4f4] p-8 sm:p-12" data-anim>
           <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
             {/* Left */}
             <div>
@@ -45,7 +59,7 @@ export function Team() {
                 The Experts Behind Digital Karvan
               </h2>
 
-              <div className="mt-12">
+              <div className="mt-12" ref={bioRef}>
                 <h3 className="text-[30px] font-bold text-black sm:text-[34px]">{m.name}</h3>
                 <p className="mt-2 text-[14px] font-semibold uppercase tracking-widest text-neutral-500">
                   {m.role}

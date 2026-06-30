@@ -41,7 +41,7 @@ export function Faq() {
     <section className="relative bg-white py-16 lg:py-20" style={{ backgroundImage: "var(--page-wash)" }}>
       <Container className="grid items-center gap-10 lg:grid-cols-2">
         {/* Left */}
-        <div>
+        <div data-anim>
           <Badge>Know More</Badge>
           <h2 className="mt-6 text-[34px] font-bold tracking-tight text-black sm:text-[38px]">
             Frequently Asked Questions
@@ -106,7 +106,7 @@ export function Faq() {
         </div>
 
         {/* Right — 3D D logo */}
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center" style={{ alignSelf: 'flex-end' }} data-anim>
           <Image
             src="/images/faq-section-logo.svg"
             alt="Digital Karvan 3D logo"

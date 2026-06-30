@@ -52,27 +52,29 @@ export function Services() {
   return (
     <section id="services" className="bg-white py-20 lg:py-28">
       <Container>
-        <Badge>Our Services</Badge>
+        <div data-anim-stagger>
+          <Badge>Our Services</Badge>
 
-        <div className="mt-6 flex flex-wrap items-start justify-between gap-5">
-          <div>
-            <h2 className="text-[34px] font-bold tracking-tight text-black sm:text-[38px]">
-              What We Do?
-            </h2>
-            <p className="mt-3 max-w-xl text-[18px] text-neutral-500">
-              Interdisciplinary expertise unified under a single mission: your
-              product&rsquo;s success.
-            </p>
+          <div className="mt-6 flex flex-wrap items-start justify-between gap-5">
+            <div>
+              <h2 className="text-[34px] font-bold tracking-tight text-black sm:text-[38px]">
+                What We Do?
+              </h2>
+              <p className="mt-3 max-w-xl text-[18px] text-neutral-500">
+                Interdisciplinary expertise unified under a single mission: your
+                product&rsquo;s success.
+              </p>
+            </div>
+            <Link
+              href="#services"
+              className="rounded-2xl bg-black px-6 py-3.5 text-[15px] font-medium text-white transition hover:bg-neutral-800"
+            >
+              View All Services
+            </Link>
           </div>
-          <Link
-            href="#services"
-            className="rounded-2xl bg-black px-6 py-3.5 text-[15px] font-medium text-white transition hover:bg-neutral-800"
-          >
-            View All Services
-          </Link>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" data-anim-stagger>
           {services.map((s) => (
             <article
               key={s.title}

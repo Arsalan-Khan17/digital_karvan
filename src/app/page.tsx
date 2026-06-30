@@ -12,10 +12,12 @@ import { Team } from "@/components/sections/Team";
 import { Faq } from "@/components/sections/Faq";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
+import { ScrollFX } from "@/components/fx/ScrollFX";
 
 export default function Home() {
   return (
     <>
+      <ScrollFX />
       <Header />
       <main>
         <Hero />

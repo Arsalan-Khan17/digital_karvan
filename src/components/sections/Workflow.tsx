@@ -36,7 +36,7 @@ export function Workflow() {
   return (
     <section className="relative bg-white py-20 lg:py-28" style={{ backgroundImage: "var(--page-wash)" }}>
       <Container>
-        <div className="text-center">
+        <div className="text-center" data-anim>
           <Badge>Workflow</Badge>
           <h2 className="mt-6 text-[34px] font-bold tracking-tight text-black sm:text-[38px]">
             From Stuck To Shipped
@@ -47,7 +47,7 @@ export function Workflow() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-7 lg:grid-cols-2">
+        <div className="mt-14 grid gap-7 lg:grid-cols-2" data-anim-stagger>
           {/* Before */}
           <div className="relative overflow-hidden rounded-[28px] bg-[#f3f3f3] p-9 sm:p-11">
             <Image

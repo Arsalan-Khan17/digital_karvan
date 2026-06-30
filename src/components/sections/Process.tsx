@@ -15,7 +15,7 @@ export function Process() {
   return (
     <section id="process" className="bg-black py-20 lg:py-28">
       <Container>
-        <div className="text-center">
+        <div className="text-center" data-anim>
           <Badge tone="dark">The Karvan Way</Badge>
           <h2 className="mt-6 text-[34px] font-bold tracking-tight text-white sm:text-[40px]">
             We Travel The Journey With You
@@ -27,15 +27,15 @@ export function Process() {
         </div>
 
         <div className="mt-14 rounded-[32px] bg-[#0c0c0c] p-7 ring-1 ring-white/5 sm:p-12">
-          <ol className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-4">
+          <ol className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-4" data-process>
             {steps.map((step, i) => (
-              <li key={step.n} className="relative text-center">
+              <li key={step.n} className="relative text-center" data-process-step>
                 <div className="flex items-center justify-center">
                   <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 text-[15px] font-semibold text-white">
                     {step.n}
                   </span>
                   {i < steps.length - 1 && (
-                    <span className="absolute left-[calc(50%+1.75rem)] top-6 hidden h-px w-[calc(100%-3.5rem)] bg-white/15 lg:block" />
+                    <span className="absolute left-[calc(50%+1.75rem)] top-6 hidden h-px w-[calc(100%-3.5rem)] bg-white/15 lg:block" data-anim-line />
                   )}
                 </div>
                 <h3 className="mt-5 text-[22px] font-semibold text-white">{step.title}</h3>

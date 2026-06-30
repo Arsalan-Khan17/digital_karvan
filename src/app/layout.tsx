@@ -22,6 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} antialiased`}>
+      <head>
+        {/* If JS is disabled, GSAP never reveals these — show them normally */}
+        <noscript>
+          <style>{`[data-anim],[data-anim-stagger]>*,[data-process-step]{opacity:1!important;transform:none!important}[data-anim-line]{transform:none!important}`}</style>
+        </noscript>
+      </head>
       <body className="font-sans">{children}</body>
     </html>
   );

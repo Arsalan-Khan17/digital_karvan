@@ -27,7 +27,7 @@ export function Contact() {
     <section id="contact" className="relative bg-white py-20 lg:py-24" style={{ backgroundImage: "var(--page-wash)" }}>
       <Container className="grid gap-12 lg:grid-cols-2">
         {/* Left */}
-        <div>
+        <div data-anim>
           <Badge>Get In Touch</Badge>
           <h2 className="mt-6 max-w-md text-[34px] font-bold leading-tight tracking-tight text-black sm:text-[40px]">
             We Are Always Ready To Help You &amp; Answer Your Questions
@@ -52,7 +52,7 @@ export function Contact() {
         </div>
 
         {/* Right — form */}
-        <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
+        <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()} data-anim-stagger>
           <input className={inputClass} type="text" placeholder="Full Name" aria-label="Full Name" />
           <input className={inputClass} type="email" placeholder="Email" aria-label="Email" />
           <input className={inputClass} type="text" placeholder="Subject" aria-label="Subject" />

@@ -71,6 +71,31 @@ body {
   transform: skewX(10deg);
 }
 
+/* ---- GSAP scroll/load animation initial states (hidden until revealed) ---- */
+[data-anim],
+[data-anim-stagger] > *,
+[data-process-step] {
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: opacity, transform;
+}
+[data-anim-line] {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+/* If reduced-motion is preferred, show everything normally */
+@media (prefers-reduced-motion: reduce) {
+  [data-anim],
+  [data-anim-stagger] > *,
+  [data-process-step] {
+    opacity: 1;
+    transform: none;
+  }
+  [data-anim-line] {
+    transform: none;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }

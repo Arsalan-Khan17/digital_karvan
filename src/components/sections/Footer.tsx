@@ -32,7 +32,7 @@ export function Footer() {
   return (
     <footer className="bg-black pt-16 pb-8">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]" data-anim-stagger>
           <div className="max-w-xs">
             <Image
               src="/images/logo-footer.svg"

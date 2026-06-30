@@ -28,7 +28,7 @@ export function WhyWorkWithUs() {
   return (
     <section className="bg-white py-16 lg:py-20">
       <Container>
-        <div className="text-center">
+        <div className="text-center" data-anim>
           <Badge>Why Work Us</Badge>
           <h2 className="mt-6 text-[34px] font-bold tracking-tight text-black sm:text-[40px]">
             A Long-Term Partner, Not A Vendor
@@ -36,7 +36,7 @@ export function WhyWorkWithUs() {
         </div>
 
         <div className="mt-12 rounded-[28px] border border-black/8 bg-gradient-to-br from-white via-white to-[#f6e8f2] p-9 sm:p-14">
-          <div className="grid gap-x-16 gap-y-12 sm:grid-cols-2">
+          <div className="grid gap-x-16 gap-y-12 sm:grid-cols-2" data-anim-stagger>
             {reasons.map((r) => (
               <div key={r.n} className="flex gap-6">
                 <span className="text-brand-gradient text-[44px] font-bold leading-none">

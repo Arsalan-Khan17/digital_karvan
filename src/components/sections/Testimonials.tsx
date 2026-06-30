@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Placeholder } from "@/components/ui/Placeholder";
@@ -36,13 +38,27 @@ export function Testimonials() {
   const t = testimonials[active];
   const go = (delta: number) => setActive((i) => (i + delta + testimonials.length) % testimonials.length);
 
+  const quoteRef = useRef<HTMLDivElement>(null);
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        quoteRef.current,
+        { autoAlpha: 0, y: 16 },
+        { autoAlpha: 1, y: 0, duration: 0.5, ease: "power2.out" },
+      );
+    },
+    { dependencies: [active] },
+  );
+
   return (
     <section id="testimonials" className="bg-white py-20 lg:py-28">
       <Container>
-        <Badge>What our clients say about us</Badge>
-        <h2 className="mt-6 text-[34px] font-bold tracking-tight text-black sm:text-[40px]">
-          Client&rsquo;s Testimonials
-        </h2>
+        <div data-anim>
+          <Badge>What our clients say about us</Badge>
+          <h2 className="mt-6 text-[34px] font-bold tracking-tight text-black sm:text-[40px]">
+            Client&rsquo;s Testimonials
+          </h2>
+        </div>
 
         <div className="mt-12 grid items-stretch gap-8 lg:grid-cols-[1.05fr_0.95fr]">
           {/* Quote card */}
@@ -54,10 +70,12 @@ export function Testimonials() {
               height={82}
               className="h-12 w-auto"
             />
-            <p className="mt-6 text-[22px] leading-relaxed text-neutral-700">{t.quote}</p>
-            <div className="mt-10">
-              <div className="text-[26px] font-semibold">{t.name}</div>
-              <div className="mt-1 text-[15px] text-neutral-500">{t.role}</div>
+            <div ref={quoteRef}>
+              <p className="mt-6 text-[22px] leading-relaxed text-neutral-700">{t.quote}</p>
+              <div className="mt-10">
+                <div className="text-[26px] font-semibold">{t.name}</div>
+                <div className="mt-1 text-[15px] text-neutral-500">{t.role}</div>
+              </div>
             </div>
           </div>
 

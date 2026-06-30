@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
@@ -51,11 +53,23 @@ export function Projects() {
   const project = projects[active];
   const go = (delta: number) => setActive((i) => (i + delta + projects.length) % projects.length);
 
+  const slideRef = useRef<HTMLDivElement>(null);
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        slideRef.current,
+        { autoAlpha: 0, x: 24 },
+        { autoAlpha: 1, x: 0, duration: 0.5, ease: "power2.out" },
+      );
+    },
+    { dependencies: [active] },
+  );
+
   return (
     <section id="work" className="bg-white pb-0">
       <Container>
         <Badge>Projects</Badge>
-        <div className="mt-6 flex flex-wrap items-end justify-between gap-6 pb-12">
+        <div className="mt-6 flex flex-wrap items-end justify-between gap-6 pb-12" data-anim>
           <div className="max-w-2xl">
             <h2 className="text-[34px] font-bold tracking-tight text-black sm:text-[38px]">
               Projects We&rsquo;ve Brought To Life
@@ -79,7 +93,7 @@ export function Projects() {
             {project.index}
           </span>
 
-          <div className="relative z-10 flex flex-col justify-center">
+          <div ref={slideRef} className="relative z-10 flex flex-col justify-center">
             <span className="inline-flex w-fit rounded-full bg-black px-5 py-2 text-[14px] font-medium text-white">
               {project.tag}
             </span>
