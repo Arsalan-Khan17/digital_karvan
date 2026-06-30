@@ -8,7 +8,8 @@ import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Placeholder } from "@/components/ui/Placeholder";
 
-type Testimonial = { quote: string; name: string; role: string };
+/** photo: drop a real image path here later (e.g. "/images/client-sarah.jpg") */
+type Testimonial = { quote: string; name: string; role: string; photo?: string };
 
 const testimonials: Testimonial[] = [
   {
@@ -36,7 +37,18 @@ function Arrow({ dir }: { dir: "left" | "right" }) {
 export function Testimonials() {
   const [active, setActive] = useState(0);
   const t = testimonials[active];
-  const go = (delta: number) => setActive((i) => (i + delta + testimonials.length) % testimonials.length);
+  const last = testimonials.length - 1;
+  const atStart = active === 0;
+  const atEnd = active === last;
+  // bounded (non-looping): clamp to [0, last]
+  const go = (delta: number) =>
+    setActive((i) => Math.min(last, Math.max(0, i + delta)));
+
+  // photo layout constants — active image is ~30% taller than the others
+  const AW = 280;
+  const AH = 460;
+  const NW = 240;
+  const NH = 354;
 
   const quoteRef = useRef<HTMLDivElement>(null);
   useGSAP(
@@ -51,7 +63,7 @@ export function Testimonials() {
   );
 
   return (
-    <section id="testimonials" className="bg-white py-20 lg:py-28">
+    <section id="testimonials" className="overflow-x-clip bg-white py-20 lg:py-28">
       <Container>
         <div data-anim>
           <Badge>What our clients say about us</Badge>
@@ -81,24 +93,69 @@ export function Testimonials() {
 
           {/* Photos + controls */}
           <div className="flex flex-col">
-            <div className="grid flex-1 grid-cols-2 gap-4">
-              <Placeholder label="Client photo" hint="add photo" className="h-full min-h-[340px]" />
-              <Placeholder label="Client photo" hint="add photo" className="h-full min-h-[340px]" />
+            {/* All cards stay mounted; only transform/size/filter transition,
+                so the row morphs smoothly with no reflow / shake. The active
+                card is tallest, on top, overlaps the content (left) by 10px
+                and the next card by 40%. */}
+            <div className="relative z-20 h-[460px] lg:-ml-[42px]">
+              {testimonials.map((item, i) => {
+                const rel = i - active;
+                const isActive = rel === 0;
+                const x = rel < 0 ? -180 : rel === 0 ? 0 : 184 + (rel - 1) * 144;
+                const z = rel === 0 ? 50 : rel > 0 ? 40 - rel : 0;
+                return (
+                  <div
+                    key={item.name}
+                    className="absolute left-0 top-1/2 overflow-hidden rounded-2xl transition-all duration-500 ease-out will-change-transform"
+                    style={{
+                      width: isActive ? AW : NW,
+                      height: isActive ? AH : NH,
+                      transform: `translate(${x}px, -50%)`,
+                      zIndex: z,
+                      opacity: rel < 0 ? 0 : 1,
+                      pointerEvents: rel < 0 ? "none" : "auto",
+                      filter: isActive ? "none" : "grayscale(1)",
+                      boxShadow: isActive
+                        ? "0 30px 60px -20px rgba(0,0,0,0.4)"
+                        : "none",
+                    }}
+                  >
+                    {item.photo ? (
+                      <Image
+                        src={item.photo}
+                        alt={item.name}
+                        fill
+                        sizes="300px"
+                        className="object-cover"
+                      />
+                    ) : (
+                      <Placeholder
+                        label="Client photo"
+                        hint={isActive ? item.name : "add photo"}
+                        variant={isActive ? "brand" : "neutral"}
+                        className="h-full w-full"
+                      />
+                    )}
+                  </div>
+                );
+              })}
             </div>
             <div className="mt-6 flex items-center justify-end gap-3">
               <button
                 type="button"
                 onClick={() => go(-1)}
+                disabled={atStart}
                 aria-label="Previous testimonial"
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-100 text-neutral-400 transition hover:text-neutral-900"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-100 text-neutral-500 transition hover:text-neutral-900 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:text-neutral-500"
               >
                 <Arrow dir="left" />
               </button>
               <button
                 type="button"
                 onClick={() => go(1)}
+                disabled={atEnd}
                 aria-label="Next testimonial"
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-gradient text-white shadow-lg transition hover:-translate-y-0.5"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-gradient text-white shadow-lg transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0"
               >
                 <Arrow dir="right" />
               </button>
