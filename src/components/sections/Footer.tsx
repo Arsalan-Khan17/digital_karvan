@@ -17,13 +17,18 @@ const columns = [
   },
 ];
 
-const socials = ["Facebook", "X", "TikTok", "Upwork", "Instagram"];
+const socials = ["facebook", "x", "linkedin", "upwork", "instagram"];
 
 function SocialIcon({ name }: { name: string }) {
-  // Simplified glyphs; swap for brand SVGs if needed.
   return (
-    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-gradient text-[12px] font-bold text-white">
-      {name[0]}
+    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-gradient">
+      <Image
+        src={`/images/socials/${name}.svg`}
+        alt={name}
+        width={40}
+        height={40}
+        className="h-4 object-contain"
+      />
     </span>
   );
 }

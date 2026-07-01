@@ -87,13 +87,19 @@ export function Projects() {
       </Container>
 
       {/* Slider band */}
-      <div className="bg-gradient-to-b from-[#f7eaea] to-[#f4dede]">
-        <Container className="relative grid min-h-[520px] gap-8 py-16 lg:grid-cols-2">
-          <span className="pointer-events-none absolute left-0 top-8 select-none text-[160px] font-bold leading-none text-white/70">
-            {project.index}
-          </span>
-
+      <div className="relative overflow-hidden bg-gradient-to-b from-[#f7eaea] to-[#f4dede]">
+        {/* Full-section overlay: sits over the gradient, below the content */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/images/projects-overlay.svg')" }}
+        />
+        <Container className="relative z-10 grid min-h-[520px] gap-8 py-16 lg:grid-cols-2">
           <div ref={slideRef} className="relative z-10 flex flex-col justify-center">
+            {/* Numeral now in normal flow so the gap to the content is real */}
+            <span className="pointer-events-none mb-10 select-none text-[160px] font-bold leading-none text-white/70">
+              {project.index}
+            </span>
             <span className="inline-flex w-fit rounded-full bg-black px-5 py-2 text-[14px] font-medium text-white">
               {project.tag}
             </span>
