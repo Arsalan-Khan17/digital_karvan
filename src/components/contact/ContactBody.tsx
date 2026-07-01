@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Container } from "@/components/ui/Container";
 
 function MailIcon() {
@@ -78,25 +79,85 @@ export function ContactBody() {
         </div>
 
         {/* Form */}
-        <form
-          className="rounded-[28px] border border-black/8 bg-[#f7f7f7] p-7 sm:p-10"
-          onSubmit={(e) => e.preventDefault()}
-          data-anim
-        >
-          <div className="grid gap-4 sm:grid-cols-2">
-            <input className={inputClass} type="text" placeholder="Name" aria-label="Name" required />
-            <input className={inputClass} type="email" placeholder="Email" aria-label="Email" required />
-          </div>
-          <input className={`${inputClass} mt-4`} type="text" placeholder="Subject" aria-label="Subject" required />
-          <textarea className={`${inputClass} mt-4 min-h-[170px] resize-y`} placeholder="Message" aria-label="Message" required />
-          <button
-            type="submit"
-            className="bg-brand-gradient mt-5 w-full rounded-2xl px-7 py-4 text-[15px] font-semibold text-white shadow-[0_14px_34px_-12px_rgba(214,43,121,0.7)] transition-transform hover:-translate-y-0.5 sm:w-fit sm:px-10"
-          >
-            Send Message
-          </button>
-        </form>
+        <ContactForm />
       </Container>
     </section>
+  );
+}
+
+function ContactForm() {
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [error, setError] = useState("");
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const payload = {
+      name: String(fd.get("name") || ""),
+      email: String(fd.get("email") || ""),
+      subject: String(fd.get("subject") || ""),
+      message: String(fd.get("message") || ""),
+    };
+    setStatus("submitting");
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.success) throw new Error(data.error || "Failed to send message.");
+      form.reset();
+      setStatus("success");
+    } catch (err) {
+      setStatus("error");
+      setError(err instanceof Error ? err.message : "Failed to send message.");
+    }
+  };
+
+  if (status === "success") {
+    return (
+      <div
+        className="flex flex-col items-center justify-center rounded-[28px] border border-black/8 bg-[#f7f7f7] p-10 text-center sm:p-14"
+        data-anim
+      >
+        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-gradient text-white">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M4 12.5l5 5L20 6" />
+          </svg>
+        </span>
+        <h3 className="mt-6 text-[24px] font-bold text-black">Message Sent!</h3>
+        <p className="mt-2 text-[16px] text-neutral-500">
+          We&rsquo;ll get back to you within 24 hours.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form
+      className="rounded-[28px] border border-black/8 bg-[#f7f7f7] p-7 sm:p-10"
+      onSubmit={onSubmit}
+      data-anim
+    >
+      <div className="grid gap-4 sm:grid-cols-2">
+        <input className={inputClass} name="name" type="text" placeholder="Name" aria-label="Name" required />
+        <input className={inputClass} name="email" type="email" placeholder="Email" aria-label="Email" required />
+      </div>
+      <input className={`${inputClass} mt-4`} name="subject" type="text" placeholder="Subject" aria-label="Subject" required />
+      <textarea className={`${inputClass} mt-4 min-h-[170px] resize-y`} name="message" placeholder="Message" aria-label="Message" required />
+      {status === "error" && (
+        <p className="mt-4 text-[14px] text-red-500" role="alert">{error}</p>
+      )}
+      <button
+        type="submit"
+        disabled={status === "submitting"}
+        className="bg-brand-gradient mt-5 w-full rounded-2xl px-7 py-4 text-[15px] font-semibold text-white shadow-[0_14px_34px_-12px_rgba(214,43,121,0.7)] transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60 sm:w-fit sm:px-10"
+      >
+        {status === "submitting" ? "Sending…" : "Send Message"}
+      </button>
+    </form>
   );
 }
