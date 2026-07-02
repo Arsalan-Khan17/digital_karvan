@@ -22,6 +22,43 @@ const P = "/images/portfolio";
 
 export const projects: Project[] = [
   {
+    slug: "gemscosmo",
+    title: "Gemscosmo Online Store",
+    tags: ["Website"],
+    date: "Apr 15, 2025",
+    client: "Gemscosmo",
+    overview:
+      "A WooCommerce storefront for Gemscosmo, a retailer of natural gemstones, crystals, and minerals ethically sourced from around the world. We designed and built an online shopping experience that captures the brand's premium, natural aesthetic — 'Exquisite crystals, ethically sourced and crafted to perfection' — and turns browsers into buyers.",
+    challenge:
+      "Gemscosmo needed a trustworthy online store to sell high-value, one-of-a-kind stones to an international audience. Because each piece is unique, the catalogue had to handle single-quantity inventory, multiple currencies, and worldwide shipping, while conveying the authenticity and quality that justify premium pricing.",
+    solution:
+      "A custom WooCommerce build on WordPress with a clean, gallery-led product experience. It includes categorised collections (Facet Rough, Loose Stones, and Minerals & Crystals), rich product pages with origin details, multi-currency and language selection, promotional banners with weekly discount codes, secure checkout with convenient payment options, and a 7-day return policy — all wrapped in a responsive, conversion-focused design.",
+    results:
+      "Gemscosmo launched with a polished, global-ready storefront that presents their premium gemstones with the credibility of an established brand — ready to convert international visitors across desktop and mobile.",
+    metrics: [
+      { value: "3+", label: "Gemstone categories curated" },
+      { value: "Global", label: "Worldwide shipping enabled" },
+      { value: "100%", label: "Mobile-responsive storefront" },
+      { value: "7-Day", label: "Return policy integrated" },
+    ],
+    technologies: ["WordPress", "WooCommerce", "PHP", "MySQL", "Elementor", "PayPal"],
+    deliverables: {
+      heading: "What We Delivered",
+      items: [
+        "Custom WooCommerce storefront on WordPress",
+        "Categorised gemstone collections and rich product pages",
+        "Single-quantity inventory for one-of-a-kind stones",
+        "Multi-currency and language selection",
+        "Secure checkout with multiple payment options",
+        "Promotional banners and weekly discount codes",
+        "Worldwide shipping and 7-day return flows",
+      ],
+    },
+    cover: `${P}/gemscosmo/homepage.png`,
+    logo: `${P}/gemscosmo/logo.webp`,
+    gallery: [`${P}/gemscosmo/shop-page.png`],
+  },
+  {
     slug: "smartflyer-website",
     title: "Smartflyer Website & Portal",
     tags: ["Website"],
@@ -41,7 +78,7 @@ export const projects: Project[] = [
       { value: "3 Hrs", label: "Saved per booking (admin)" },
       { value: "29%", label: "New bounce rate (from 72%)" },
     ],
-    technologies: ["Next.js", "Tailwind CSS", "Strapi", "PostgreSQL", "Figma", "Vercel"],
+    technologies: ["PHP", "Laravel 9", "AWS", "Bootstrap", "MySQL", "Figma", "Firebase"],
     cover: `${P}/smartflyer/smartflyer.png`,
     logo: `${P}/smartflyer/logo.png`,
     gallery: [`${P}/smartflyer/smartflyer-ui-1.png`, `${P}/smartflyer/smartflyer-ui-2.png`],
@@ -66,10 +103,47 @@ export const projects: Project[] = [
       { value: "9,400", label: "Peak concurrent users" },
       { value: "60%", label: "Faster course authoring" },
     ],
-    technologies: ["React", "Node.js", "GraphQL", "MongoDB", "AWS", "WebRTC", "CloudFront"],
+    technologies: ["Vue.js", "Laravel 9", "MongoDB", "MySql", "AWS", "WebRTC", "Cloud Functions"],
     cover: `${P}/LMS/courses.png`,
     logo:`${P}/LMS/logo.png`,
     gallery: [`${P}/LMS/LMS_SIGN.png`],
+  },
+  {
+    slug: "timeless-digital-media",
+    title: "Timeless Digital Media",
+    tags: ["Website"],
+    date: "Mar 3, 2025",
+    client: "Timeless Digital Media",
+    overview:
+      "A brand-forward marketing website for Timeless Digital Media, a full-service media production and advertising agency built around the promise 'Bridging the Gap Between Vision and Execution.' We designed and built their complete digital presence on WordPress to showcase their production work and convert visiting SMEs and corporations into enquiries.",
+    challenge:
+      "As a fast-growing media house serving 4,200+ clients across advertising, video, branding, social, events, and documentaries, Timeless had no single place that presented their six service verticals cohesively, made their portfolio easy to browse, or reliably captured leads. Their site needed to match the production quality of the work itself.",
+    solution:
+      "A custom WordPress build using Elementor, structured around their brand narrative — 'Driven by Vision. Defined by Impact.' It features a cinematic hero, dedicated sections for each of the six services, a filterable 'Our Work' showcase, a team page, and streamlined contact and enquiry flows. The site is fully responsive, SEO-optimised, and tuned for fast load times.",
+    results:
+      "The new site gave Timeless a single, polished home for their brand and portfolio, improving how prospective SMEs and corporate clients discover their services, browse past work, and get in touch — reinforcing their position as 'the media production experts you can count on.'",
+    metrics: [
+      { value: "4,200+", label: "Clients showcased as social proof" },
+      { value: "6", label: "Core services presented" },
+      { value: "100%", label: "Responsive across devices" },
+      { value: "<2s", label: "Average page load time" },
+    ],
+    technologies: ["WordPress", "Elementor", "PHP", "MySQL", "Yoast SEO", "Cloudflare"],
+    deliverables: {
+      heading: "What We Delivered",
+      items: [
+        "Custom WordPress theme built with Elementor",
+        "Cinematic homepage and brand storytelling",
+        "Dedicated pages for all six service verticals",
+        "Filterable 'Our Work' portfolio showcase",
+        "Team and About sections",
+        "Contact and enquiry lead-capture flows",
+        "On-page SEO and performance optimisation",
+      ],
+    },
+    cover: `${P}/timeless/timelessdigitalmedia.com.png`,
+    logo: `${P}/timeless/logo.svg`,
+    gallery: [`${P}/timeless/timelessdigitalmedia.com.png`],
   },
   {
     slug: "ai-voice-cloning",

@@ -69,7 +69,7 @@ export function PortfolioGrid() {
                       alt={p.title}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                      className="object-contain transition-transform duration-500 ease-out group-hover:scale-105"
                     />
                     <span className="absolute right-4 top-4 flex h-10 w-10 translate-y-2 items-center justify-center rounded-full bg-white/90 text-neutral-900 opacity-0 backdrop-blur transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                       <ArrowUpRight />

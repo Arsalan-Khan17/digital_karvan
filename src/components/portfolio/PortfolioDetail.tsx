@@ -86,7 +86,7 @@ export function PortfolioDetail({ project }: { project: Project }) {
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 1200px"
-                className="object-cover"
+                className="object-cover object-top"
               />
             </div>
           </div>
@@ -188,7 +188,7 @@ export function PortfolioDetail({ project }: { project: Project }) {
                       alt={`${project.title} — view ${i + 1}`}
                       fill
                       sizes="(max-width: 1024px) 100vw, 1200px"
-                      className="object-cover"
+                      className="object-cover object-top"
                     />
                   </div>
                 </div>
@@ -220,7 +220,7 @@ export function PortfolioDetail({ project }: { project: Project }) {
                     alt={o.title}
                     fill
                     sizes="(max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 <div className="p-5">

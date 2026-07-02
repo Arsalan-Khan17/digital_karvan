@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { SmoothScroll } from "@/components/fx/SmoothScroll";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -29,7 +30,10 @@ export default function RootLayout({
           <style>{`[data-anim],[data-anim-stagger]>*,[data-process-step]{opacity:1!important;transform:none!important}[data-anim-line]{transform:none!important}`}</style>
         </noscript>
       </head>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <SmoothScroll />
+        {children}
+      </body>
     </html>
   );
 }
