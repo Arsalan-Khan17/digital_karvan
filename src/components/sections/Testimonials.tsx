@@ -51,11 +51,12 @@ export function Testimonials() {
   const go = (delta: number) =>
     setActive((i) => Math.min(last, Math.max(0, i + delta)));
 
-  // photo layout constants — active image is ~30% taller than the others
-  const AW = 280;
-  const AH = 460;
-  const NW = 240;
-  const NH = 354;
+  // photo layout constants — active image (630) is 200px taller than the
+  // others (430), so it overhangs the shared midline by 100px top & bottom
+  const AW = 450;
+  const AH = 630;
+  const NW = 450;
+  const NH = 430;
 
   const quoteRef = useRef<HTMLDivElement>(null);
   useGSAP(
@@ -79,9 +80,10 @@ export function Testimonials() {
           </h2>
         </div>
 
-        <div className="mt-12 grid items-stretch gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-          {/* Quote card */}
-          <div className="rounded-[24px] bg-[#f3f3f3] p-10 text-neutral-900">
+        <div className="mt-12 grid items-start gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+          {/* Quote card — 430px tall, pushed down 100px so it centers on the
+              active image's midline (which is 200px taller). */}
+          <div className="rounded-[24px] bg-[#f3f3f3] p-10 text-neutral-900 lg:mt-[100px] lg:h-[430px]">
             <Image
               src="/images/testimonial_commas.svg"
               alt=""
@@ -104,13 +106,13 @@ export function Testimonials() {
                 so the row morphs smoothly with no reflow / shake. The active
                 card is tallest, on top, overlaps the content (left) by 10px
                 and the next card by 40%. */}
-            <div className="relative z-20 h-[460px] lg:-ml-[42px]">
+            <div className="relative z-20 h-[630px] lg:-ml-[42px]">
               {testimonials.map((item, i) => {
                 const rel = i - active;
                 const isActive = rel === 0;
                 // active overlaps the first upcoming image by 40%; subsequent
                 // upcoming images sit with a 5px gap between them
-                const x = rel < 0 ? -180 : rel === 0 ? 0 : 184 + (rel - 1) * (NW + 5);
+                const x = rel < 0 ? 180 : rel === 0 ? 0 : 184 + (rel - 1) * (NW + 10);
                 const z = rel === 0 ? 50 : rel > 0 ? 40 - rel : 0;
                 return (
                   <div
@@ -119,7 +121,7 @@ export function Testimonials() {
                     style={{
                       width: isActive ? AW : NW,
                       height: isActive ? AH : NH,
-                      transform: `translate(${x}px, -42%)`,
+                      transform: `translate(${x}px, -50%)`,
                       zIndex: z,
                       opacity: rel < 0 ? 0 : 1,
                       pointerEvents: rel < 0 ? "none" : "auto",
