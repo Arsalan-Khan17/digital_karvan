@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -41,22 +41,28 @@ function Arrow({ dir }: { dir: "left" | "right" }) {
   );
 }
 
-export function Testimonials() {
+/** interval: auto-advance delay in ms — tweak to taste (default 4.5s). */
+export function Testimonials({ interval = 2000 }: { interval?: number }) {
   const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
   const t = testimonials[active];
-  const last = testimonials.length - 1;
-  const atStart = active === 0;
-  const atEnd = active === last;
-  // bounded (non-looping): clamp to [0, last]
-  const go = (delta: number) =>
-    setActive((i) => Math.min(last, Math.max(0, i + delta)));
+  const n = testimonials.length;
+  // looping: wraps around in both directions
+  const go = (delta: number) => setActive((i) => (i + delta + n) % n);
 
-  // photo layout constants — active image (630) is 200px taller than the
-  // others (430), so it overhangs the shared midline by 100px top & bottom
+  // Auto-advance every `interval` ms; pauses on hover, resets on manual nav.
+  useEffect(() => {
+    if (paused || n <= 1) return;
+    const id = window.setInterval(() => setActive((i) => (i + 1) % n), interval);
+    return () => window.clearInterval(id);
+  }, [paused, n, interval, active]);
+
+  // Card size: base is the ACTIVE size (450×630); side cards scale down to
+  // ~430 tall via transform (no width/height animation → no reflow glitch).
   const AW = 450;
   const AH = 630;
-  const NW = 450;
-  const NH = 430;
+  const INACTIVE_SCALE = 430 / AH; // ≈0.683 → renders ~430px tall
+  const SPREAD = 250; // horizontal distance between ring positions
 
   const quoteRef = useRef<HTMLDivElement>(null);
   useGSAP(
@@ -70,8 +76,51 @@ export function Testimonials() {
     { dependencies: [active] },
   );
 
+  // Original layout kept: active on the left, upcoming cards stacked to the
+  // RIGHT, just-left card fades near center. Only transforms animate, and the
+  // incoming card rotates upright + forward — a 3D swing, no reflow glitch.
+  const photosRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const firstRun = useRef(true);
+  useGSAP(
+    () => {
+      const dur = firstRun.current ? 0 : 0.7;
+      cardsRef.current.forEach((el, i) => {
+        if (!el) return;
+        const rel = (i - active + n) % n; // 0 = active, then rightward
+        const isActive = rel === 0;
+        const isLeaving = n > 1 && rel === n - 1; // just-left card fades out
+
+        gsap.set(el, {
+          zIndex: isActive ? 100 : 100 - rel * 10,
+          filter: isActive ? "grayscale(0)" : "grayscale(1)",
+          boxShadow: isActive
+            ? "0 30px 60px -20px rgba(0,0,0,0.45)"
+            : "0 20px 45px -28px rgba(0,0,0,0.4)",
+        });
+        gsap.to(el, {
+          yPercent: -50,
+          x: isActive ? 0 : isLeaving ? 110 : 184 + (rel - 1) * SPREAD,
+          z: isActive ? 0 : -180 - (rel - 1) * 120, // deeper = further right
+          rotationY: isActive || isLeaving ? 0 : -28, // upcoming angled on the ring
+          scale: isActive ? 1 : INACTIVE_SCALE,
+          autoAlpha: isLeaving ? 0 : 1,
+          duration: dur,
+          ease: "power3.inOut",
+        });
+      });
+      firstRun.current = false;
+    },
+    { dependencies: [active], scope: photosRef },
+  );
+
   return (
-    <section id="testimonials" className="overflow-x-clip bg-white py-20 lg:py-28">
+    <section
+      id="testimonials"
+      className="overflow-x-clip bg-white py-20 lg:py-28"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
       <Container>
         <div data-anim>
           <Badge>What our clients say about us</Badge>
@@ -102,41 +151,33 @@ export function Testimonials() {
 
           {/* Photos + controls */}
           <div className="flex flex-col">
-            {/* All cards stay mounted; only transform/size/filter transition,
-                so the row morphs smoothly with no reflow / shake. The active
-                card is tallest, on top, overlaps the content (left) by 10px
-                and the next card by 40%. */}
-            <div className="relative z-20 h-[630px] lg:-ml-[42px]">
+            {/* All cards stay mounted; GSAP animates only transforms on a 3D
+                ring (perspective), so cards rotate around smoothly with no
+                reflow. Active is centered/upright/largest; neighbours angle
+                back on either side. */}
+            <div
+              ref={photosRef}
+              className="relative z-20 h-[630px] lg:-ml-[42px]"
+              style={{ perspective: 1600, transformStyle: "preserve-3d" }}
+            >
               {testimonials.map((item, i) => {
-                const rel = i - active;
-                const isActive = rel === 0;
-                // active overlaps the first upcoming image by 40%; subsequent
-                // upcoming images sit with a 5px gap between them
-                const x = rel < 0 ? 180 : rel === 0 ? 0 : 184 + (rel - 1) * (NW + 10);
-                const z = rel === 0 ? 50 : rel > 0 ? 40 - rel : 0;
+                const isActive = i === active;
                 return (
                   <div
                     key={item.name}
-                    className="absolute left-0 top-1/2 overflow-hidden rounded-2xl transition-all duration-500 ease-out will-change-transform"
-                    style={{
-                      width: isActive ? AW : NW,
-                      height: isActive ? AH : NH,
-                      transform: `translate(${x}px, -50%)`,
-                      zIndex: z,
-                      opacity: rel < 0 ? 0 : 1,
-                      pointerEvents: rel < 0 ? "none" : "auto",
-                      filter: isActive ? "none" : "grayscale(1)",
-                      boxShadow: isActive
-                        ? "0 30px 60px -20px rgba(0,0,0,0.4)"
-                        : "none",
+                    ref={(el) => {
+                      cardsRef.current[i] = el;
                     }}
+                    onClick={() => setActive(i)}
+                    className="absolute left-0 top-1/2 cursor-pointer overflow-hidden rounded-2xl will-change-transform"
+                    style={{ width: AW, height: AH }}
                   >
                     {item.photo ? (
                       <Image
                         src={item.photo}
                         alt={item.name}
                         fill
-                        sizes="300px"
+                        sizes="450px"
                         className="object-cover"
                       />
                     ) : (
@@ -155,18 +196,16 @@ export function Testimonials() {
               <button
                 type="button"
                 onClick={() => go(-1)}
-                disabled={atStart}
                 aria-label="Previous testimonial"
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-100 text-neutral-500 transition hover:text-neutral-900 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:text-neutral-500"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-100 text-neutral-500 transition hover:text-neutral-900"
               >
                 <Arrow dir="left" />
               </button>
               <button
                 type="button"
                 onClick={() => go(1)}
-                disabled={atEnd}
                 aria-label="Next testimonial"
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-gradient text-white shadow-lg transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-gradient text-white shadow-lg transition hover:-translate-y-0.5"
               >
                 <Arrow dir="right" />
               </button>
