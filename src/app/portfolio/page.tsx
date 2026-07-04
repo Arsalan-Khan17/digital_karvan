@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/sections/Header";
 import { PortfolioHero } from "@/components/portfolio/PortfolioHero";
+import { PortfolioShowcase } from "@/components/sections/PortfolioShowcase";
 import { PortfolioGrid } from "@/components/portfolio/PortfolioGrid";
 import { ScrollFX } from "@/components/fx/ScrollFX";
 import { FooterReveal } from "@/components/fx/FooterReveal";
@@ -19,6 +20,7 @@ export default function PortfolioPage() {
         <Header />
         <main>
           <PortfolioHero />
+          {/* <PortfolioShowcase /> */}
           <PortfolioGrid />
         </main>
         <FooterReveal />

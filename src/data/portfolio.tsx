@@ -148,7 +148,7 @@ export const projects: Project[] = [
   {
     slug: "ai-voice-cloning",
     title: "AI Voice Cloning Technology",
-    tags: ["Technology", "Website"],
+    tags: ["AI", "Website"],
     date: "Mar 10, 2026",
     client: "VoiceAI Studios",
     overview:
@@ -232,7 +232,7 @@ export const projects: Project[] = [
   {
     slug: "ai-video-automation",
     title: "AI Video Automation – PoC",
-    tags: ["Technology", "Website"],
+    tags: ["AI", "Website"],
     date: "Mar 4, 2026",
     client: "MediaGen Corp",
     overview:
@@ -268,7 +268,7 @@ export const projects: Project[] = [
   {
     slug: "docextract",
     title: "DocExtract",
-    tags: ["Technology", "Website"],
+    tags: ["AI", "Website"],
     date: "Mar 10, 2026",
     client: "DocExtract Ltd",
     overview:
@@ -301,7 +301,7 @@ export const projects: Project[] = [
   },
 ];
 
-export const portfolioFilters = ["All", "Technology", "Website"] as const;
+export const portfolioFilters = ["All", "Technology", "Website", "AI"] as const;
 
 export function getProject(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
