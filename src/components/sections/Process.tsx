@@ -49,7 +49,7 @@ export function Process() {
           {/* Holographic banner */}
           <div className="mt-12 overflow-hidden rounded-[22px]">
             <Image
-              src="/images/journey-section-image-croped.svg"
+              src="/images/journey-banner.png"
               alt="Holographic gradient banner"
               width={1200}
               height={200}
