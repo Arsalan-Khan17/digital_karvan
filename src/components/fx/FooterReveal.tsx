@@ -28,11 +28,13 @@ export function FooterReveal() {
 
   return (
     <>
-      {/* reserves scroll space so the content can lift off the footer;
-          pointer-events-none so the revealed footer stays interactive */}
-      <div aria-hidden className="pointer-events-none" style={{ height }} />
-      {/* pinned behind the content (-z-10 within the z-10 content wrapper) */}
-      <div ref={ref} className="fixed inset-x-0 bottom-0 -z-10">
+      {/* Curtain spacer — only on lg, where the footer is pinned behind content
+          and fits the viewport. Hidden on mobile (footer is taller than the
+          screen there, so it flows normally instead). */}
+      <div aria-hidden className="pointer-events-none hidden lg:block" style={{ height }} />
+      {/* Mobile: normal in-flow footer (fully scrollable).
+          lg+: pinned curtain behind the content (-z-10 in the z-10 wrapper). */}
+      <div ref={ref} className="relative lg:fixed lg:inset-x-0 lg:bottom-0 lg:-z-10">
         <Footer />
       </div>
     </>
