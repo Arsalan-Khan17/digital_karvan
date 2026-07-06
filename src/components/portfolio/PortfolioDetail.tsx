@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import FallingText from "@/components/fx/FallingText";
 import { projects, type Project } from "@/data/portfolio";
 
 function ArrowRight() {
@@ -157,12 +158,15 @@ export function PortfolioDetail({ project }: { project: Project }) {
                   </div>
                   <div>
                     <dt className="text-[12px] font-semibold uppercase tracking-widest text-neutral-400">Technologies</dt>
-                    <dd className="mt-3 flex flex-wrap gap-2">
-                      {project.technologies.map((tech) => (
-                        <span key={tech} className="rounded-lg border border-black/10 bg-white px-3 py-1.5 text-[13px] font-medium text-neutral-700">
-                          {tech}
-                        </span>
-                      ))}
+                    <dd className="relative mt-3 h-[260px] w-full overflow-hidden rounded-xl border border-black/5 bg-white/60">
+                      <FallingText
+                        text={project.technologies.map((t) => t.replace(/ /g, " ")).join(" ")}
+                        trigger="scroll"
+                        gravity={0.9}
+                        fontSize="0.95rem"
+                        mouseConstraintStiffness={0.9}
+                        wordClassName="m-1 rounded-lg border border-black/10 bg-white px-3 py-1.5 text-[13px] font-medium text-neutral-700 shadow-sm"
+                      />
                     </dd>
                   </div>
                 </dl>
