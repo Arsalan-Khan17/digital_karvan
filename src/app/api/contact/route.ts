@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { adminEmail, customerEmail } from "@/lib/email-templates";
 
 export async function POST(req: Request) {
   try {
@@ -27,20 +28,32 @@ export async function POST(req: Request) {
       },
     });
 
+    const data2 = { name, email, subject, message };
+
+    // 1) Notify the team (critical).
+    const admin = adminEmail(data2);
     await transporter.sendMail({
       from: `"DigitalKarvan Contact Form" <${process.env.SMTP_USER}>`,
       to: process.env.CONTACT_EMAIL,
       replyTo: email,
-      subject: `Contact request from ${name}`,
-      html: `
-        <h2>New Contact Request</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Subject:</strong> ${subject || "-"}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, "<br/>")}</p>
-      `,
+      subject: admin.subject,
+      html: admin.html,
     });
+
+    // 2) Thank-you confirmation to the customer (best-effort — don't fail the
+    // request if this one bounces).
+    try {
+      const customer = customerEmail(data2);
+      await transporter.sendMail({
+        from: `"Digital Karvan" <${process.env.SMTP_USER}>`,
+        to: email,
+        replyTo: process.env.CONTACT_EMAIL,
+        subject: customer.subject,
+        html: customer.html,
+      });
+    } catch (err) {
+      console.error("[contact] customer confirmation email failed:", err);
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {

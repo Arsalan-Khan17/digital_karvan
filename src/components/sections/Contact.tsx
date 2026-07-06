@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
+import { SuccessCard } from "@/components/contact/SuccessCard";
 
 function PhoneIcon() {
   return (
@@ -62,6 +63,7 @@ export function Contact() {
 function HomeContactForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [error, setError] = useState("");
+  const [sentName, setSentName] = useState("");
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -84,6 +86,7 @@ function HomeContactForm() {
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.success) throw new Error(data.error || "Failed to send message.");
       form.reset();
+      setSentName(payload.name.split(" ")[0] || "");
       setStatus("success");
     } catch (err) {
       setStatus("error");
@@ -92,17 +95,7 @@ function HomeContactForm() {
   };
 
   if (status === "success") {
-    return (
-      <div className="flex flex-col items-center justify-center rounded-2xl border border-black/8 bg-white p-10 text-center" data-anim>
-        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-gradient text-white">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M4 12.5l5 5L20 6" />
-          </svg>
-        </span>
-        <h3 className="mt-6 text-[24px] font-bold text-black">Message Sent!</h3>
-        <p className="mt-2 text-[16px] text-neutral-500">We&rsquo;ll get back to you within 24 hours.</p>
-      </div>
-    );
+    return <SuccessCard name={sentName} />;
   }
 
   return (

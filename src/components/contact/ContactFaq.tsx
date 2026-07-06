@@ -28,7 +28,7 @@ export function ContactFaq() {
   const [open, setOpen] = useState(0);
 
   return (
-    <section className="relative bg-white pb-24" style={{ backgroundImage: "var(--page-wash)" }}>
+    <section className="relative bg-white pt-12 pb-24" style={{ backgroundImage: "var(--page-wash)" }}>
       <Container>
         <div className="text-center" data-anim>
           <Badge>FAQ</Badge>

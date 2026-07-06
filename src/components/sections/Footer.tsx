@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
+import { SocialDock } from "@/components/fx/SocialDock";
 
 const columns = [
   {
@@ -18,20 +19,6 @@ const columns = [
 ];
 
 const socials = ["facebook", "x", "linkedin", "upwork", "instagram"];
-
-function SocialIcon({ name }: { name: string }) {
-  return (
-    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-gradient">
-      <Image
-        src={`/images/socials/${name}.svg`}
-        alt={name}
-        width={40}
-        height={40}
-        className="h-4 object-contain"
-      />
-    </span>
-  );
-}
 
 export function Footer() {
   return (
@@ -70,13 +57,7 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col items-center justify-between gap-5 border-t border-white/10 pt-7 sm:flex-row">
           <p className="text-[14px] text-neutral-500">© 2026 Digital Karvan. All rights reserved.</p>
-          <div className="flex gap-3">
-            {socials.map((s) => (
-              <Link key={s} href="#" aria-label={s}>
-                <SocialIcon name={s} />
-              </Link>
-            ))}
-          </div>
+          <SocialDock socials={socials} />
         </div>
       </Container>
     </footer>

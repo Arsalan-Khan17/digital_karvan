@@ -28,8 +28,9 @@ export function FooterReveal() {
 
   return (
     <>
-      {/* reserves scroll space so the content can lift off the footer */}
-      <div aria-hidden style={{ height }} />
+      {/* reserves scroll space so the content can lift off the footer;
+          pointer-events-none so the revealed footer stays interactive */}
+      <div aria-hidden className="pointer-events-none" style={{ height }} />
       {/* pinned behind the content (-z-10 within the z-10 content wrapper) */}
       <div ref={ref} className="fixed inset-x-0 bottom-0 -z-10">
         <Footer />
