@@ -50,14 +50,19 @@ export function Workflow() {
 
         <div className="mt-14 grid gap-7 lg:grid-cols-2" data-anim-stagger>
           {/* Before */}
-          <div className="relative overflow-hidden rounded-[28px] bg-[#f3f3f3] p-9 sm:p-11">
+          <div className="group relative overflow-hidden rounded-[28px] bg-[#f3f3f3] p-9 sm:p-11">
             <BorderGlow />
             <Image
+            style={{width: '400px',
+    height: 'auto',
+    top: '-135px',
+    right: '-150px',
+    animationDuration: '20s'}}
               src="/images/workflow-image-1.png"
               alt=""
               width={420}
               height={420}
-              className="pointer-events-none absolute -right-10 -top-10 h-56 w-56 object-cover"
+              className="group-hover:animate-spin pointer-events-none absolute -right-10 -top-10 h-56 w-56 object-cover"
             />
             <h3 className="relative text-[30px] font-bold text-black sm:text-[34px]">
               Before Digital Karvan
@@ -78,14 +83,19 @@ export function Workflow() {
           </div>
 
           {/* After */}
-          <div className="relative overflow-hidden rounded-[28px] bg-black p-9 sm:p-11">
+          <div className="group relative overflow-hidden rounded-[28px] bg-black p-9 sm:p-11">
             <BorderGlow />
             <Image
+            style={{width: '400px',
+    height: 'auto',
+    top: '-135px',
+    right: '-150px',
+    animationDuration: '20s'}}
               src="/images/workflow-image-2.png"
               alt=""
               width={420}
               height={420}
-              className="pointer-events-none absolute -right-10 -top-10 h-56 w-56 object-cover"
+              className="group-hover:animate-spin pointer-events-none absolute -right-10 -top-10 h-56 w-56 object-cover"
             />
             <h3 className="relative text-[30px] font-bold text-white sm:text-[34px]">
               After Digital Karvan
