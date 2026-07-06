@@ -77,7 +77,7 @@ export function Workflow() {
                 </li>
               ))}
             </ul>
-            <Button variant="dark" className="mt-10 rounded-2xl">
+            <Button variant="dark" className="mt-10 w-full rounded-2xl sm:w-auto">
               Discuss your problem
             </Button>
           </div>
@@ -110,7 +110,7 @@ export function Workflow() {
                 </li>
               ))}
             </ul>
-            <Button variant="gradient" className="mt-10 rounded-2xl">
+            <Button variant="gradient" className="mt-10 w-full rounded-2xl sm:w-auto">
               Book a call now!
             </Button>
           </div>

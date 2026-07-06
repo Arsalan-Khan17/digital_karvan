@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
+import { ServicesSlider } from "@/components/sections/ServicesSlider";
 
 function CodeIcon() {
   return (
@@ -74,11 +75,12 @@ export function Services() {
           </div>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" data-anim-stagger>
+        {/* Mobile: horizontal snap-slider with dots. sm+: grid. */}
+        <ServicesSlider count={services.length}>
           {services.map((s) => (
             <article
               key={s.title}
-              className="group relative flex flex-col overflow-hidden rounded-[22px] border border-black/8 bg-white p-7 text-neutral-900 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_28px_60px_-22px_rgba(214,43,121,0.65)]"
+              className="group relative flex w-[370px] max-w-[86vw] shrink-0 snap-start flex-col overflow-hidden rounded-[22px] border border-black/8 bg-white p-7 text-neutral-900 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_28px_60px_-22px_rgba(214,43,121,0.65)] sm:w-auto sm:max-w-none sm:shrink"
             >
               {/* gradient revealed on hover */}
               <span
@@ -114,7 +116,7 @@ export function Services() {
               </div>
             </article>
           ))}
-        </div>
+        </ServicesSlider>
       </Container>
     </section>
   );

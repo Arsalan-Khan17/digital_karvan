@@ -49,24 +49,27 @@ export function Hero() {
             that convert visitors into customers and ideas into growth.
           </p>
 
-          {/* Feature chips */}
-          <ul className="mt-9 flex flex-wrap items-center gap-x-10 gap-y-4">
+          {/* Feature chips — mobile: 3 in one row, icon above label */}
+          <ul className="mt-9 grid grid-cols-3 gap-3 sm:flex sm:flex-wrap sm:items-center sm:gap-x-10 sm:gap-y-4">
             {chips.map((chip) => (
-              <li key={chip.label} className="flex items-center gap-3">
+              <li
+                key={chip.label}
+                className="flex flex-col items-center gap-2 text-center sm:flex-row sm:gap-3 sm:text-left"
+              >
                 <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-neutral-900 shadow-[0_4px_18px_-6px_rgba(0,0,0,0.18)] ring-1 ring-black/5">
                   {chip.icon}
                 </span>
-                <span className="text-[15px] font-medium text-neutral-800">{chip.label}</span>
+                <span className="text-[13px] font-medium text-neutral-800 sm:text-[15px]">{chip.label}</span>
               </li>
             ))}
           </ul>
 
-          {/* CTAs */}
-          <div className="mt-9 flex flex-wrap items-center gap-4">
-            <Button href="#contact" variant="dark" className="rounded-2xl">
+          {/* CTAs — full width on mobile */}
+          <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+            <Button href="#contact" variant="dark" className="w-full rounded-2xl sm:w-auto">
               Schedule a consultation
             </Button>
-            <Button href="#contact" variant="gradient" className="rounded-2xl">
+            <Button href="#contact" variant="gradient" className="w-full rounded-2xl sm:w-auto">
               Request a free quote
             </Button>
           </div>
@@ -86,8 +89,8 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right — torus */}
-        <div className="flex justify-center lg:justify-end" data-anim>
+        {/* Right — torus (hidden on mobile) */}
+        <div className="hidden justify-center sm:flex lg:justify-end" data-anim>
           <Image
             src="/images/hero-section-vector.svg"
             alt="Abstract 3D torus"
