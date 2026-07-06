@@ -60,6 +60,15 @@ export function Footer() {
           <SocialDock socials={socials} />
         </div>
       </Container>
+
+      {/* Full-width brand wordmark under the footer */}
+      <Image
+        src="/images/post-footer-logo.svg"
+        alt="Digital Karvan"
+        width={1280}
+        height={215}
+        className="mt-10 block h-auto w-full"
+      />
     </footer>
   );
 }
