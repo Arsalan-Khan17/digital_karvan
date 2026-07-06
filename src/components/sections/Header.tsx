@@ -21,6 +21,21 @@ function Chevron({ className = "" }: { className?: string }) {
     </svg>
   );
 }
+function PhoneIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-magenta">
+      <path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.5 2.1L8 9.6a16 16 0 006 6l1.1-1.1a2 2 0 012.1-.5c.9.3 1.8.5 2.7.6a2 2 0 011.7 2z" />
+    </svg>
+  );
+}
+function MailIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-magenta">
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="M3 7l9 6 9-6" />
+    </svg>
+  );
+}
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -41,6 +56,7 @@ export function Header() {
   }, []);
 
   return (
+    <>
     <header
       className={`sticky top-0 z-50 bg-white/85 backdrop-blur-md transition-transform duration-300 will-change-transform ${
         hidden && !open ? "-translate-y-full" : "translate-y-0"
@@ -134,11 +150,12 @@ export function Header() {
           </div>
         </button>
       </Container>
+    </header>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — full-screen overlay */}
       {open && (
-        <div className="border-t border-black/5 bg-white xl:hidden">
-          <Container className="flex flex-col gap-1 py-4">
+        <div className="fixed inset-x-0 bottom-0 top-[88px] z-40 overflow-y-auto bg-white xl:hidden">
+          <Container className="flex min-h-full flex-col gap-1 py-6">
             {/* Services with expandable submenu */}
             <button
               type="button"
@@ -180,12 +197,31 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Button href="/contact" variant="gradient" className="mt-2 w-full">
-              Contact Us
-            </Button>
+            {/* Bottom: CTA + contact details */}
+            <div className="mt-auto pt-6">
+              <Button href="/contact" variant="gradient" className="w-full">
+                Contact Us
+              </Button>
+              <div className="mt-6 flex flex-col gap-1 border-t border-black/10 pt-5">
+                <a
+                  href="tel:+447377259354"
+                  className="flex items-center gap-3 rounded-lg px-2 py-3 text-[15px] font-medium text-neutral-800 hover:bg-neutral-100"
+                >
+                  <PhoneIcon />
+                  +44 737 7259 354
+                </a>
+                <a
+                  href="mailto:contact@digitalkarvan.com"
+                  className="flex items-center gap-3 rounded-lg px-2 py-3 text-[15px] font-medium text-neutral-800 hover:bg-neutral-100"
+                >
+                  <MailIcon />
+                  contact@digitalkarvan.com
+                </a>
+              </div>
+            </div>
           </Container>
         </div>
       )}
-    </header>
+    </>
   );
 }
