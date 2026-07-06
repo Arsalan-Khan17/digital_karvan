@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { BorderGlow } from "@/components/fx/BorderGlow";
 
 const beforeItems = [
   "Endless back-and-forth between design and code",
@@ -50,6 +51,7 @@ export function Workflow() {
         <div className="mt-14 grid gap-7 lg:grid-cols-2" data-anim-stagger>
           {/* Before */}
           <div className="relative overflow-hidden rounded-[28px] bg-[#f3f3f3] p-9 sm:p-11">
+            <BorderGlow />
             <Image
               src="/images/workflow-image-1.png"
               alt=""
@@ -77,6 +79,7 @@ export function Workflow() {
 
           {/* After */}
           <div className="relative overflow-hidden rounded-[28px] bg-black p-9 sm:p-11">
+            <BorderGlow />
             <Image
               src="/images/workflow-image-2.png"
               alt=""

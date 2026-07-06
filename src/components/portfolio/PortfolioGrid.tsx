@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { projects, portfolioFilters } from "@/data/portfolio";
 import { clsx } from "@/lib/clsx";
+import { BorderGlow } from "../fx/BorderGlow";
 
 function ArrowUpRight() {
   return (
@@ -60,10 +61,11 @@ export function PortfolioGrid() {
               >
                 <Link
                   href={`/portfolio/${p.slug}`}
-                  className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-black/8 bg-white transition-shadow duration-300 hover:shadow-[0_28px_60px_-30px_rgba(0,0,0,0.3)]"
+                  className="group p-0.5 relative flex h-full flex-col overflow-hidden rounded-[24px] border border-black/8 bg-white transition-shadow duration-300 hover:shadow-[0_28px_60px_-30px_rgba(0,0,0,0.3)]"
                 >
+                  <BorderGlow />
                   {/* Cover */}
-                  <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100">
+                  <div className="relative aspect-[4/3] rounded-t-[24px] overflow-hidden bg-neutral-100">
                     <Image
                       src={p.logo}
                       alt={p.title}

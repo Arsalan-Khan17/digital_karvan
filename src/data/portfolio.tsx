@@ -55,7 +55,7 @@ export const projects: Project[] = [
       ],
     },
     cover: `${P}/gemscosmo/homepage.png`,
-    logo: `${P}/gemscosmo/logo.webp`,
+    logo: `${P}/gemscosmo/logo-transparent.png`,
     gallery: [`${P}/gemscosmo/shop-page.png`],
   },
   {
@@ -80,7 +80,7 @@ export const projects: Project[] = [
     ],
     technologies: ["PHP", "Laravel 9", "AWS", "Bootstrap", "MySQL", "Figma", "Firebase"],
     cover: `${P}/smartflyer/smartflyer.png`,
-    logo: `${P}/smartflyer/logo.png`,
+    logo: `${P}/smartflyer/logo-transparent.png`,
     gallery: [`${P}/smartflyer/smartflyer-ui-1.png`, `${P}/smartflyer/smartflyer-ui-2.png`],
   },
   {
@@ -105,7 +105,7 @@ export const projects: Project[] = [
     ],
     technologies: ["Vue.js", "Laravel 9", "MongoDB", "MySql", "AWS", "WebRTC", "Cloud Functions"],
     cover: `${P}/LMS/courses.png`,
-    logo:`${P}/LMS/logo.png`,
+    logo:`${P}/LMS/logo-transparent.png`,
     gallery: [`${P}/LMS/LMS_SIGN.png`],
   },
   {
@@ -176,7 +176,7 @@ export const projects: Project[] = [
       ],
     },
     cover: `${P}/vocal-fusion/vocal-fusion-featured.png`,
-    logo:`${P}/vocal-fusion/logo.png`,
+    logo:`${P}/vocal-fusion/logo-transparent.png`,
     gallery: [`${P}/vocal-fusion/vocal-fusion.png`],
   },
   {
@@ -201,8 +201,8 @@ export const projects: Project[] = [
     ],
     technologies: ["React", "D3.js", "Node.js", "SQL Server", "Azure Data Factory", "Power BI"],
     cover: `${P}/bok/BOK-dash.png`,
-    logo:`${P}/bok/logo.png`,
-    gallery: [`${P}/bok/bok.jpg`],
+    logo:`${P}/bok/logo-transparent.png`,
+    gallery: [`${P}/bok/logo-transparent.jpg`],
   },
   {
     slug: "sales-performance-dashboard",
@@ -226,7 +226,7 @@ export const projects: Project[] = [
     ],
     technologies: ["PowerBI", "DAX", "Azure Synapse", "SQL Server", "Power Automate", "Salesforce API"],
     cover: `${P}/addidas/adidas_featured.png`,
-    logo: `${P}/addidas/adidas.png`,
+    logo: `${P}/addidas/logo-transparent.png`,
     gallery: [`${P}/addidas/adidas.png`],
   },
   {
@@ -262,7 +262,7 @@ export const projects: Project[] = [
       ],
     },
     cover: `${P}/streamVi/video-featured.png`,
-    logo:`${P}/streamVi/video-strem.png`,
+    logo:`${P}/streamVi/logo-transparent.png`,
     gallery: [`${P}/streamVi/video-strem.png`],
   },
   {
@@ -296,7 +296,7 @@ export const projects: Project[] = [
       ],
     },
     cover: `${P}/docx/DocExtract-feature.png`,
-    logo:`${P}/docx/logo.png`,
+    logo:`${P}/docx/logo-transparent.png`,
     gallery: [`${P}/docx/DocExtract.png`],
   },
 ];

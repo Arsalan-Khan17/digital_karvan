@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import Balatro from "@/components/fx/Balatro";
 
 const steps = [
   { n: "01", title: "Strategy", desc: "We define the right direction for your product and business goals." },
@@ -46,14 +46,15 @@ export function Process() {
             ))}
           </ol>
 
-          {/* Holographic banner */}
-          <div className="mt-12 overflow-hidden rounded-[22px]">
-            <Image
-              src="/images/journey-banner.png"
-              alt="Holographic gradient banner"
-              width={1200}
-              height={200}
-              className="h-44 w-full object-cover sm:h-56"
+          {/* Animated brand banner (Balatro shader) */}
+          <div className="mt-12 h-44 overflow-hidden rounded-[22px] sm:h-56">
+            <Balatro
+              isRotate
+              mouseInteraction={false}
+              pixelFilter={700}
+              color1="#ff6a66"
+              color2="#8a2be2"
+              color3="#f5318a"
             />
           </div>
         </div>
