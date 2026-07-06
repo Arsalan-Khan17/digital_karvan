@@ -17,6 +17,8 @@ export function SmoothScroll() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+    // expose so components (e.g. the mobile menu) can pause/resume scrolling
+    (window as unknown as { lenis?: Lenis }).lenis = lenis;
 
     const update = () => ScrollTrigger.update();
     lenis.on("scroll", update);
@@ -32,6 +34,7 @@ export function SmoothScroll() {
       lenis.off("scroll", update);
       gsap.ticker.remove(raf);
       lenis.destroy();
+      delete (window as unknown as { lenis?: Lenis }).lenis;
     };
   }, []);
 

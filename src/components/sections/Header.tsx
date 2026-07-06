@@ -1,11 +1,28 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { services } from "@/data/services";
+
+const overlayVars: Variants = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { duration: 0.2 } },
+  exit: { opacity: 0, transition: { duration: 0.25, when: "afterChildren" } },
+};
+const containerVars: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.06, delayChildren: 0.08 } },
+  exit: { transition: { staggerChildren: 0.05, staggerDirection: -1 } },
+};
+const itemVars: Variants = {
+  hidden: { opacity: 0, y: 22 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
+  exit: { opacity: 0, y: 22, transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] } },
+};
 
 const otherNav = [
   { label: "Work", href: "/portfolio" },
@@ -41,12 +58,14 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const openRef = useRef(false);
 
   // Hide on scroll down, reveal on scroll up (kept visible near the top and
-  // while the mobile menu is open).
+  // never while the mobile menu is open).
   useEffect(() => {
     let last = window.scrollY;
     const onScroll = () => {
+      if (openRef.current) return; // don't hide the header while the menu is open
       const y = window.scrollY;
       setHidden(y > last && y > 120);
       last = y;
@@ -54,6 +73,17 @@ export function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Keep the header (logo + close button) visible when the menu opens.
+  // NOTE: we deliberately do NOT set overflow:hidden or call lenis.stop() —
+  // either one breaks the header's `position: sticky` (it would drop to its
+  // document position, off-screen, once the page is scrolled). Background
+  // scroll is contained by `data-lenis-prevent` + `overscroll-contain` on the
+  // overlay instead.
+  useEffect(() => {
+    openRef.current = open;
+    if (open) setHidden(false);
+  }, [open]);
 
   return (
     <>
@@ -152,76 +182,93 @@ export function Header() {
       </Container>
     </header>
 
-      {/* Mobile menu — full-screen overlay */}
-      {open && (
-        <div className="fixed inset-x-0 bottom-0 top-[88px] z-40 overflow-y-auto bg-white xl:hidden">
-          <Container className="flex min-h-full flex-col gap-1 py-6">
-            {/* Services with expandable submenu */}
-            <button
-              type="button"
-              onClick={() => setServicesOpen((v) => !v)}
-              className="flex items-center justify-between rounded-lg px-2 py-3 text-base font-medium text-neutral-900 hover:bg-neutral-100"
+      {/* Mobile menu — full-screen overlay with staggered reveal */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            key="mobile-menu"
+            data-lenis-prevent
+            variants={overlayVars}
+            initial="hidden"
+            animate="show"
+            exit="exit"
+            className="fixed inset-x-0 bottom-0 top-[88px] z-40 overflow-y-auto overscroll-contain bg-white xl:hidden"
+          >
+            <motion.div
+              variants={containerVars}
+              className="mx-auto flex min-h-full w-full max-w-[1264px] flex-col gap-1 px-5 py-6 sm:px-6"
             >
-              Services
-              <Chevron className={servicesOpen ? "rotate-180" : ""} />
-            </button>
-            {servicesOpen && (
-              <div className="ml-3 flex flex-col gap-1 border-l border-black/10 pl-3">
-                {services.map((s) => (
-                  <Link
-                    key={s.slug}
-                    href={`/services/${s.slug}`}
-                    onClick={() => setOpen(false)}
-                    className="rounded-lg px-2 py-2.5 text-[15px] text-neutral-700 hover:bg-neutral-100"
-                  >
-                    {s.title}
-                  </Link>
-                ))}
-                <Link
-                  href="/services"
-                  onClick={() => setOpen(false)}
-                  className="rounded-lg px-2 py-2.5 text-[15px] font-semibold text-brand-magenta hover:bg-neutral-100"
+              {/* Services with expandable submenu */}
+              <motion.div variants={itemVars}>
+                <button
+                  type="button"
+                  onClick={() => setServicesOpen((v) => !v)}
+                  className="flex w-full items-center justify-between rounded-lg px-2 py-3 text-base font-medium text-neutral-900 hover:bg-neutral-100"
                 >
-                  View all services →
-                </Link>
-              </div>
-            )}
+                  Services
+                  <Chevron className={servicesOpen ? "rotate-180" : ""} />
+                </button>
+                {servicesOpen && (
+                  <div className="ml-3 flex flex-col gap-1 border-l border-black/10 pl-3">
+                    {services.map((s) => (
+                      <Link
+                        key={s.slug}
+                        href={`/services/${s.slug}`}
+                        onClick={() => setOpen(false)}
+                        className="rounded-lg px-2 py-2.5 text-[15px] text-neutral-700 hover:bg-neutral-100"
+                      >
+                        {s.title}
+                      </Link>
+                    ))}
+                    <Link
+                      href="/services"
+                      onClick={() => setOpen(false)}
+                      className="rounded-lg px-2 py-2.5 text-[15px] font-semibold text-brand-magenta hover:bg-neutral-100"
+                    >
+                      View all services →
+                    </Link>
+                  </div>
+                )}
+              </motion.div>
 
-            {[...otherNav, { label: "Testimonials", href: "/#testimonials" }].map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-2 py-3 text-base font-medium text-neutral-900 hover:bg-neutral-100"
-              >
-                {item.label}
-              </Link>
-            ))}
-            {/* Bottom: CTA + contact details */}
-            <div className="mt-auto pt-6">
-              <Button href="/contact" variant="gradient" className="w-full">
-                Contact Us
-              </Button>
-              <div className="mt-6 flex flex-col gap-1 border-t border-black/10 pt-5">
-                <a
-                  href="tel:+447377259354"
-                  className="flex items-center gap-3 rounded-lg px-2 py-3 text-[15px] font-medium text-neutral-800 hover:bg-neutral-100"
-                >
-                  <PhoneIcon />
-                  +44 737 7259 354
-                </a>
-                <a
-                  href="mailto:contact@digitalkarvan.com"
-                  className="flex items-center gap-3 rounded-lg px-2 py-3 text-[15px] font-medium text-neutral-800 hover:bg-neutral-100"
-                >
-                  <MailIcon />
-                  contact@digitalkarvan.com
-                </a>
-              </div>
-            </div>
-          </Container>
-        </div>
-      )}
+              {[...otherNav, { label: "Testimonials", href: "/#testimonials" }].map((item) => (
+                <motion.div key={item.label} variants={itemVars}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="block rounded-lg px-2 py-3 text-base font-medium text-neutral-900 hover:bg-neutral-100"
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
+              ))}
+
+              {/* Bottom: CTA + contact details */}
+              <motion.div variants={itemVars} className="mt-auto pt-6">
+                <Button href="/contact" variant="gradient" className="w-full">
+                  Contact Us
+                </Button>
+                <div className="mt-6 flex flex-col gap-1 border-t border-black/10 pt-5">
+                  <a
+                    href="tel:+447377259354"
+                    className="flex items-center gap-3 rounded-lg px-2 py-3 text-[15px] font-medium text-neutral-800 hover:bg-neutral-100"
+                  >
+                    <PhoneIcon />
+                    +44 737 7259 354
+                  </a>
+                  <a
+                    href="mailto:contact@digitalkarvan.com"
+                    className="flex items-center gap-3 rounded-lg px-2 py-3 text-[15px] font-medium text-neutral-800 hover:bg-neutral-100"
+                  >
+                    <MailIcon />
+                    contact@digitalkarvan.com
+                  </a>
+                </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
