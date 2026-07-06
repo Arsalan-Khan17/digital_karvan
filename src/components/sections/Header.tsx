@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
@@ -25,9 +25,27 @@ function Chevron({ className = "" }: { className?: string }) {
 export function Header() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+
+  // Hide on scroll down, reveal on scroll up (kept visible near the top and
+  // while the mobile menu is open).
+  useEffect(() => {
+    let last = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      setHidden(y > last && y > 120);
+      last = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/85 backdrop-blur-md">
+    <header
+      className={`sticky top-0 z-50 bg-white/85 backdrop-blur-md transition-transform duration-300 will-change-transform ${
+        hidden && !open ? "-translate-y-full" : "translate-y-0"
+      }`}
+    >
       <Container className="flex h-[88px] items-center justify-between gap-6">
         <Link href="/" aria-label="Digitalkarvan home">
           <Image
