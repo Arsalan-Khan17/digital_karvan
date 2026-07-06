@@ -98,7 +98,7 @@ export function Projects() {
             <Button
               variant="gradient"
               href={`/portfolio/${project.slug}`}
-              className="mt-8 w-fit rounded-2xl"
+              className="mt-8 w-full rounded-2xl sm:w-fit"
             >
               Read case study
             </Button>
@@ -120,7 +120,7 @@ export function Projects() {
             </div>
           </div>
 
-          <div className="absolute bottom-12 right-0 z-20 flex items-center gap-3">
+          <div className="z-20 mt-2 flex items-center justify-end gap-3 lg:absolute lg:bottom-12 lg:right-0 lg:mt-0">
             <button
               type="button"
               onClick={() => go(-1)}

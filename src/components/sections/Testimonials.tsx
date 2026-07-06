@@ -162,7 +162,7 @@ export function Testimonials({ interval = 2000 }: { interval?: number }) {
                 back on either side. */}
             <div
               ref={photosRef}
-              className="relative z-20 h-[630px] lg:-ml-[42px]"
+              className="relative z-20 hidden h-[630px] lg:block lg:-ml-[42px]"
               style={{ perspective: 1600, transformStyle: "preserve-3d" }}
             >
               {testimonials.map((item, i) => {

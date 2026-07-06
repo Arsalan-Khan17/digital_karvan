@@ -67,7 +67,7 @@ export function Team() {
                 <p className="mt-5 max-w-md text-[16px] leading-relaxed text-neutral-600">{m.bio}</p>
               </div>
 
-              <div className="mt-8 flex items-center gap-3">
+              <div className="mt-8 flex items-center justify-end gap-3 sm:justify-start">
                 <button
                   type="button"
                   onClick={() => go(-1)}

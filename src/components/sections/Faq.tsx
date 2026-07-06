@@ -105,8 +105,8 @@ export function Faq() {
           </div>
         </div>
 
-        {/* Right — 3D D logo */}
-        <div className="flex items-center justify-center" style={{ alignSelf: 'flex-end' }} data-anim>
+        {/* Right — 3D D logo (hidden on mobile) */}
+        <div className="hidden items-center justify-center sm:flex" style={{ alignSelf: 'flex-end' }} data-anim>
           <Image
             src="/images/faq-section-logo.svg"
             alt="Digital Karvan 3D logo"

@@ -39,7 +39,7 @@ export function WhyWorkWithUs() {
           <div className="grid gap-x-16 gap-y-12 sm:grid-cols-2" data-anim-stagger>
             {reasons.map((r) => (
               <div key={r.n} className="flex gap-6">
-                <span className="text-brand-gradient text-[44px] font-bold leading-none">
+                <span className="text-brand-gradient text-[31px] font-bold leading-none sm:text-[44px]">
                   {r.n}
                 </span>
                 <div className="pt-1">

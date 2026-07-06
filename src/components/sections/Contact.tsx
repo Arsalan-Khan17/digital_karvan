@@ -108,7 +108,7 @@ function HomeContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="bg-brand-gradient mt-1 w-fit rounded-2xl px-7 py-4 text-[15px] font-semibold text-white shadow-[0_14px_34px_-12px_rgba(214,43,121,0.7)] transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
+        className="bg-brand-gradient mt-1 w-full rounded-2xl px-7 py-4 text-[15px] font-semibold text-white shadow-[0_14px_34px_-12px_rgba(214,43,121,0.7)] transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60 sm:w-fit"
       >
         {status === "submitting" ? "Sending…" : "Send Message Now"}
       </button>

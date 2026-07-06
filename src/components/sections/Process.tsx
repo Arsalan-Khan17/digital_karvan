@@ -47,7 +47,7 @@ export function Process() {
           </ol>
 
           {/* Animated brand banner (Balatro shader) */}
-          <div className="mt-12 h-44 overflow-hidden rounded-[22px] sm:h-56">
+          <div className="mt-12 hidden h-44 overflow-hidden rounded-[22px] sm:block sm:h-56">
             <Balatro
               isRotate
               mouseInteraction={false}
@@ -59,11 +59,11 @@ export function Process() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
-          <Button variant="dark" href="#contact" className="rounded-2xl border border-white/15 bg-neutral-900">
+        <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
+          <Button variant="dark" href="#contact" className="w-full rounded-2xl border border-white/15 bg-neutral-900 sm:w-auto">
             Schedule a consultation
           </Button>
-          <Button variant="gradient" href="#contact" className="rounded-2xl">
+          <Button variant="gradient" href="#contact" className="w-full rounded-2xl sm:w-auto">
             Request a free quote
           </Button>
         </div>

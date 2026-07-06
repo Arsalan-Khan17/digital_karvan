@@ -22,43 +22,6 @@ const P = "/images/portfolio";
 
 export const projects: Project[] = [
   {
-    slug: "gemscosmo",
-    title: "Gemscosmo Online Store",
-    tags: ["Website"],
-    date: "Apr 15, 2025",
-    client: "Gemscosmo",
-    overview:
-      "A WooCommerce storefront for Gemscosmo, a retailer of natural gemstones, crystals, and minerals ethically sourced from around the world. We designed and built an online shopping experience that captures the brand's premium, natural aesthetic — 'Exquisite crystals, ethically sourced and crafted to perfection' — and turns browsers into buyers.",
-    challenge:
-      "Gemscosmo needed a trustworthy online store to sell high-value, one-of-a-kind stones to an international audience. Because each piece is unique, the catalogue had to handle single-quantity inventory, multiple currencies, and worldwide shipping, while conveying the authenticity and quality that justify premium pricing.",
-    solution:
-      "A custom WooCommerce build on WordPress with a clean, gallery-led product experience. It includes categorised collections (Facet Rough, Loose Stones, and Minerals & Crystals), rich product pages with origin details, multi-currency and language selection, promotional banners with weekly discount codes, secure checkout with convenient payment options, and a 7-day return policy — all wrapped in a responsive, conversion-focused design.",
-    results:
-      "Gemscosmo launched with a polished, global-ready storefront that presents their premium gemstones with the credibility of an established brand — ready to convert international visitors across desktop and mobile.",
-    metrics: [
-      { value: "3+", label: "Gemstone categories curated" },
-      { value: "Global", label: "Worldwide shipping enabled" },
-      { value: "100%", label: "Mobile-responsive storefront" },
-      { value: "7-Day", label: "Return policy integrated" },
-    ],
-    technologies: ["WordPress", "WooCommerce", "PHP", "MySQL", "Elementor", "PayPal"],
-    deliverables: {
-      heading: "What We Delivered",
-      items: [
-        "Custom WooCommerce storefront on WordPress",
-        "Categorised gemstone collections and rich product pages",
-        "Single-quantity inventory for one-of-a-kind stones",
-        "Multi-currency and language selection",
-        "Secure checkout with multiple payment options",
-        "Promotional banners and weekly discount codes",
-        "Worldwide shipping and 7-day return flows",
-      ],
-    },
-    cover: `${P}/gemscosmo/homepage.png`,
-    logo: `${P}/gemscosmo/logo-transparent.png`,
-    gallery: [`${P}/gemscosmo/shop-page.png`],
-  },
-  {
     slug: "smartflyer-website",
     title: "Smartflyer Website & Portal",
     tags: ["Website"],
@@ -107,6 +70,43 @@ export const projects: Project[] = [
     cover: `${P}/LMS/courses.png`,
     logo:`${P}/LMS/logo-transparent.png`,
     gallery: [`${P}/LMS/LMS_SIGN.png`],
+  },
+  {
+    slug: "gemscosmo",
+    title: "Gemscosmo Online Store",
+    tags: ["Website"],
+    date: "Apr 15, 2025",
+    client: "Gemscosmo",
+    overview:
+      "A WooCommerce storefront for Gemscosmo, a retailer of natural gemstones, crystals, and minerals ethically sourced from around the world. We designed and built an online shopping experience that captures the brand's premium, natural aesthetic — 'Exquisite crystals, ethically sourced and crafted to perfection' — and turns browsers into buyers.",
+    challenge:
+      "Gemscosmo needed a trustworthy online store to sell high-value, one-of-a-kind stones to an international audience. Because each piece is unique, the catalogue had to handle single-quantity inventory, multiple currencies, and worldwide shipping, while conveying the authenticity and quality that justify premium pricing.",
+    solution:
+      "A custom WooCommerce build on WordPress with a clean, gallery-led product experience. It includes categorised collections (Facet Rough, Loose Stones, and Minerals & Crystals), rich product pages with origin details, multi-currency and language selection, promotional banners with weekly discount codes, secure checkout with convenient payment options, and a 7-day return policy — all wrapped in a responsive, conversion-focused design.",
+    results:
+      "Gemscosmo launched with a polished, global-ready storefront that presents their premium gemstones with the credibility of an established brand — ready to convert international visitors across desktop and mobile.",
+    metrics: [
+      { value: "3+", label: "Gemstone categories curated" },
+      { value: "Global", label: "Worldwide shipping enabled" },
+      { value: "100%", label: "Mobile-responsive storefront" },
+      { value: "7-Day", label: "Return policy integrated" },
+    ],
+    technologies: ["WordPress", "WooCommerce", "PHP", "MySQL", "Elementor", "PayPal"],
+    deliverables: {
+      heading: "What We Delivered",
+      items: [
+        "Custom WooCommerce storefront on WordPress",
+        "Categorised gemstone collections and rich product pages",
+        "Single-quantity inventory for one-of-a-kind stones",
+        "Multi-currency and language selection",
+        "Secure checkout with multiple payment options",
+        "Promotional banners and weekly discount codes",
+        "Worldwide shipping and 7-day return flows",
+      ],
+    },
+    cover: `${P}/gemscosmo/homepage.png`,
+    logo: `${P}/gemscosmo/logo-transparent.png`,
+    gallery: [`${P}/gemscosmo/shop-page.png`],
   },
   {
     slug: "timeless-digital-media",
