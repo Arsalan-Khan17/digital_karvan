@@ -17,18 +17,21 @@ const testimonials: Testimonial[] = [
       "Digital Karvan helped us turn our idea into a clean, modern, and functional digital product. Their team understood our goals, guided us through every step, and delivered with great attention to detail.",
     name: "Sarah M",
     role: "CEO - WorkAI Solutions",
+    photo:"/images/testimonials/active.png"
   },
   {
     quote:
       "From strategy to launch the process was seamless. They shipped faster than any agency we have worked with, and the quality never slipped. A genuine long-term partner.",
     name: "David R",
     role: "Founder - Northwind Labs",
+    photo:"/images/testimonials/next-1.png"
   },
   {
     quote:
       "From stuality never slipped. A genuine long-term partner.",
     name: "Touseef",
     role: "Founder - DK",
+    photo:"/images/testimonials/next-2.png"
   },
   
 ];
@@ -93,7 +96,6 @@ export function Testimonials({ interval = 2000 }: { interval?: number }) {
 
         gsap.set(el, {
           zIndex: isActive ? 100 : 100 - rel * 10,
-          filter: isActive ? "grayscale(0)" : "grayscale(1)",
           boxShadow: isActive
             ? "0 30px 60px -20px rgba(0,0,0,0.45)"
             : "0 20px 45px -28px rgba(0,0,0,0.4)",
@@ -105,6 +107,9 @@ export function Testimonials({ interval = 2000 }: { interval?: number }) {
           rotationY: isActive || isLeaving ? 0 : -28, // upcoming angled on the ring
           scale: isActive ? 1 : INACTIVE_SCALE,
           autoAlpha: isLeaving ? 0 : 1,
+          // colour is part of the animation — desaturate inactive cards over the
+          // same duration as the move, so nothing recolours before it settles.
+          filter: isActive ? "grayscale(0)" : "grayscale(1)",
           duration: dur,
           ease: "power3.inOut",
         });
@@ -161,7 +166,6 @@ export function Testimonials({ interval = 2000 }: { interval?: number }) {
               style={{ perspective: 1600, transformStyle: "preserve-3d" }}
             >
               {testimonials.map((item, i) => {
-                const isActive = i === active;
                 return (
                   <div
                     key={item.name}
@@ -183,8 +187,8 @@ export function Testimonials({ interval = 2000 }: { interval?: number }) {
                     ) : (
                       <Placeholder
                         label="Client photo"
-                        hint={isActive ? item.name : "add photo"}
-                        variant={isActive ? "brand" : "neutral"}
+                        hint={item.name}
+                        variant="brand"
                         className="h-full w-full"
                       />
                     )}
