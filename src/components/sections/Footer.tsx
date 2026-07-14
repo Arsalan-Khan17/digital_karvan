@@ -2,19 +2,32 @@ import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SocialDock } from "@/components/fx/SocialDock";
+import { services } from "@/data/services";
 
-const columns = [
+type FooterLink = { label: string; href: string };
+
+const columns: { heading: string; links: FooterLink[] }[] = [
   {
     heading: "Company",
-    links: ["About Us", "Who we are", "Case Studies", "Careers"],
+    links: [
+      { label: "About Us", href: "/about" },
+      { label: "Who we are", href: "/about" },
+      { label: "Case Studies", href: "/portfolio" },
+      { label: "Careers", href: "#" },
+    ],
   },
   {
     heading: "Services",
-    links: ["Mobile Development", "UI/UX Designing", "Web Development", "Quality Assurance"],
+    // driven by the real service data so it can never drift out of sync
+    links: services.map((s) => ({ label: s.title, href: `/services/${s.slug}` })),
   },
   {
     heading: "Others",
-    links: ["Agreement Policy", "Term & Conditions", "Support Center"],
+    links: [
+      { label: "Agreement Policy", href: "#" },
+      { label: "Term & Conditions", href: "#" },
+      { label: "Support Center", href: "/contact" },
+    ],
   },
 ];
 
@@ -44,9 +57,9 @@ export function Footer() {
               <h3 className="text-[18px] font-semibold text-white">{col.heading}</h3>
               <ul className="mt-5 space-y-3">
                 {col.links.map((l) => (
-                  <li key={l}>
-                    <Link href="#" className="text-[15px] text-neutral-400 transition hover:text-white">
-                      {l}
+                  <li key={l.label}>
+                    <Link href={l.href} className="text-[15px] text-neutral-400 transition hover:text-white">
+                      {l.label}
                     </Link>
                   </li>
                 ))}

@@ -1,0 +1,39 @@
+# Digital Karvan
+
+> Digital Karvan is a digital product agency (digitalkarvan.com). We design, build,
+> and ship software, AI systems, data platforms, and brand identities — taking products
+> from idea to launch and supporting them as they grow.
+
+Founded 2020. 100+ projects delivered across 10+ industries, with 100% client retention.
+Contact: contact@digitalkarvan.com
+
+## Services
+
+- [Software Development](https://digitalkarvan.com/services/software-development): Web apps, mobile apps, and the backends that power them — engineered to hold up as you grow.
+- [AI & Intelligent Systems](https://digitalkarvan.com/services/ai-intelligent-systems): LLMs, chatbots, and automation embedded directly into the workflows that run your business.
+- [Data & Analytics](https://digitalkarvan.com/services/data-analytics): Pipelines and dashboards that turn raw, scattered data into decisions you can defend.
+- [Branding & Design](https://digitalkarvan.com/services/branding-design): Identity and interfaces that make your product as intuitive to use as it is polished to look at.
+- [Consultation & Technical Guidance](https://digitalkarvan.com/services/consultation-technical-guidance): Straight answers and a clear plan — even if you never build with us.
+
+## Case Studies
+
+- [Smartflyer Website & Portal](https://digitalkarvan.com/portfolio/smartflyer-website): Smartflyer Travel — +45% conversion rate increase
+- [LMS](https://digitalkarvan.com/portfolio/lms): EduTech Institute — 78% course completion (from 41%)
+- [Gemscosmo Online Store](https://digitalkarvan.com/portfolio/gemscosmo): Gemscosmo — 3+ gemstone categories curated
+- [Timeless Digital Media](https://digitalkarvan.com/portfolio/timeless-digital-media): Timeless Digital Media — 4,200+ clients showcased as social proof
+- [AI Voice Cloning Technology](https://digitalkarvan.com/portfolio/ai-voice-cloning): VoiceAI Studios — 10× faster content production
+- [Bank of Khyber Dashboard](https://digitalkarvan.com/portfolio/bank-of-khyber-dashboard): Bank of Khyber — 15 min reporting cycle (from 5 days)
+- [Sales Performance Dashboard – PowerBI](https://digitalkarvan.com/portfolio/sales-performance-dashboard): Enterprise Sales Corp — 35% forecast accuracy improvement
+- [AI Video Automation – PoC](https://digitalkarvan.com/portfolio/ai-video-automation): MediaGen Corp — 80% production cost reduction
+- [DocExtract](https://digitalkarvan.com/portfolio/docextract): DocExtract Ltd — 90% reduction in processing time
+
+## Company
+
+- [About](https://digitalkarvan.com/about): Team, process, and how we work
+- [All Services](https://digitalkarvan.com/services): The five service umbrellas
+- [Portfolio](https://digitalkarvan.com/portfolio): Every project we have delivered
+- [Contact](https://digitalkarvan.com/contact): Start a project or ask a question
+
+## Optional
+
+- [Home](https://digitalkarvan.com/): Overview of the agency

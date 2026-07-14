@@ -28,8 +28,8 @@ function GroupIcon() {
 }
 
 const chips = [
-  { icon: <ClockIcon />, label: "Fast Delivery" },
-  { icon: <BulbIcon />, label: "Modern Technologies" },
+  { icon: <ClockIcon />, label: "Fast, Predictable Delivery" },
+  { icon: <BulbIcon />, label: "Modern Tech Stack" },
   { icon: <GroupIcon />, label: "100% Client Retention" },
 ];
 
@@ -40,13 +40,15 @@ export function Hero() {
         {/* Left */}
         <div data-anim-stagger>
           <h1 className="max-w-[640px] text-[42px] font-bold leading-[1.05] tracking-tight text-black sm:text-[56px] lg:text-[67px]">
-            We Build Digital Products That Grow Ambitious Businesses.
+            We design, build, and ship digital products that grow ambitious
+            businesses.
           </h1>
 
           <p className="mt-7 max-w-[560px] text-[18px] leading-relaxed text-neutral-600 lg:text-[19px]">
-            We partner with ambitious businesses — from startups to enterprise —
-            to design and build websites, brand identities, and digital products
-            that convert visitors into customers and ideas into growth.
+            From early-stage startups to established enterprises, we create
+            websites, brand identities, and full digital products with one
+            outcome in mind: turning your visitors into customers and your ideas
+            into measurable growth.
           </p>
 
           {/* Feature chips — mobile: 3 in one row, icon above label */}
@@ -67,10 +69,10 @@ export function Hero() {
           {/* CTAs — full width on mobile */}
           <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
             <Button href="#contact" variant="dark" className="w-full rounded-2xl sm:w-auto">
-              Schedule a consultation
+              Schedule a Consultation
             </Button>
             <Button href="#contact" variant="gradient" className="w-full rounded-2xl sm:w-auto">
-              Request a free quote
+              Get a Free Quote
             </Button>
           </div>
 
@@ -84,7 +86,7 @@ export function Hero() {
             <p className="text-[15px] leading-tight text-neutral-500">
               <span className="font-semibold text-neutral-900">Trusted by</span>
               <br />
-              founders shipping software &amp; AI
+              founders shipping software and AI products
             </p>
           </div>
         </div>

@@ -9,9 +9,11 @@ import { ScrollFX } from "@/components/fx/ScrollFX";
 import { FooterReveal } from "@/components/fx/FooterReveal";
 
 export const metadata: Metadata = {
-  title: "About Us — Digital Karvan",
+  title: "About Us",
   description:
     "Digital Karvan is a digital agency founded on the belief that exceptional digital work requires integrity, excellence, and genuine collaboration.",
+  alternates: { canonical: "/about" },
+  openGraph: { url: "/about" },
 };
 
 export default function AboutPage() {

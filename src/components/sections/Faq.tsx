@@ -8,18 +8,18 @@ import { clsx } from "@/lib/clsx";
 
 const tabs: Record<string, { q: string; a: string }[]> = {
   "About Us": [
-    { q: "What is Digital Karvan?", a: "Digital Karvan is a digital product agency that helps businesses design, build, test, and launch modern digital solutions." },
-    { q: "What does Digital Karvan do?", a: "We deliver software engineering, AI systems, data & analytics, and product design under one roof." },
-    { q: "Why choose Digital Karvan?", a: "Predictable timelines, modern AI-native tooling, and a full-stack team that stays with you past launch." },
-    { q: "What makes Digital Karvan different?", a: "Code-first design and zero-friction handoff mean fewer gaps between idea and shipped product." },
-    { q: "Do you help from idea to launch?", a: "Yes — from strategy and design through build, test, and launch, we travel the whole journey with you." },
+    { q: "What is Digital Karvan?", a: "Digital Karvan is a digital product agency. We help businesses design, build, test, and launch modern software, from marketing websites to full-scale platforms." },
+    { q: "What does Digital Karvan do?", a: "We provide software development, AI and intelligent systems, data and analytics, branding and design, and technical consultation. Most clients engage us to take a product from idea to launch, though we also join existing teams to accelerate delivery." },
+    { q: "Why choose Digital Karvan?", a: "Because we combine full-stack range with genuine accountability. One team owns your strategy, design, and code, delivers on weekly cycles, and stays involved after launch." },
+    { q: "What makes Digital Karvan different?", a: "We operate as a product partner, not a task taker. We bring modern AI fluency, a unified design system approach, and a 100% client retention record that reflects how we work." },
+    { q: "Do you help from idea to launch?", a: "Yes. Our five-step process covers strategy, design, build, test, and launch, and we continue to support your product as it grows." },
   ],
   "Our Services": [
-    { q: "Software Engineering", a: "Scalable backends, performant frontends, and native mobile apps built for long-term growth." },
-    { q: "AI & Intelligent Systems", a: "Integrating LLMs and custom machine learning models into your core business workflows." },
-    { q: "Data & Analytics", a: "Custom data pipelines and real-time visualization dashboards." },
-    { q: "Product Designing", a: "UX-led design systems that ensure your product looks as good as it functions." },
-    { q: "Maintenance & Growth", a: "We stay past launch, iterating and maintaining the product with you." },
+    { q: "Software Development", a: "Web apps, mobile apps, and the backends that power them — engineered to hold up as you grow." },
+    { q: "AI & Intelligent Systems", a: "LLMs, chatbots, and workflow automation embedded directly into the workflows that run your business." },
+    { q: "Data & Analytics", a: "Data pipelines, warehousing, and Power BI dashboards that turn raw data into decisions you can defend." },
+    { q: "Branding & Design", a: "Brand identity, UI/UX, and graphics — interfaces that are as intuitive to use as they are polished to look at." },
+    { q: "Consultation & Technical Guidance", a: "Straight answers and a clear plan — stack selection, architecture reviews, and audits, even if you never build with us." },
   ],
   Support: [
     { q: "How do I contact support?", a: "Reach us anytime via the contact form and we'll respond within one business day." },

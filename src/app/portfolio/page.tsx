@@ -7,9 +7,11 @@ import { ScrollFX } from "@/components/fx/ScrollFX";
 import { FooterReveal } from "@/components/fx/FooterReveal";
 
 export const metadata: Metadata = {
-  title: "Our Work — Digital Karvan",
+  title: "Our Work",
   description:
     "A selection of projects we have delivered for clients across multiple industries and geographies.",
+  alternates: { canonical: "/portfolio" },
+  openGraph: { url: "/portfolio" },
 };
 
 export default function PortfolioPage() {
