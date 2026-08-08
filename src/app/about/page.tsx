@@ -3,7 +3,8 @@ import { Header } from "@/components/sections/Header";
 import { AboutHero } from "@/components/about/AboutHero";
 import { AboutStory } from "@/components/about/AboutStory";
 import { AboutValues } from "@/components/about/AboutValues";
-import { AboutTeam } from "@/components/about/AboutTeam";
+// Team section hidden until team images/content are ready
+// import { AboutTeam } from "@/components/about/AboutTeam";
 import { AboutCta } from "@/components/about/AboutCta";
 import { ScrollFX } from "@/components/fx/ScrollFX";
 import { FooterReveal } from "@/components/fx/FooterReveal";
@@ -26,7 +27,7 @@ export default function AboutPage() {
           <AboutHero />
           <AboutStory />
           <AboutValues />
-          <AboutTeam />
+          {/* <AboutTeam /> */}
           <AboutCta />
         </main>
         <FooterReveal />

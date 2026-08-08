@@ -8,7 +8,8 @@ import { Stats } from "@/components/sections/Stats";
 import { Projects } from "@/components/sections/Projects";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { WhyWorkWithUs } from "@/components/sections/WhyWorkWithUs";
-import { Team } from "@/components/sections/Team";
+// Team section hidden until team images/content are ready
+// import { Team } from "@/components/sections/Team";
 import { Faq } from "@/components/sections/Faq";
 import { Contact } from "@/components/sections/Contact";
 import { ScrollFX } from "@/components/fx/ScrollFX";
@@ -31,7 +32,7 @@ export default function Home() {
           <Projects />
           <Testimonials />
           <WhyWorkWithUs />
-          <Team />
+          {/* <Team /> */}
           <Faq />
           <Contact />
         </main>

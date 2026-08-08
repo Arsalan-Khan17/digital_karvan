@@ -28,7 +28,8 @@ const otherNav = [
   { label: "Work", href: "/portfolio" },
   { label: "About", href: "/about" },
   { label: "Process", href: "/#process" },
-  { label: "Team", href: "/#team" },
+  // Team section hidden until team images/content are ready
+  // { label: "Team", href: "/#team" },
 ];
 
 function Chevron({ className = "" }: { className?: string }) {
